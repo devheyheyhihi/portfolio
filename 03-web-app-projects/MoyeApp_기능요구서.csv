@@ -1,0 +1,62 @@
+카테고리,기능명,우선순위,상태,담당자,예상공수(일),설명,기술스택,의존성
+사용자관리,회원가입,높음,완료,개발팀,3,이메일/소셜 회원가입,React Native/OAuth,없음
+사용자관리,로그인,높음,완료,개발팀,2,이메일/소셜 로그인,JWT/OAuth,회원가입
+사용자관리,프로필생성,높음,완료,개발팀,4,사용자 프로필 설정,React Native/Image Picker,로그인
+사용자관리,프로필편집,중간,완료,개발팀,3,프로필 정보 수정,React Native/Form,프로필생성
+사용자관리,계정설정,중간,완료,개발팀,2,계정 설정 관리,React Native/AsyncStorage,프로필편집
+매칭시스템,관심사설정,높음,완료,개발팀,4,사용자 관심사 태그 설정,Tag System/Database,프로필생성
+매칭시스템,위치기반매칭,높음,완료,개발팀,6,GPS 기반 사용자 매칭,Geolocation/Map API,관심사설정
+매칭시스템,알고리즘매칭,중간,완료,개발팀,8,ML 기반 사용자 추천,Machine Learning/Python,위치기반매칭
+매칭시스템,매칭결과,높음,완료,개발팀,4,매칭된 사용자 목록,React Native/FlatList,알고리즘매칭
+매칭시스템,매칭필터,중간,완료,개발팀,3,나이/성별/거리 필터,Filter System,매칭결과
+소셜기능,친구추가,높음,완료,개발팀,3,친구 요청/수락,React Native/Push,매칭결과
+소셜기능,친구목록,높음,완료,개발팀,2,친구 목록 관리,React Native/FlatList,친구추가
+소셜기능,팔로우시스템,중간,완료,개발팀,3,사용자 팔로우/언팔로우,Follow System,친구목록
+소셜기능,차단기능,중간,완료,개발팀,2,사용자 차단/신고,Block System,소셜기능
+채팅,1대1채팅,높음,완료,개발팀,6,개인 채팅 기능,WebSocket/React Native,친구추가
+채팅,그룹채팅,중간,완료,개발팀,8,그룹 채팅 기능,WebSocket/Group Chat,1대1채팅
+채팅,메시지전송,높음,완료,개발팀,4,텍스트/이미지 메시지,WebSocket/File Upload,채팅
+채팅,메시지읽음표시,중간,완료,개발팀,3,메시지 읽음 상태,Read Receipt/WebSocket,메시지전송
+채팅,채팅방관리,중간,완료,개발팀,3,채팅방 생성/삭제/나가기,Chat Room Management,그룹채팅
+모임기능,모임생성,높음,완료,개발팀,5,새 모임 생성,React Native/Form,사용자관리
+모임기능,모임참가,높음,완료,개발팀,3,모임 참가 신청,Event System,모임생성
+모임기능,모임관리,중간,완료,개발팀,4,모임 정보 수정/삭제,Event Management,모임참가
+모임기능,모임검색,중간,완료,개발팀,4,관심사/위치별 모임 검색,Search/Filter,모임관리
+모임기능,모임후기,낮음,진행중,개발팀,3,모임 후기 작성,Review System,모임기능
+피드,게시글작성,높음,완료,개발팀,4,텍스트/이미지 게시글,Rich Text/Image Upload,사용자관리
+피드,게시글목록,높음,완료,개발팀,3,타임라인 피드,Infinite Scroll/React Native,게시글작성
+피드,좋아요,중간,완료,개발팀,2,게시글 좋아요 기능,Like System,게시글목록
+피드,댓글,중간,완료,개발팀,3,게시글 댓글 기능,Comment System,좋아요
+피드,공유기능,낮음,완료,개발팀,2,게시글 공유,Share API,댓글
+알림,푸시알림,높음,완료,개발팀,4,실시간 푸시 알림,Firebase/Push Notification,없음
+알림,인앱알림,중간,완료,개발팀,3,앱 내 알림 센터,Notification Center,푸시알림
+알림,알림설정,중간,완료,개발팀,2,알림 on/off 설정,Settings/AsyncStorage,인앱알림
+알림,알림히스토리,낮음,진행중,개발팀,3,알림 이력 관리,Notification History,알림설정
+위치서비스,GPS연동,높음,완료,개발팀,4,현재 위치 확인,Geolocation API,없음
+위치서비스,지도표시,중간,완료,개발팀,5,지도에 사용자/모임 표시,Map API/Markers,GPS연동
+위치서비스,거리계산,중간,완료,개발팀,3,사용자 간 거리 계산,Distance Algorithm,지도표시
+위치서비스,위치공유,낮음,계획,개발팀,3,실시간 위치 공유,Real-time Location,거리계산
+검색기능,사용자검색,높음,완료,개발팀,4,사용자 이름/태그 검색,Search Engine,사용자관리
+검색기능,모임검색,높음,완료,개발팀,4,모임 제목/태그 검색,Search Engine,모임기능
+검색기능,태그검색,중간,완료,개발팀,3,해시태그 검색,Tag Search,검색기능
+검색기능,검색필터,중간,완료,개발팀,3,검색 결과 필터링,Filter System,태그검색
+보안,데이터암호화,높음,완료,보안팀,4,개인정보 암호화,Encryption/HTTPS,없음
+보안,신고시스템,중간,완료,보안팀,3,부적절한 콘텐츠 신고,Report System,데이터암호화
+보안,계정보안,중간,완료,보안팀,3,2단계 인증/비밀번호 정책,2FA/Security Policy,신고시스템
+보안,개인정보보호,높음,완료,보안팀,4,개인정보 처리 방침,Privacy Policy/GDPR,계정보안
+API,REST API,높음,완료,개발팀,8,모바일 앱용 API,Express/Node.js,없음
+API,실시간API,높음,완료,개발팀,6,WebSocket 실시간 통신,Socket.io/WebSocket,REST API
+API,인증API,높음,완료,개발팀,4,JWT 토큰 인증,JWT/OAuth,실시간API
+API,파일업로드API,중간,완료,개발팀,4,이미지/파일 업로드,Multer/Cloud Storage,인증API
+성능최적화,이미지최적화,중간,완료,개발팀,4,이미지 압축 및 캐싱,Image Optimization/CDN,없음
+성능최적화,데이터캐싱,중간,완료,개발팀,3,API 응답 캐싱,Redis/Cache,이미지최적화
+성능최적화,오프라인모드,낮음,계획,개발팀,6,오프라인 데이터 동기화,Offline Storage/Sync,데이터캐싱
+성능최적화,로딩최적화,중간,진행중,개발팀,4,앱 로딩 속도 최적화,Lazy Loading/Code Splitting,성능최적화
+분석,사용자분석,중간,완료,개발팀,4,사용자 행동 분석,Analytics/Firebase,없음
+분석,매칭분석,중간,완료,개발팀,4,매칭 성공률 분석,Analytics/ML,사용자분석
+분석,모임분석,낮음,진행중,개발팀,3,모임 참여율 분석,Event Analytics,매칭분석
+분석,성능분석,낮음,계획,개발팀,3,앱 성능 메트릭,Performance Analytics,분석
+테스트,단위테스트,중간,진행중,개발팀,6,컴포넌트 단위 테스트,Jest/React Native Testing,없음
+테스트,통합테스트,중간,계획,개발팀,8,API 통합 테스트,Detox/E2E Testing,단위테스트
+테스트,사용성테스트,낮음,계획,UX팀,5,사용자 경험 테스트,User Testing,통합테스트
+테스트,성능테스트,낮음,계획,개발팀,4,앱 성능 테스트,Performance Testing,사용성테스트 

@@ -1,0 +1,76 @@
+카테고리,기능명,우선순위,상태,담당자,예상공수(일),설명,기술스택,의존성
+인증관리,관리자로그인,높음,완료,백엔드팀,3,관리자 계정 로그인,JWT/Express,없음
+인증관리,사용자인증,높음,완료,백엔드팀,4,운전자/관리자 인증 시스템,JWT/OAuth,관리자로그인
+인증관리,권한관리,높음,완료,백엔드팀,5,역할 기반 접근 제어,RBAC/Middleware,사용자인증
+인증관리,토큰관리,중간,완료,백엔드팀,3,JWT 토큰 발급/갱신,JWT/Redis,권한관리
+인증관리,세션관리,중간,완료,백엔드팀,3,사용자 세션 관리,Session/Redis,토큰관리
+차량관리,차량등록,높음,완료,백엔드팀,4,새 차량 정보 등록,Node.js/MongoDB,인증관리
+차량관리,차량정보수정,높음,완료,백엔드팀,3,차량 정보 업데이트,Express/Mongoose,차량등록
+차량관리,차량삭제,중간,완료,백엔드팀,2,차량 정보 삭제,Soft Delete/MongoDB,차량정보수정
+차량관리,차량조회,높음,완료,백엔드팀,3,차량 목록/상세 조회,Query/Pagination,차량삭제
+차량관리,차량상태관리,높음,완료,백엔드팀,4,차량 운행/정비 상태,State Management,차량조회
+운전자관리,운전자등록,높음,완료,백엔드팀,4,운전자 정보 등록,User Management/MongoDB,인증관리
+운전자관리,운전자정보수정,중간,완료,백엔드팀,3,운전자 정보 업데이트,Express/Validation,운전자등록
+운전자관리,운전자삭제,중간,완료,백엔드팀,2,운전자 정보 삭제,Soft Delete,운전자정보수정
+운전자관리,운전자조회,높음,완료,백엔드팀,3,운전자 목록/상세 조회,Query/Search,운전자삭제
+운전자관리,운전자배정,높음,완료,백엔드팀,5,차량-운전자 배정 관리,Assignment Logic,운전자조회
+GPS추적,실시간위치,높음,완료,백엔드팀,6,차량 실시간 위치 추적,WebSocket/GPS API,없음
+GPS추적,위치히스토리,중간,완료,백엔드팀,4,차량 이동 경로 저장,Time Series DB,실시간위치
+GPS추적,지오펜싱,중간,완료,백엔드팀,5,구역 진입/이탈 알림,Geofencing/MongoDB,위치히스토리
+GPS추적,경로최적화,낮음,진행중,백엔드팀,8,최적 경로 계산,Route Optimization API,지오펜싱
+GPS추적,위치알림,중간,완료,백엔드팀,4,위치 기반 알림 시스템,Push Notification,경로최적화
+운행관리,운행시작,높음,완료,백엔드팀,3,운행 시작 기록,Trip Management,차량관리
+운행관리,운행종료,높음,완료,백엔드팀,3,운행 종료 기록,Trip Management,운행시작
+운행관리,운행기록,높음,완료,백엔드팀,4,운행 상세 기록 저장,Log Management,운행종료
+운행관리,운행통계,중간,완료,백엔드팀,5,운행 데이터 분석,Analytics/Aggregation,운행기록
+운행관리,운행보고서,중간,진행중,백엔드팀,6,운행 보고서 생성,Report Generation,운행통계
+연료관리,연료소모기록,높음,완료,백엔드팀,4,연료 소모량 기록,Fuel Management,운행관리
+연료관리,연료효율분석,중간,완료,백엔드팀,5,연료 효율성 분석,Analytics/Statistics,연료소모기록
+연료관리,연료비용계산,중간,완료,백엔드팀,4,연료 비용 산출,Cost Calculation,연료효율분석
+연료관리,연료알림,낮음,완료,백엔드팀,3,연료 부족 알림,Alert System,연료비용계산
+연료관리,연료보고서,낮음,계획,백엔드팀,5,연료 사용 보고서,Report System,연료알림
+정비관리,정비일정,높음,완료,백엔드팀,4,차량 정비 일정 관리,Schedule Management,차량관리
+정비관리,정비기록,높음,완료,백엔드팀,4,정비 이력 관리,Maintenance Log,정비일정
+정비관리,정비알림,중간,완료,백엔드팀,3,정비 시기 알림,Notification System,정비기록
+정비관리,정비비용,중간,완료,백엔드팀,4,정비 비용 관리,Cost Management,정비알림
+정비관리,정비보고서,낮음,진행중,백엔드팀,5,정비 현황 보고서,Report Generation,정비비용
+알림시스템,푸시알림,높음,완료,백엔드팀,5,모바일 푸시 알림,Firebase/FCM,없음
+알림시스템,이메일알림,중간,완료,백엔드팀,4,이메일 알림 발송,Nodemailer/SMTP,푸시알림
+알림시스템,SMS알림,중간,완료,백엔드팀,4,SMS 알림 발송,SMS API/Twilio,이메일알림
+알림시스템,알림설정,중간,완료,백엔드팀,3,알림 설정 관리,Notification Settings,SMS알림
+알림시스템,알림히스토리,낮음,완료,백엔드팀,3,알림 발송 이력,Notification Log,알림설정
+보고서,운행보고서,높음,진행중,백엔드팀,6,운행 현황 보고서,Report Engine/PDF,운행관리
+보고서,연료보고서,중간,계획,백엔드팀,5,연료 사용 보고서,Chart.js/PDF,연료관리
+보고서,정비보고서,중간,진행중,백엔드팀,5,정비 현황 보고서,Report System,정비관리
+보고서,비용보고서,중간,계획,백엔드팀,6,총 운영 비용 보고서,Financial Report,보고서
+보고서,성능보고서,낮음,계획,백엔드팀,5,차량 성능 분석 보고서,Performance Analytics,비용보고서
+API,REST API,높음,완료,백엔드팀,8,RESTful API 설계,Express/OpenAPI,없음
+API,GraphQL API,낮음,계획,백엔드팀,10,GraphQL API 구현,Apollo Server,REST API
+API,WebSocket API,높음,완료,백엔드팀,6,실시간 통신 API,Socket.io,GraphQL API
+API,인증API,높음,완료,백엔드팀,4,인증 관련 API,JWT/Passport,WebSocket API
+API,파일업로드API,중간,완료,백엔드팀,4,파일 업로드 처리,Multer/Cloud Storage,인증API
+데이터베이스,MongoDB설계,높음,완료,백엔드팀,5,NoSQL 데이터베이스 설계,MongoDB/Mongoose,없음
+데이터베이스,인덱스최적화,중간,완료,백엔드팀,4,쿼리 성능 최적화,Database Indexing,MongoDB설계
+데이터베이스,백업시스템,높음,완료,백엔드팀,4,데이터 백업 자동화,MongoDB Backup,인덱스최적화
+데이터베이스,복제설정,중간,진행중,백엔드팀,5,데이터베이스 복제,Replica Set,백업시스템
+데이터베이스,샤딩,낮음,계획,백엔드팀,8,데이터베이스 샤딩,MongoDB Sharding,복제설정
+보안,데이터암호화,높음,완료,보안팀,4,민감 데이터 암호화,Encryption/bcrypt,없음
+보안,API보안,높음,완료,보안팀,5,API 보안 강화,Rate Limiting/CORS,데이터암호화
+보안,SQL인젝션방지,높음,완료,보안팀,3,SQL 인젝션 방지,Input Validation,API보안
+보안,XSS방지,중간,완료,보안팀,3,XSS 공격 방지,Sanitization,SQL인젝션방지
+보안,CSRF방지,중간,완료,보안팀,3,CSRF 공격 방지,CSRF Token,XSS방지
+성능최적화,캐싱시스템,중간,완료,백엔드팀,5,Redis 캐싱 구현,Redis/Cache Strategy,없음
+성능최적화,쿼리최적화,중간,완료,백엔드팀,4,데이터베이스 쿼리 최적화,Query Optimization,캐싱시스템
+성능최적화,로드밸런싱,낮음,계획,백엔드팀,6,서버 로드 밸런싱,Load Balancer/Nginx,쿼리최적화
+성능최적화,CDN연동,낮음,계획,백엔드팀,4,정적 파일 CDN 연동,CDN/CloudFront,로드밸런싱
+성능최적화,압축최적화,낮음,완료,백엔드팀,3,응답 데이터 압축,Gzip/Compression,CDN연동
+모니터링,로그관리,높음,완료,백엔드팀,4,시스템 로그 관리,Winston/Log Rotation,없음
+모니터링,에러추적,높음,완료,백엔드팀,4,에러 모니터링,Sentry/Error Tracking,로그관리
+모니터링,성능모니터링,중간,완료,백엔드팀,5,서버 성능 모니터링,APM/New Relic,에러추적
+모니터링,알림설정,중간,완료,백엔드팀,3,모니터링 알림 설정,Alert Manager,성능모니터링
+모니터링,대시보드,낮음,진행중,백엔드팀,6,모니터링 대시보드,Grafana/Dashboard,알림설정
+테스트,단위테스트,중간,진행중,백엔드팀,8,API 단위 테스트,Jest/Mocha,없음
+테스트,통합테스트,중간,계획,백엔드팀,10,시스템 통합 테스트,Supertest/Integration,단위테스트
+테스트,부하테스트,낮음,계획,백엔드팀,6,서버 부하 테스트,Artillery/Load Testing,통합테스트
+테스트,보안테스트,낮음,계획,보안팀,5,보안 취약점 테스트,Security Testing,부하테스트
+테스트,API테스트,중간,진행중,백엔드팀,5,API 기능 테스트,Postman/Newman,보안테스트 

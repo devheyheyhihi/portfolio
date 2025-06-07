@@ -1,0 +1,66 @@
+카테고리,기능명,우선순위,상태,담당자,예상공수(일),설명,기술스택,의존성
+테스트프레임워크,단위테스트,높음,완료,QA팀,7,컴포넌트별 단위 테스트 프레임워크,Jest/pytest/JUnit,없음
+테스트프레임워크,통합테스트,높음,완료,QA팀,8,시스템 통합 테스트 자동화,Selenium/Cypress/TestNG,단위테스트
+테스트프레임워크,E2E테스트,높음,진행중,QA팀,10,엔드투엔드 테스트 자동화,Playwright/Puppeteer,통합테스트
+테스트프레임워크,API테스트,높음,완료,QA팀,6,RESTful API 테스트 자동화,Postman/Newman/RestAssured,E2E테스트
+테스트프레임워크,모바일테스트,중간,진행중,QA팀,9,모바일 앱 테스트 자동화,Appium/Detox,API테스트
+성능벤치마크,CPU성능테스트,높음,완료,성능팀,5,CPU 사용률 및 처리 속도 측정,Apache Bench/JMeter,테스트프레임워크
+성능벤치마크,메모리성능테스트,높음,완료,성능팀,5,메모리 사용량 및 누수 측정,Valgrind/Memory Profiler,CPU성능테스트
+성능벤치마크,네트워크성능테스트,높음,진행중,성능팀,6,네트워크 대역폭 및 지연시간 측정,iperf/Wireshark,메모리성능테스트
+성능벤치마크,데이터베이스성능테스트,중간,진행중,성능팀,7,DB 쿼리 성능 및 처리량 측정,pgbench/sysbench,네트워크성능테스트
+성능벤치마크,로드테스트,높음,완료,성능팀,8,시스템 부하 테스트,K6/Artillery/Gatling,데이터베이스성능테스트
+자동화,테스트자동화,높음,완료,DevOps팀,10,테스트 실행 자동화 시스템,Jenkins/GitHub Actions,성능벤치마크
+자동화,CI/CD통합,높음,완료,DevOps팀,8,지속적 통합/배포 파이프라인,Jenkins/GitLab CI,테스트자동화
+자동화,스케줄링,중간,진행중,DevOps팀,5,정기 테스트 실행 스케줄링,Cron/Task Scheduler,CI/CD통합
+자동화,병렬테스트,중간,진행중,DevOps팀,6,테스트 병렬 실행 최적화,Parallel Testing,스케줄링
+자동화,테스트환경관리,중간,완료,DevOps팀,7,테스트 환경 자동 구성,Docker/Kubernetes,병렬테스트
+리포팅,테스트결과리포트,높음,완료,QA팀,6,테스트 결과 상세 리포트 생성,Allure/TestNG Report,자동화
+리포팅,성능분석리포트,높음,완료,성능팀,7,성능 테스트 결과 분석 리포트,Grafana/Custom Dashboard,테스트결과리포트
+리포팅,커버리지리포트,중간,진행중,QA팀,4,코드 커버리지 분석 리포트,JaCoCo/Istanbul,성능분석리포트
+리포팅,트렌드분석,중간,계획,데이터팀,5,테스트 결과 트렌드 분석,Python/Pandas,커버리지리포트
+리포팅,대시보드,중간,진행중,프론트엔드팀,8,실시간 테스트 결과 대시보드,React/Vue.js/Grafana,트렌드분석
+데이터관리,테스트데이터생성,높음,완료,QA팀,6,테스트용 더미 데이터 생성,Faker/Factory Bot,리포팅
+데이터관리,테스트데이터관리,높음,완료,QA팀,5,테스트 데이터 버전 관리,Git/Database Scripts,테스트데이터생성
+데이터관리,결과데이터저장,높음,완료,백엔드팀,5,테스트 결과 데이터베이스 저장,PostgreSQL/MongoDB,테스트데이터관리
+데이터관리,데이터백업,중간,진행중,DevOps팀,4,테스트 데이터 정기 백업,AWS S3/Backup Scripts,결과데이터저장
+데이터관리,데이터정제,중간,계획,데이터팀,5,테스트 결과 데이터 정제,Python/ETL Tools,데이터백업
+모니터링,실시간모니터링,높음,완료,DevOps팀,7,테스트 실행 실시간 모니터링,Prometheus/Grafana,데이터관리
+모니터링,성능모니터링,높음,완료,성능팀,6,시스템 성능 실시간 모니터링,New Relic/DataDog,실시간모니터링
+모니터링,오류모니터링,중간,진행중,DevOps팀,5,테스트 오류 실시간 추적,Sentry/Bugsnag,성능모니터링
+모니터링,알림시스템,중간,진행중,DevOps팀,4,테스트 실패 시 즉시 알림,Slack/Email/SMS,오류모니터링
+모니터링,로그수집,중간,완료,DevOps팀,5,테스트 로그 중앙 집중 수집,ELK Stack/Fluentd,알림시스템
+비교분석,성능비교,높음,진행중,성능팀,6,버전별 성능 비교 분석,Custom Analytics,모니터링
+비교분석,회귀테스트,높음,완료,QA팀,8,기능 회귀 테스트 자동화,Regression Test Suite,성능비교
+비교분석,A/B테스트,중간,계획,데이터팀,7,기능별 A/B 테스트 프레임워크,Statistical Testing,회귀테스트
+비교분석,벤치마크비교,중간,진행중,성능팀,5,업계 표준 벤치마크 비교,Industry Benchmarks,A/B테스트
+비교분석,히스토리분석,낮음,계획,데이터팀,6,과거 테스트 결과 히스토리 분석,Time Series Analysis,벤치마크비교
+환경관리,테스트환경구성,높음,완료,DevOps팀,8,다양한 테스트 환경 구성,Docker/Vagrant,비교분석
+환경관리,환경격리,높음,완료,DevOps팀,6,테스트 환경 간 격리,Container/VM,테스트환경구성
+환경관리,환경복제,중간,진행중,DevOps팀,5,프로덕션 환경 복제,Infrastructure as Code,환경격리
+환경관리,환경정리,중간,진행중,DevOps팀,4,테스트 후 환경 자동 정리,Cleanup Scripts,환경복제
+환경관리,리소스관리,중간,완료,DevOps팀,5,테스트 리소스 효율적 관리,Resource Optimization,환경정리
+보안테스트,취약점스캔,높음,완료,보안팀,7,보안 취약점 자동 스캔,OWASP ZAP/Nessus,환경관리
+보안테스트,침투테스트,높음,진행중,보안팀,10,시스템 침투 테스트 자동화,Metasploit/Burp Suite,취약점스캔
+보안테스트,인증테스트,중간,진행중,보안팀,5,인증/인가 시스템 테스트,Custom Security Tests,침투테스트
+보안테스트,데이터보안테스트,중간,계획,보안팀,6,개인정보 보호 테스트,Privacy Testing Tools,인증테스트
+보안테스트,암호화테스트,낮음,계획,보안팀,4,데이터 암호화 검증 테스트,Cryptographic Testing,데이터보안테스트
+문서화,테스트문서,높음,완료,QA팀,5,테스트 케이스 및 절차 문서화,Confluence/Wiki,보안테스트
+문서화,API문서,높음,완료,백엔드팀,4,테스트 API 문서 자동 생성,Swagger/OpenAPI,테스트문서
+문서화,가이드라인,중간,진행중,QA팀,6,테스트 작성 가이드라인,Documentation Tools,API문서
+문서화,베스트프랙티스,중간,계획,QA팀,5,테스트 베스트 프랙티스 문서,Knowledge Base,가이드라인
+문서화,교육자료,낮음,계획,교육팀,7,테스트 도구 사용법 교육 자료,Training Materials,베스트프랙티스
+도구관리,테스트도구설치,높음,완료,DevOps팀,4,테스트 도구 자동 설치 스크립트,Package Managers,문서화
+도구관리,도구버전관리,높음,완료,DevOps팀,3,테스트 도구 버전 관리,Version Control,테스트도구설치
+도구관리,도구통합,중간,진행중,DevOps팀,6,다양한 테스트 도구 통합,Tool Integration,도구버전관리
+도구관리,라이센스관리,중간,진행중,법무팀,4,테스트 도구 라이센스 관리,License Management,도구통합
+도구관리,커스텀도구개발,낮음,계획,개발팀,10,특수 목적 테스트 도구 개발,Custom Development,라이센스관리
+품질관리,품질메트릭,높음,완료,QA팀,5,테스트 품질 지표 정의 및 측정,Quality Metrics,도구관리
+품질관리,코드품질,높음,완료,개발팀,6,테스트 코드 품질 검사,SonarQube/ESLint,품질메트릭
+품질관리,테스트리뷰,중간,진행중,QA팀,4,테스트 케이스 리뷰 프로세스,Code Review Tools,코드품질
+품질관리,품질개선,중간,계획,QA팀,6,테스트 품질 지속적 개선,Quality Improvement,테스트리뷰
+품질관리,표준준수,낮음,계획,QA팀,5,업계 테스트 표준 준수,Standards Compliance,품질개선
+확장성,스케일테스트,높음,진행중,성능팀,8,시스템 확장성 테스트,Load Testing Tools,품질관리
+확장성,클라우드테스트,중간,계획,DevOps팀,7,클라우드 환경 테스트,AWS/Azure/GCP,스케일테스트
+확장성,마이크로서비스테스트,중간,계획,개발팀,9,마이크로서비스 아키텍처 테스트,Service Testing,클라우드테스트
+확장성,컨테이너테스트,중간,진행중,DevOps팀,6,컨테이너 기반 테스트,Docker/K8s Testing,마이크로서비스테스트
+확장성,분산테스트,낮음,계획,성능팀,8,분산 시스템 테스트,Distributed Testing,컨테이너테스트 

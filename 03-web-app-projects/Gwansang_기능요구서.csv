@@ -1,0 +1,66 @@
+카테고리,기능명,우선순위,상태,담당자,예상공수(일),설명,기술스택,의존성
+사용자관리,회원가입,높음,완료,백엔드팀,5,사용자 계정 생성 및 이메일 인증,Flask/Django,없음
+사용자관리,로그인,높음,완료,백엔드팀,3,사용자 로그인 및 세션 관리,JWT/Session,회원가입
+사용자관리,프로필관리,높음,완료,백엔드팀,4,개인정보 및 분석 이력 관리,Python/SQLAlchemy,로그인
+사용자관리,계정설정,중간,완료,백엔드팀,3,개인정보 수정 및 계정 설정,Python,프로필관리
+사용자관리,계정삭제,중간,진행중,백엔드팀,4,계정 및 개인 데이터 완전 삭제,Python/GDPR,계정설정
+얼굴인식,사진업로드,높음,완료,AI팀,5,사진 파일 업로드 및 검증,OpenCV/PIL,사용자관리
+얼굴인식,얼굴검출,높음,완료,AI팀,7,업로드된 사진에서 얼굴 영역 검출,OpenCV/MTCNN,사진업로드
+얼굴인식,얼굴전처리,높음,완료,AI팀,6,검출된 얼굴 이미지 전처리 및 정규화,OpenCV/PIL,얼굴검출
+얼굴인식,다중얼굴처리,중간,진행중,AI팀,8,여러 얼굴이 있는 경우 처리,OpenCV,얼굴전처리
+얼굴인식,얼굴품질검사,중간,계획,AI팀,5,분석 가능한 품질의 얼굴인지 검사,OpenCV/Quality Assessment,다중얼굴처리
+AI분석,관상분석,높음,완료,AI팀,10,얼굴 특징 기반 관상 분석,ML/TensorFlow,얼굴인식
+AI분석,성격분석,높음,완료,AI팀,8,얼굴 특징으로 성격 유형 분석,ML/Scikit-learn,관상분석
+AI분석,운세분석,중간,진행중,AI팀,6,관상 결과 기반 운세 예측,ML/Custom Model,성격분석
+AI분석,얼굴점수,중간,진행중,AI팀,5,얼굴 매력도 점수 산출,ML/Deep Learning,운세분석
+AI분석,나이추정,중간,완료,AI팀,4,얼굴로 나이 추정,ML/Age Estimation,얼굴점수
+결과관리,분석결과저장,높음,완료,백엔드팀,5,분석 결과 데이터베이스 저장,SQLAlchemy/PostgreSQL,AI분석
+결과관리,분석이력조회,높음,완료,백엔드팀,4,과거 분석 결과 조회,Python/SQLAlchemy,분석결과저장
+결과관리,결과비교,중간,진행중,백엔드팀,6,여러 분석 결과 비교 기능,Python/Pandas,분석이력조회
+결과관리,결과공유,중간,계획,백엔드팀,5,SNS 결과 공유 기능,Social API,결과비교
+결과관리,결과내보내기,낮음,계획,백엔드팀,4,분석 결과 PDF/이미지 내보내기,ReportLab/PIL,결과공유
+데이터관리,이미지저장,높음,완료,백엔드팀,4,업로드된 이미지 안전 저장,AWS S3/File System,결과관리
+데이터관리,데이터백업,높음,완료,DevOps팀,5,사용자 데이터 정기 백업,AWS/Backup Scripts,이미지저장
+데이터관리,개인정보보호,높음,완료,보안팀,6,GDPR 준수 개인정보 처리,Privacy Framework,데이터백업
+데이터관리,데이터암호화,높음,완료,보안팀,5,민감 데이터 암호화 저장,Encryption/AES,개인정보보호
+데이터관리,데이터삭제,중간,진행중,백엔드팀,4,사용자 요청 시 데이터 완전 삭제,Python/Secure Delete,데이터암호화
+UI/UX,메인대시보드,높음,완료,프론트엔드팀,7,메인 화면 및 네비게이션,React/Vue.js,데이터관리
+UI/UX,사진업로드화면,높음,완료,프론트엔드팀,5,사진 업로드 인터페이스,React/File Upload,메인대시보드
+UI/UX,분석진행화면,높음,완료,프론트엔드팀,4,분석 진행 상태 표시,React/Progress Bar,사진업로드화면
+UI/UX,결과표시화면,높음,완료,프론트엔드팀,8,분석 결과 시각화 화면,React/Chart.js,분석진행화면
+UI/UX,반응형디자인,중간,진행중,프론트엔드팀,6,모바일/태블릿 반응형 지원,CSS/Bootstrap,결과표시화면
+성능최적화,이미지최적화,높음,완료,AI팀,5,이미지 처리 속도 최적화,OpenCV/Optimization,UI/UX
+성능최적화,AI모델최적화,높음,진행중,AI팀,8,AI 추론 속도 최적화,TensorFlow Lite/ONNX,이미지최적화
+성능최적화,캐싱시스템,중간,진행중,백엔드팀,5,결과 캐싱으로 성능 향상,Redis/Memcached,AI모델최적화
+성능최적화,로드밸런싱,중간,계획,DevOps팀,6,서버 부하 분산,Nginx/Load Balancer,캐싱시스템
+성능최적화,CDN적용,낮음,계획,DevOps팀,4,정적 파일 CDN 배포,CloudFront/CDN,로드밸런싱
+보안,이미지보안,높음,완료,보안팀,5,업로드 이미지 보안 검사,Security Scanner,성능최적화
+보안,API보안,높음,완료,보안팀,4,API 엔드포인트 보안 강화,OAuth/Rate Limiting,이미지보안
+보안,데이터보안,높음,완료,보안팀,6,개인 데이터 보안 처리,Encryption/Security,API보안
+보안,접근제어,중간,진행중,보안팀,4,사용자별 접근 권한 관리,RBAC/ACL,데이터보안
+보안,보안감사,중간,계획,보안팀,5,정기 보안 감사 및 점검,Security Audit Tools,접근제어
+모니터링,시스템모니터링,높음,완료,DevOps팀,5,서버 상태 실시간 모니터링,Prometheus/Grafana,보안
+모니터링,성능모니터링,높음,완료,DevOps팀,4,애플리케이션 성능 모니터링,APM/New Relic,시스템모니터링
+모니터링,오류추적,중간,진행중,DevOps팀,4,에러 로그 수집 및 분석,Sentry/ELK Stack,성능모니터링
+모니터링,사용자분석,중간,계획,마케팅팀,5,사용자 행동 패턴 분석,Google Analytics,오류추적
+모니터링,알림시스템,중간,계획,DevOps팀,3,시스템 이상 시 알림,Slack/Email,사용자분석
+API관리,RESTful API,높음,완료,백엔드팀,6,REST API 설계 및 구현,Flask/FastAPI,모니터링
+API관리,API문서화,높음,완료,백엔드팀,4,API 문서 자동 생성,Swagger/OpenAPI,RESTful API
+API관리,API버전관리,중간,진행중,백엔드팀,5,API 버전 관리 시스템,Versioning,API문서화
+API관리,API테스트,중간,진행중,QA팀,4,API 자동 테스트,Postman/pytest,API버전관리
+API관리,API보안,높음,완료,보안팀,5,API 보안 및 인증,JWT/OAuth,API테스트
+테스트,단위테스트,높음,진행중,QA팀,8,컴포넌트 단위 테스트,pytest/unittest,API관리
+테스트,통합테스트,중간,계획,QA팀,6,시스템 통합 테스트,pytest/Selenium,단위테스트
+테스트,성능테스트,중간,계획,QA팀,5,AI 모델 성능 테스트,Load Testing,통합테스트
+테스트,정확도테스트,높음,진행중,AI팀,7,관상 분석 정확도 검증,ML Validation,성능테스트
+테스트,사용성테스트,중간,계획,QA팀,4,사용자 경험 테스트,Manual Testing,정확도테스트
+배포,개발환경,높음,완료,DevOps팀,4,개발 서버 환경 구축,Docker/K8s,테스트
+배포,스테이징환경,높음,완료,DevOps팀,4,스테이징 서버 환경,Docker/K8s,개발환경
+배포,프로덕션배포,높음,진행중,DevOps팀,5,프로덕션 서버 배포,Docker/K8s,스테이징환경
+배포,CI/CD,중간,진행중,DevOps팀,6,자동 빌드 및 배포,GitHub Actions,프로덕션배포
+배포,롤백시스템,중간,계획,DevOps팀,4,배포 롤백 자동화,Deployment Scripts,CI/CD
+데이터분석,사용자통계,중간,계획,데이터팀,5,사용자 이용 통계 분석,Python/Pandas,배포
+데이터분석,분석정확도,높음,진행중,AI팀,6,AI 모델 정확도 분석,ML Metrics,사용자통계
+데이터분석,트렌드분석,낮음,계획,데이터팀,4,관상 트렌드 분석,Python/Matplotlib,분석정확도
+데이터분석,A/B테스트,낮음,계획,데이터팀,5,기능별 A/B 테스트,Statistical Analysis,트렌드분석
+데이터분석,리포팅,중간,계획,데이터팀,4,정기 분석 리포트 생성,Reporting Tools,A/B테스트 

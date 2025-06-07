@@ -1,0 +1,51 @@
+카테고리,기능명,우선순위,상태,담당자,예상공수(일),설명,기술스택,의존성
+확장프로그램기본,매니페스트설정,높음,계획,확장개발팀,2,Chrome Extension 매니페스트 구성,JSON/Manifest V3,없음
+확장프로그램기본,팝업UI,높음,계획,확장개발팀,4,확장프로그램 팝업 인터페이스,HTML/CSS/JavaScript,매니페스트설정
+확장프로그램기본,백그라운드스크립트,높음,계획,확장개발팀,5,백그라운드에서 실행되는 서비스 워커,JavaScript/Service Worker,매니페스트설정
+확장프로그램기본,콘텐츠스크립트,높음,계획,확장개발팀,6,웹페이지에 주입되는 스크립트,JavaScript/DOM API,백그라운드스크립트
+확장프로그램기본,옵션페이지,중간,계획,확장개발팀,3,확장프로그램 설정 페이지,HTML/CSS/JavaScript,팝업UI
+블록체인연동,Web3연결,높음,계획,블록체인팀,5,Web3 지갑 연결 기능,Web3.js/MetaMask API,없음
+블록체인연동,지갑감지,높음,계획,블록체인팀,4,설치된 지갑 자동 감지,JavaScript/Wallet Detection,Web3연결
+블록체인연동,네트워크선택,중간,계획,블록체인팀,3,블록체인 네트워크 선택,Web3.js/Network Switching,지갑감지
+블록체인연동,계정정보,중간,계획,블록체인팀,4,연결된 계정 정보 표시,Web3.js/Account Management,네트워크선택
+블록체인연동,잔액조회,중간,계획,블록체인팀,3,토큰 잔액 실시간 조회,Web3.js/ERC-20,계정정보
+데이터수집,웹페이지분석,높음,계획,데이터팀,6,현재 페이지 데이터 수집,JavaScript/DOM Parser,콘텐츠스크립트
+데이터수집,DApp감지,높음,계획,데이터팀,5,DApp 웹사이트 자동 감지,JavaScript/Pattern Recognition,웹페이지분석
+데이터수집,트랜잭션모니터링,중간,계획,데이터팀,7,페이지 내 트랜잭션 감지,Web3.js/Event Listener,DApp감지
+데이터수집,가격정보,중간,계획,데이터팀,4,토큰 가격 정보 수집,API/CoinGecko/CoinMarketCap,잔액조회
+데이터수집,히스토리저장,중간,계획,데이터팀,5,사용자 활동 히스토리 저장,IndexedDB/Local Storage,트랜잭션모니터링
+보안기능,피싱감지,높음,계획,보안팀,8,피싱 사이트 감지 및 경고,JavaScript/URL Analysis/Blacklist,DApp감지
+보안기능,트랜잭션검증,높음,계획,보안팀,6,트랜잭션 내용 검증,Web3.js/Smart Contract ABI,트랜잭션모니터링
+보안기능,권한관리,높음,계획,보안팀,5,확장프로그램 권한 최소화,Chrome API/Permissions,매니페스트설정
+보안기능,데이터암호화,중간,계획,보안팀,4,민감한 데이터 암호화,Crypto API/AES,히스토리저장
+보안기능,CSP설정,중간,계획,보안팀,3,콘텐츠 보안 정책 설정,CSP/Security Headers,권한관리
+사용자인터페이스,대시보드,중간,계획,UI/UX팀,6,메인 대시보드 화면,React/CSS Framework,팝업UI
+사용자인터페이스,알림시스템,중간,계획,UI/UX팀,4,브라우저 알림 기능,Chrome Notifications API,백그라운드스크립트
+사용자인터페이스,테마설정,낮음,계획,UI/UX팀,3,다크/라이트 테마 지원,CSS Variables/Theme Switching,옵션페이지
+사용자인터페이스,다국어지원,낮음,계획,UI/UX팀,5,다국어 인터페이스,i18n/Localization,대시보드
+사용자인터페이스,반응형디자인,중간,계획,UI/UX팀,4,다양한 화면 크기 지원,CSS Media Query/Flexbox,테마설정
+API통합,외부API연동,중간,계획,백엔드팀,5,외부 서비스 API 통합,REST API/GraphQL,없음
+API통합,데이터동기화,중간,계획,백엔드팀,6,클라우드 데이터 동기화,API/Cloud Storage,외부API연동
+API통합,실시간업데이트,중간,계획,백엔드팀,4,실시간 데이터 업데이트,WebSocket/Server-Sent Events,데이터동기화
+API통합,캐싱시스템,중간,계획,백엔드팀,3,API 응답 캐싱,Browser Cache/Service Worker,실시간업데이트
+API통합,오프라인지원,낮음,계획,백엔드팀,7,오프라인 모드 지원,Service Worker/IndexedDB,캐싱시스템
+테스트자동화,단위테스트,높음,계획,QA팀,5,JavaScript 단위 테스트,Jest/Mocha,개발완료
+테스트자동화,통합테스트,높음,계획,QA팀,6,확장프로그램 통합 테스트,Puppeteer/Chrome DevTools,단위테스트
+테스트자동화,E2E테스트,중간,계획,QA팀,8,엔드투엔드 테스트 자동화,Selenium/Playwright,통합테스트
+테스트자동화,성능테스트,중간,계획,QA팀,4,확장프로그램 성능 측정,Lighthouse/Performance API,E2E테스트
+테스트자동화,보안테스트,높음,계획,보안팀,6,보안 취약점 테스트,Security Scanner/Manual Testing,성능테스트
+배포관리,Chrome스토어,높음,계획,DevOps팀,3,Chrome Web Store 배포,Chrome Store API,테스트완료
+배포관리,자동배포,중간,계획,DevOps팀,4,CI/CD 파이프라인 구축,GitHub Actions/Automated Publishing,Chrome스토어
+배포관리,버전관리,중간,계획,DevOps팀,3,확장프로그램 버전 관리,Semantic Versioning/Release Management,자동배포
+배포관리,업데이트시스템,중간,계획,DevOps팀,5,자동 업데이트 메커니즘,Chrome Extension Update/Rollback,버전관리
+배포관리,모니터링,중간,계획,DevOps팀,4,사용량 및 오류 모니터링,Analytics/Error Tracking,업데이트시스템
+문서화,사용자가이드,중간,계획,문서팀,3,사용자 매뉴얼 작성,Markdown/GitBook,배포완료
+문서화,개발자문서,중간,계획,문서팀,4,개발 환경 설정 가이드,Markdown/API Documentation,없음
+문서화,API문서,중간,계획,문서팀,3,API 사용법 문서화,OpenAPI/Swagger,API통합
+문서화,릴리즈노트,낮음,계획,문서팀,2,버전별 변경사항 문서,Markdown/Changelog,버전관리
+문서화,FAQ,낮음,계획,문서팀,2,자주 묻는 질문 정리,Markdown/FAQ System,사용자가이드
+유지보수,버그수정,높음,진행중,개발팀,지속적,발견된 버그 수정,Debugging Tools/Issue Tracking,배포완료
+유지보수,성능개선,중간,진행중,개발팀,지속적,성능 최적화 작업,Profiling Tools/Optimization,성능테스트
+유지보수,기능개선,중간,진행중,개발팀,지속적,사용자 피드백 반영,User Feedback/Analytics,사용자가이드
+유지보수,보안업데이트,높음,진행중,보안팀,지속적,보안 패치 및 업데이트,Security Tools/Vulnerability Scanner,보안테스트
+유지보수,호환성유지,중간,진행중,개발팀,지속적,브라우저 호환성 유지,Browser Testing/Compatibility Check,기능개선 

@@ -1,0 +1,86 @@
+카테고리,기능명,우선순위,상태,담당자,예상공수(일),설명,기술스택,의존성
+에디터코어,드래그앤드롭,높음,완료,프론트팀,6,컴포넌트 드래그 앤 드롭,GrapesJS/Drag&Drop API,없음
+에디터코어,컴포넌트관리,높음,완료,프론트팀,5,웹 컴포넌트 관리 시스템,Component Manager,드래그앤드롭
+에디터코어,레이어관리,높음,완료,프론트팀,4,레이어 구조 관리,Layer Manager,컴포넌트관리
+에디터코어,선택도구,높음,완료,프론트팀,3,요소 선택 및 편집,Selection Tool,레이어관리
+에디터코어,실행취소,중간,완료,프론트팀,4,실행 취소/다시 실행,Undo/Redo System,선택도구
+컴포넌트,기본컴포넌트,높음,완료,프론트팀,5,텍스트/이미지/버튼 등 기본 요소,Basic Components,에디터코어
+컴포넌트,레이아웃컴포넌트,높음,완료,프론트팀,6,컨테이너/그리드/플렉스 레이아웃,Layout Components,기본컴포넌트
+컴포넌트,폼컴포넌트,중간,완료,프론트팀,5,입력 폼 관련 컴포넌트,Form Components,레이아웃컴포넌트
+컴포넌트,미디어컴포넌트,중간,완료,프론트팀,4,비디오/오디오 컴포넌트,Media Components,폼컴포넌트
+컴포넌트,커스텀컴포넌트,낮음,진행중,프론트팀,8,사용자 정의 컴포넌트,Custom Components,미디어컴포넌트
+스타일편집,CSS편집기,높음,완료,프론트팀,6,시각적 CSS 편집기,Style Manager,컴포넌트
+스타일편집,반응형편집,높음,완료,프론트팀,8,반응형 디자인 편집,Responsive Design,CSS편집기
+스타일편집,애니메이션,중간,완료,프론트팀,6,CSS 애니메이션 편집,Animation Editor,반응형편집
+스타일편집,그라디언트,중간,완료,프론트팀,4,그라디언트 편집 도구,Gradient Editor,애니메이션
+스타일편집,그림자효과,낮음,완료,프론트팀,3,박스 섀도우 편집,Shadow Editor,그라디언트
+에셋관리,이미지관리,높음,완료,프론트팀,5,이미지 업로드 및 관리,Asset Manager,없음
+에셋관리,파일업로드,높음,완료,프론트팀,4,파일 업로드 시스템,File Upload,이미지관리
+에셋관리,미디어라이브러리,중간,완료,프론트팀,5,미디어 파일 라이브러리,Media Library,파일업로드
+에셋관리,외부링크,중간,완료,프론트팀,3,외부 이미지 링크 지원,External Assets,미디어라이브러리
+에셋관리,에셋최적화,낮음,진행중,프론트팀,4,이미지 자동 최적화,Asset Optimization,외부링크
+템플릿,기본템플릿,높음,완료,디자인팀,6,사전 제작된 페이지 템플릿,Template System,에디터코어
+템플릿,블록템플릿,높음,완료,디자인팀,5,재사용 가능한 블록 템플릿,Block Templates,기본템플릿
+템플릿,테마시스템,중간,완료,디자인팀,8,테마 기반 디자인 시스템,Theme System,블록템플릿
+템플릿,템플릿저장,중간,완료,프론트팀,4,사용자 템플릿 저장,Template Storage,테마시스템
+템플릿,템플릿공유,낮음,계획,프론트팀,6,템플릿 공유 기능,Template Sharing,템플릿저장
+코드편집,HTML편집,높음,완료,프론트팀,4,HTML 코드 직접 편집,Code Editor/Monaco,에디터코어
+코드편집,CSS편집,높음,완료,프론트팀,4,CSS 코드 직접 편집,CSS Code Editor,HTML편집
+코드편집,JavaScript편집,중간,완료,프론트팀,5,JavaScript 코드 편집,JS Code Editor,CSS편집
+코드편집,코드하이라이팅,중간,완료,프론트팀,3,구문 강조 표시,Syntax Highlighting,JavaScript편집
+코드편집,코드자동완성,낮음,진행중,프론트팀,5,코드 자동 완성 기능,Auto Completion,코드하이라이팅
+미리보기,실시간미리보기,높음,완료,프론트팀,4,실시간 편집 결과 미리보기,Live Preview,에디터코어
+미리보기,디바이스미리보기,높음,완료,프론트팀,5,다양한 디바이스 미리보기,Device Preview,실시간미리보기
+미리보기,전체화면미리보기,중간,완료,프론트팀,2,전체 화면 미리보기,Fullscreen Preview,디바이스미리보기
+미리보기,인터랙션미리보기,중간,완료,프론트팀,4,JavaScript 인터랙션 미리보기,Interactive Preview,전체화면미리보기
+미리보기,성능미리보기,낮음,계획,프론트팀,4,페이지 성능 미리보기,Performance Preview,인터랙션미리보기
+저장발행,프로젝트저장,높음,완료,백엔드팀,4,프로젝트 저장 시스템,Project Storage,없음
+저장발행,자동저장,높음,완료,백엔드팀,3,자동 저장 기능,Auto Save,프로젝트저장
+저장발행,버전관리,중간,완료,백엔드팀,6,프로젝트 버전 관리,Version Control,자동저장
+저장발행,HTML내보내기,높음,완료,백엔드팀,4,HTML 파일 내보내기,HTML Export,버전관리
+저장발행,웹사이트발행,중간,진행중,백엔드팀,8,웹사이트 직접 발행,Website Publishing,HTML내보내기
+사용자관리,계정관리,높음,완료,백엔드팀,4,사용자 계정 시스템,User Management,없음
+사용자관리,권한관리,중간,완료,백엔드팀,4,사용자 권한 설정,Permission System,계정관리
+사용자관리,프로젝트공유,중간,완료,백엔드팀,5,프로젝트 공유 기능,Project Sharing,권한관리
+사용자관리,협업기능,낮음,계획,백엔드팀,10,실시간 협업 편집,Real-time Collaboration,프로젝트공유
+사용자관리,사용자프로필,낮음,완료,백엔드팀,3,사용자 프로필 관리,User Profile,협업기능
+플러그인,플러그인시스템,중간,완료,개발팀,8,플러그인 아키텍처,Plugin System,에디터코어
+플러그인,기본플러그인,중간,완료,개발팀,6,기본 제공 플러그인,Built-in Plugins,플러그인시스템
+플러그인,커스텀플러그인,낮음,진행중,개발팀,10,사용자 정의 플러그인,Custom Plugins,기본플러그인
+플러그인,플러그인마켓,낮음,계획,개발팀,12,플러그인 마켓플레이스,Plugin Marketplace,커스텀플러그인
+플러그인,플러그인API,중간,완료,개발팀,6,플러그인 개발 API,Plugin API,플러그인마켓
+SEO,메타태그편집,중간,완료,프론트팀,4,SEO 메타 태그 편집,Meta Tag Editor,에디터코어
+SEO,구조화데이터,중간,완료,프론트팀,5,구조화 데이터 편집,Structured Data,메타태그편집
+SEO,사이트맵생성,낮음,완료,백엔드팀,4,사이트맵 자동 생성,Sitemap Generator,구조화데이터
+SEO,SEO분석,낮음,진행중,프론트팀,6,SEO 점수 분석,SEO Analysis,사이트맵생성
+SEO,소셜미디어,낮음,완료,프론트팀,4,소셜 미디어 메타 태그,Social Media Tags,SEO분석
+성능최적화,코드최적화,중간,완료,개발팀,5,생성 코드 최적화,Code Optimization,없음
+성능최적화,이미지최적화,중간,완료,개발팀,4,이미지 자동 최적화,Image Optimization,코드최적화
+성능최적화,CSS최적화,중간,완료,개발팀,4,CSS 코드 최적화,CSS Optimization,이미지최적화
+성능최적화,JavaScript최적화,중간,완료,개발팀,4,JavaScript 코드 최적화,JS Optimization,CSS최적화
+성능최적화,번들최적화,낮음,진행중,개발팀,6,에셋 번들링 최적화,Bundle Optimization,JavaScript최적화
+API,REST API,높음,완료,백엔드팀,6,RESTful API 구현,Express/Node.js,없음
+API,GraphQL API,낮음,계획,백엔드팀,8,GraphQL API 구현,GraphQL/Apollo,REST API
+API,WebSocket API,중간,완료,백엔드팀,5,실시간 통신 API,WebSocket/Socket.io,GraphQL API
+API,인증API,높음,완료,백엔드팀,4,API 인증 시스템,JWT/OAuth,WebSocket API
+API,파일업로드API,높음,완료,백엔드팀,4,파일 업로드 API,Multer/Cloud Storage,인증API
+모바일지원,터치지원,높음,완료,프론트팀,5,터치 인터페이스 지원,Touch Support,에디터코어
+모바일지원,모바일UI,높음,완료,프론트팀,8,모바일 최적화 UI,Mobile UI,터치지원
+모바일지원,제스처지원,중간,완료,프론트팀,4,터치 제스처 지원,Gesture Support,모바일UI
+모바일지원,모바일미리보기,중간,완료,프론트팀,4,모바일 디바이스 미리보기,Mobile Preview,제스처지원
+모바일지원,PWA지원,낮음,계획,프론트팀,8,Progressive Web App 지원,PWA Support,모바일미리보기
+보안,XSS방지,높음,완료,보안팀,3,XSS 공격 방지,XSS Protection,없음
+보안,CSRF방지,높음,완료,보안팀,3,CSRF 공격 방지,CSRF Protection,XSS방지
+보안,콘텐츠보안,중간,완료,보안팀,4,사용자 생성 콘텐츠 보안,Content Security,CSRF방지
+보안,파일업로드보안,중간,완료,보안팀,4,안전한 파일 업로드,Upload Security,콘텐츠보안
+보안,데이터암호화,중간,완료,보안팀,4,민감 데이터 암호화,Data Encryption,파일업로드보안
+분석,사용자분석,중간,완료,개발팀,4,사용자 행동 분석,User Analytics,없음
+분석,성능분석,중간,완료,개발팀,4,에디터 성능 분석,Performance Analytics,사용자분석
+분석,에러추적,높음,완료,개발팀,4,에러 모니터링,Error Tracking,성능분석
+분석,사용통계,낮음,완료,개발팀,3,기능 사용 통계,Usage Statistics,에러추적
+분석,대시보드,낮음,진행중,개발팀,6,분석 대시보드,Analytics Dashboard,사용통계
+테스트,단위테스트,중간,진행중,개발팀,8,컴포넌트 단위 테스트,Unit Testing/Jest,없음
+테스트,통합테스트,중간,계획,개발팀,10,시스템 통합 테스트,Integration Testing,단위테스트
+테스트,E2E테스트,중간,계획,개발팀,8,End-to-End 테스트,E2E Testing/Cypress,통합테스트
+테스트,성능테스트,낮음,계획,개발팀,6,에디터 성능 테스트,Performance Testing,E2E테스트
+테스트,사용성테스트,낮음,계획,UX팀,5,사용자 경험 테스트,Usability Testing,성능테스트 

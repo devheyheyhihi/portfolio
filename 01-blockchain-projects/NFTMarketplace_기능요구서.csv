@@ -1,0 +1,73 @@
+카테고리,기능명,우선순위,상태,담당자,예상공수(일),설명,기술스택,의존성
+사용자관리,지갑연결,높음,계획,개발팀,3,MetaMask/WalletConnect 연결,Web3.js/WalletConnect,없음
+사용자관리,프로필생성,높음,계획,개발팀,4,아티스트/컬렉터 프로필,React/IPFS,지갑연결
+사용자관리,프로필편집,중간,계획,개발팀,2,프로필 정보 수정,React/IPFS,프로필생성
+사용자관리,인증시스템,중간,계획,개발팀,4,아티스트 인증 배지,Verification System,프로필생성
+사용자관리,팔로우시스템,낮음,계획,개발팀,3,아티스트/컬렉터 팔로우,React/Node.js,프로필생성
+NFT생성,NFT민팅,높음,계획,개발팀,6,새 NFT 생성 및 민팅,ERC721/IPFS/Web3.js,지갑연결
+NFT생성,메타데이터관리,높음,계획,개발팀,4,NFT 메타데이터 생성/저장,IPFS/JSON Schema,NFT민팅
+NFT생성,로열티설정,중간,계획,개발팀,3,창작자 로열티 설정,ERC2981/Smart Contract,NFT민팅
+NFT생성,컬렉션생성,중간,계획,개발팀,4,NFT 컬렉션 생성,Smart Contract/React,NFT민팅
+NFT생성,배치민팅,낮음,계획,개발팀,5,여러 NFT 일괄 민팅,Batch Minting/Gas Optimization,NFT민팅
+마켓플레이스,NFT목록,높음,계획,개발팀,4,NFT 목록 표시,React/Pagination,NFT생성
+마켓플레이스,NFT상세페이지,높음,계획,개발팀,4,NFT 상세 정보 페이지,React/Web3.js,NFT목록
+마켓플레이스,검색필터,높음,계획,개발팀,5,NFT 검색 및 필터링,Elasticsearch/React,NFT목록
+마켓플레이스,카테고리분류,중간,계획,개발팀,3,NFT 카테고리별 분류,React/Database,NFT목록
+마켓플레이스,정렬기능,중간,계획,개발팀,2,가격/날짜/인기도 정렬,React/Database,NFT목록
+거래,고정가격판매,높음,계획,개발팀,5,고정 가격 NFT 판매,Smart Contract/Web3.js,마켓플레이스
+거래,경매시스템,높음,계획,개발팀,8,NFT 경매 기능,Auction Contract/Timer,고정가격판매
+거래,즉시구매,높음,계획,개발팀,3,NFT 즉시 구매,Smart Contract/Web3.js,고정가격판매
+거래,제안시스템,중간,계획,개발팀,5,NFT 구매 제안,Offer Contract/Web3.js,거래기능
+거래,번들판매,낮음,계획,개발팀,6,여러 NFT 묶음 판매,Bundle Contract,거래기능
+결제,암호화폐결제,높음,계획,개발팀,4,ETH/토큰 결제,Web3.js/ERC20,거래
+결제,가스비최적화,중간,계획,개발팀,4,거래 가스비 최적화,Gas Optimization/Meta-tx,암호화폐결제
+결제,다중토큰지원,중간,계획,개발팀,5,다양한 토큰 결제 지원,Multi-token/ERC20,암호화폐결제
+결제,결제내역,중간,계획,개발팀,3,거래 내역 조회,Transaction History/Web3.js,결제기능
+소유권,소유권이전,높음,계획,개발팀,4,NFT 소유권 이전,ERC721/Transfer,거래
+소유권,소유권증명,중간,계획,개발팀,3,NFT 소유권 증명,Blockchain Verification,소유권이전
+소유권,소유내역,중간,계획,개발팀,3,사용자 소유 NFT 목록,Web3.js/Database,소유권이전
+스마트컨트랙트,마켓플레이스컨트랙트,높음,계획,개발팀,10,마켓플레이스 스마트 컨트랙트,Solidity/Hardhat,없음
+스마트컨트랙트,NFT컨트랙트,높음,계획,개발팀,8,ERC721 NFT 컨트랙트,Solidity/ERC721,마켓플레이스컨트랙트
+스마트컨트랙트,경매컨트랙트,중간,계획,개발팀,8,경매 스마트 컨트랙트,Solidity/Timer,NFT컨트랙트
+스마트컨트랙트,로열티컨트랙트,중간,계획,개발팀,6,로열티 분배 컨트랙트,Solidity/ERC2981,NFT컨트랙트
+스마트컨트랙트,컨트랙트업그레이드,낮음,계획,개발팀,6,컨트랙트 업그레이드 시스템,Proxy Pattern/OpenZeppelin,스마트컨트랙트
+저장,IPFS통합,높음,계획,개발팀,5,IPFS 파일 저장,IPFS/Pinata,NFT생성
+저장,메타데이터저장,높음,계획,개발팀,3,NFT 메타데이터 저장,IPFS/JSON,IPFS통합
+저장,이미지최적화,중간,계획,개발팀,4,이미지 압축 및 최적화,Image Processing/CDN,IPFS통합
+저장,백업시스템,중간,계획,개발팀,4,파일 백업 및 복구,Backup/Redundancy,IPFS통합
+분석,가격분석,중간,계획,개발팀,5,NFT 가격 분석,Price Analytics/Chart.js,거래
+분석,거래량분석,중간,계획,개발팀,4,거래량 통계,Trading Analytics/Chart.js,가격분석
+분석,트렌드분석,낮음,계획,개발팀,5,NFT 트렌드 분석,Trend Analytics/ML,분석
+분석,컬렉션통계,낮음,계획,개발팀,4,컬렉션별 통계,Collection Analytics,분석
+소셜기능,좋아요,중간,계획,개발팀,2,NFT 좋아요 기능,React/Database,NFT상세페이지
+소셜기능,댓글시스템,중간,계획,개발팀,4,NFT 댓글 기능,React/Database,좋아요
+소셜기능,공유기능,중간,계획,개발팀,2,SNS 공유 기능,Social Share API,소셜기능
+소셜기능,위시리스트,낮음,계획,개발팀,3,관심 NFT 위시리스트,React/Database,좋아요
+알림,거래알림,중간,계획,개발팀,3,거래 완료 알림,Push Notification/Email,거래
+알림,경매알림,중간,계획,개발팀,3,경매 시작/종료 알림,Push Notification/Timer,경매시스템
+알림,가격알림,낮음,계획,개발팀,3,가격 변동 알림,Price Alert/Push,분석
+알림,팔로우알림,낮음,계획,개발팀,2,팔로우 활동 알림,Push Notification,팔로우시스템
+보안,스마트컨트랙트감사,높음,계획,보안팀,10,컨트랙트 보안 감사,Security Audit/Testing,스마트컨트랙트
+보안,메타데이터검증,중간,계획,보안팀,4,NFT 메타데이터 검증,Content Verification,메타데이터관리
+보안,저작권보호,중간,계획,보안팀,5,저작권 침해 방지,Copyright Detection/AI,NFT생성
+보안,사기방지,중간,계획,보안팀,4,사기 NFT 탐지,Fraud Detection,보안
+관리자,콘텐츠관리,중간,계획,개발팀,4,부적절한 콘텐츠 관리,Content Moderation,없음
+관리자,사용자관리,중간,계획,개발팀,3,사용자 계정 관리,User Management,콘텐츠관리
+관리자,거래모니터링,중간,계획,개발팀,4,거래 모니터링 시스템,Transaction Monitor,사용자관리
+관리자,통계대시보드,중간,계획,개발팀,5,관리자 통계 대시보드,Analytics Dashboard,관리자기능
+API,REST API,중간,계획,개발팀,6,RESTful API 제공,Express/Node.js,백엔드
+API,GraphQL API,낮음,계획,개발팀,7,GraphQL API 제공,GraphQL/Apollo,REST API
+API,웹훅,중간,계획,개발팀,4,이벤트 웹훅,Webhook/HTTP,API
+API,SDK제공,낮음,계획,개발팀,8,개발자 SDK,Multi-language SDK,API
+모바일,모바일앱,낮음,계획,개발팀,15,모바일 네이티브 앱,React Native,웹앱
+모바일,모바일지갑연동,낮음,계획,개발팀,5,모바일 지갑 연동,WalletConnect/Mobile,모바일앱
+성능,이미지로딩최적화,중간,계획,개발팀,4,이미지 로딩 최적화,Lazy Loading/CDN,프론트엔드
+성능,캐싱시스템,중간,계획,개발팀,4,데이터 캐싱,Redis/Memcached,백엔드
+성능,데이터베이스최적화,중간,계획,개발팀,5,쿼리 성능 최적화,Database Optimization,데이터베이스
+성능,CDN적용,중간,계획,인프라팀,3,정적 자원 CDN,CloudFlare/AWS CloudFront,성능최적화
+백업,데이터백업,중간,계획,인프라팀,3,정기적 데이터 백업,Database Backup,데이터베이스
+백업,IPFS백업,중간,계획,개발팀,4,IPFS 파일 백업,IPFS Backup/Pinning,IPFS통합
+테스트,단위테스트,높음,계획,개발팀,8,스마트컨트랙트 테스트,Hardhat/Truffle,스마트컨트랙트
+테스트,통합테스트,높음,계획,개발팀,10,전체 시스템 테스트,Cypress/Jest,단위테스트
+테스트,보안테스트,높음,계획,보안팀,8,보안 취약점 테스트,Security Testing,통합테스트
+테스트,성능테스트,중간,계획,개발팀,6,시스템 성능 테스트,Load Testing,보안테스트

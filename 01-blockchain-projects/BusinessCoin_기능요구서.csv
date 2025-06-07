@@ -1,0 +1,68 @@
+카테고리,기능명,우선순위,상태,담당자,예상공수(일),설명,기술스택,의존성
+토큰경제,토큰설계,높음,계획,개발팀,8,비즈니스 토큰 경제 모델 설계,Tokenomics/Smart Contract,없음
+토큰경제,토큰발행,높음,계획,개발팀,6,ERC20 토큰 발행,Solidity/ERC20,토큰설계
+토큰경제,토큰분배,높음,계획,개발팀,5,초기 토큰 분배 시스템,Distribution/Vesting,토큰발행
+토큰경제,소각메커니즘,중간,계획,개발팀,4,토큰 소각 시스템,Burn Mechanism,토큰발행
+토큰경제,인플레이션제어,중간,계획,개발팀,5,토큰 공급량 제어,Supply Control,토큰경제
+스마트컨트랙트,메인컨트랙트,높음,계획,개발팀,10,핵심 비즈니스 로직 컨트랙트,Solidity/Hardhat,토큰경제
+스마트컨트랙트,거버넌스컨트랙트,중간,계획,개발팀,8,DAO 거버넌스 시스템,Governance/Voting,메인컨트랙트
+스마트컨트랙트,스테이킹컨트랙트,중간,계획,개발팀,7,토큰 스테이킹 시스템,Staking/Rewards,메인컨트랙트
+스마트컨트랙트,리워드컨트랙트,중간,계획,개발팀,6,보상 분배 시스템,Reward Distribution,스테이킹컨트랙트
+스마트컨트랙트,컨트랙트업그레이드,중간,계획,개발팀,6,컨트랙트 업그레이드 시스템,Proxy Pattern/OpenZeppelin,스마트컨트랙트
+비즈니스모델,수익모델,높음,계획,기획팀,5,토큰 기반 수익 모델,Business Model/Revenue,토큰경제
+비즈니스모델,파트너십,중간,계획,기획팀,8,비즈니스 파트너십 구축,Partnership/Integration,수익모델
+비즈니스모델,마케팅전략,중간,계획,마케팅팀,6,토큰 마케팅 전략,Marketing/Community,비즈니스모델
+비즈니스모델,커뮤니티구축,중간,계획,마케팅팀,10,토큰 커뮤니티 구축,Community Building,마케팅전략
+거버넌스,투표시스템,중간,계획,개발팀,6,토큰 홀더 투표 시스템,Voting/DAO,거버넌스컨트랙트
+거버넌스,제안시스템,중간,계획,개발팀,5,개선 제안 시스템,Proposal/Governance,투표시스템
+거버넌스,실행시스템,중간,계획,개발팀,5,투표 결과 자동 실행,Execution/Timelock,제안시스템
+거버넌스,권한관리,중간,계획,개발팀,4,거버넌스 권한 관리,Permission/RBAC,거버넌스
+스테이킹,스테이킹풀,중간,계획,개발팀,6,토큰 스테이킹 풀,Staking Pool/Rewards,스테이킹컨트랙트
+스테이킹,리워드계산,중간,계획,개발팀,5,스테이킹 보상 계산,Reward Calculation,스테이킹풀
+스테이킹,언스테이킹,중간,계획,개발팀,4,스테이킹 해제 시스템,Unstaking/Cooldown,스테이킹풀
+스테이킹,컴파운드스테이킹,낮음,계획,개발팀,5,복리 스테이킹 시스템,Compound Staking,리워드계산
+DeFi통합,DEX연동,중간,계획,개발팀,8,탈중앙화 거래소 연동,DEX Integration/Uniswap,토큰발행
+DeFi통합,유동성제공,중간,계획,개발팀,6,유동성 풀 제공,Liquidity Pool/AMM,DEX연동
+DeFi통합,이자농사,낮음,계획,개발팀,7,이자 농사 기능,Yield Farming,유동성제공
+DeFi통합,대출프로토콜,낮음,계획,개발팀,10,토큰 담보 대출,Lending Protocol,DeFi통합
+웹앱,토큰대시보드,높음,계획,개발팀,8,토큰 정보 대시보드,React/Web3.js,토큰발행
+웹앱,지갑연동,높음,계획,개발팀,5,메타마스크 지갑 연동,Web3.js/WalletConnect,웹앱
+웹앱,거래기능,높음,계획,개발팀,6,토큰 거래 기능,Trading/DEX,지갑연동
+웹앱,스테이킹UI,중간,계획,개발팀,6,스테이킹 사용자 인터페이스,Staking UI/React,스테이킹
+웹앱,거버넌스UI,중간,계획,개발팀,6,거버넌스 투표 인터페이스,Governance UI/React,거버넌스
+분석,토큰분석,중간,계획,개발팀,5,토큰 가격/거래량 분석,Token Analytics/Chart.js,토큰발행
+분석,홀더분석,중간,계획,개발팀,4,토큰 홀더 분석,Holder Analytics,분석
+분석,거래분석,중간,계획,개발팀,4,거래 패턴 분석,Trading Analytics,분석
+분석,수익성분석,중간,계획,개발팀,5,비즈니스 수익성 분석,Profitability Analysis,분석
+보안,컨트랙트감사,높음,계획,보안팀,10,스마트 컨트랙트 보안 감사,Security Audit/Testing,스마트컨트랙트
+보안,멀티시그,중간,계획,보안팀,5,다중 서명 지갑,Multi-signature/Gnosis,보안
+보안,타임락,중간,계획,보안팀,4,시간 지연 실행,Timelock/Delay,보안
+보안,오라클보안,중간,계획,보안팀,5,오라클 데이터 보안,Oracle Security/Chainlink,보안
+규제준수,KYC시스템,중간,계획,개발팀,6,고객 신원 확인,KYC/Identity,웹앱
+규제준수,AML시스템,중간,계획,개발팀,5,자금세탁방지 시스템,AML/Compliance,KYC시스템
+규제준수,세금신고,낮음,계획,개발팀,4,세금 신고 지원,Tax Reporting,규제준수
+규제준수,법적검토,중간,계획,법무팀,8,법적 규제 검토,Legal Review,규제준수
+마케팅,에어드랍,중간,계획,마케팅팀,4,토큰 에어드랍 캠페인,Airdrop/Distribution,토큰분배
+마케팅,바운티프로그램,중간,계획,마케팅팀,5,바운티 보상 프로그램,Bounty/Rewards,마케팅
+마케팅,인플루언서마케팅,낮음,계획,마케팅팀,6,인플루언서 협업,Influencer Marketing,마케팅
+마케팅,커뮤니티이벤트,중간,계획,마케팅팀,4,커뮤니티 이벤트,Community Events,커뮤니티구축
+API,블록체인API,중간,계획,개발팀,6,블록체인 데이터 API,Blockchain API/Web3,토큰발행
+API,가격API,중간,계획,개발팀,4,토큰 가격 정보 API,Price API/CoinGecko,API
+API,거래API,중간,계획,개발팀,5,거래 데이터 API,Trading API,API
+API,분석API,낮음,계획,개발팀,5,분석 데이터 API,Analytics API,분석
+모니터링,가격모니터링,중간,계획,개발팀,4,토큰 가격 모니터링,Price Monitor/Alert,토큰발행
+모니터링,거래모니터링,중간,계획,개발팀,4,거래 활동 모니터링,Trading Monitor,모니터링
+모니터링,시스템모니터링,중간,계획,개발팀,4,시스템 상태 모니터링,System Monitor,모니터링
+모니터링,알림시스템,중간,계획,개발팀,3,실시간 알림 시스템,Notification/Push,모니터링
+백업,지갑백업,높음,계획,개발팀,4,지갑 백업 시스템,Wallet Backup/Seed,지갑연동
+백업,데이터백업,중간,계획,인프라팀,3,정기적 데이터 백업,Database Backup,데이터베이스
+백업,컨트랙트백업,중간,계획,개발팀,3,컨트랙트 소스 백업,Contract Backup/IPFS,스마트컨트랙트
+백업,재해복구,중간,계획,인프라팀,5,시스템 재해 복구,Disaster Recovery,백업
+테스트,컨트랙트테스트,높음,계획,개발팀,8,스마트 컨트랙트 테스트,Hardhat/Truffle,스마트컨트랙트
+테스트,통합테스트,높음,계획,개발팀,10,전체 시스템 테스트,Integration Testing,컨트랙트테스트
+테스트,보안테스트,높음,계획,보안팀,8,보안 취약점 테스트,Security Testing,통합테스트
+테스트,성능테스트,중간,계획,개발팀,6,시스템 성능 테스트,Performance Testing,보안테스트
+배포,테스트넷배포,높음,계획,개발팀,5,테스트넷 컨트랙트 배포,Testnet Deployment,컨트랙트테스트
+배포,메인넷배포,높음,계획,개발팀,6,메인넷 컨트랙트 배포,Mainnet Deployment,테스트넷배포
+배포,프론트엔드배포,중간,계획,개발팀,4,웹앱 배포,Frontend Deployment,웹앱
+배포,모니터링배포,중간,계획,인프라팀,4,모니터링 시스템 배포,Monitoring Deployment,모니터링

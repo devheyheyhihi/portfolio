@@ -1,0 +1,68 @@
+카테고리,기능명,우선순위,상태,담당자,예상공수(일),설명,기술스택,의존성
+사용자관리,지갑연결,높음,계획,개발팀,3,MetaMask/WalletConnect 연결,Web3.js/WalletConnect,없음
+사용자관리,프로필생성,중간,계획,개발팀,2,사용자 프로필 설정,React/IPFS,지갑연결
+사용자관리,KYC인증,중간,계획,개발팀,5,신원 확인 프로세스,KYC API/Compliance,프로필생성
+토큰관리,토큰목록,높음,계획,개발팀,3,지원 토큰 목록 표시,Token Registry/Web3.js,지갑연결
+토큰관리,토큰추가,중간,계획,개발팀,2,커스텀 토큰 추가,ERC20/Contract ABI,토큰목록
+토큰관리,토큰정보조회,중간,계획,개발팀,3,토큰 상세 정보 표시,CoinGecko API/Web3.js,토큰목록
+스왑,토큰스왑,높음,계획,개발팀,6,토큰 간 교환,AMM/Uniswap SDK,토큰관리
+스왑,가격조회,높음,계획,개발팀,3,실시간 토큰 가격,Price Oracle/API,토큰스왑
+스왑,슬리피지설정,중간,계획,개발팀,2,슬리피지 허용치 설정,React/Smart Contract,토큰스왑
+스왑,가스비예측,중간,계획,개발팀,3,거래 가스비 예측,Gas Oracle/Web3.js,토큰스왑
+스왑,MEV보호,낮음,계획,개발팀,5,MEV 공격 방지,Flashbots/Private Mempool,토큰스왑
+유동성,유동성공급,높음,계획,개발팀,5,유동성 풀에 토큰 공급,AMM/Smart Contract,스왑
+유동성,유동성제거,높음,계획,개발팀,3,유동성 풀에서 토큰 회수,AMM/Smart Contract,유동성공급
+유동성,LP토큰관리,중간,계획,개발팀,3,LP 토큰 조회 및 관리,ERC20/Web3.js,유동성공급
+유동성,수수료수익조회,중간,계획,개발팀,3,유동성 공급 수익 확인,Smart Contract/Analytics,유동성공급
+유동성,임페어먼트로스계산,낮음,계획,개발팀,4,비영구적 손실 계산,Price Analytics/Math,유동성공급
+스테이킹,토큰스테이킹,높음,계획,개발팀,5,토큰 스테이킹,Staking Contract/Web3.js,토큰관리
+스테이킹,스테이킹보상조회,높음,계획,개발팀,3,스테이킹 보상 확인,Smart Contract/Web3.js,토큰스테이킹
+스테이킹,언스테이킹,중간,계획,개발팀,3,스테이킹 해제,Smart Contract/Web3.js,토큰스테이킹
+스테이킹,복합스테이킹,중간,계획,개발팀,4,자동 복리 스테이킹,Auto-compound Contract,스테이킹보상조회
+스테이킹,락업기간관리,중간,계획,개발팀,2,스테이킹 락업 기간 표시,Smart Contract/Timer,토큰스테이킹
+대출,담보대출,중간,계획,개발팀,8,담보 기반 대출,Lending Protocol/Oracle,토큰관리
+대출,대출상환,중간,계획,개발팀,4,대출 상환 기능,Lending Protocol/Web3.js,담보대출
+대출,청산위험관리,중간,계획,개발팀,5,담보 청산 위험 모니터링,Price Oracle/Alert,담보대출
+대출,이자율조회,중간,계획,개발팀,2,실시간 이자율 확인,Lending Protocol/API,담보대출
+대출,건강도지수,중간,계획,개발팀,3,대출 건강도 표시,Health Factor/Oracle,담보대출
+예금,토큰예금,중간,계획,개발팀,4,토큰 예금 기능,Lending Protocol/Web3.js,토큰관리
+예금,예금이자조회,중간,계획,개발팀,2,예금 이자율 확인,Lending Protocol/API,토큰예금
+예금,예금인출,중간,계획,개발팀,3,예금 인출 기능,Lending Protocol/Web3.js,토큰예금
+농장,수확량농장,중간,계획,개발팀,6,Yield Farming 참여,Yield Protocol/Smart Contract,유동성
+농장,농장보상조회,중간,계획,개발팀,3,농장 보상 확인,Yield Protocol/Web3.js,수확량농장
+농장,보상수확,중간,계획,개발팀,2,농장 보상 수확,Smart Contract/Web3.js,농장보상조회
+농장,APY계산,중간,계획,개발팀,3,연간 수익률 계산,Analytics/Math,수확량농장
+거버넌스,제안투표,낮음,계획,개발팀,5,DAO 제안 투표,Governance Contract/Web3.js,토큰관리
+거버넌스,제안생성,낮음,계획,개발팀,4,새 제안 생성,Governance Contract/IPFS,제안투표
+거버넌스,투표권확인,낮음,계획,개발팀,2,보유 투표권 확인,Governance Token/Web3.js,거버넌스
+포트폴리오,자산현황,높음,계획,개발팀,4,전체 자산 현황 대시보드,Chart.js/Analytics,토큰관리
+포트폴리오,수익률분석,중간,계획,개발팀,5,포트폴리오 수익률 분석,Analytics/Chart.js,자산현황
+포트폴리오,자산배분,중간,계획,개발팀,3,자산 배분 차트,Chart.js/Analytics,자산현황
+포트폴리오,손익계산,중간,계획,개발팀,4,실현/미실현 손익,Price History/Analytics,수익률분석
+분석,가격차트,중간,계획,개발팀,4,토큰 가격 차트,TradingView/Chart.js,토큰관리
+분석,거래량분석,낮음,계획,개발팀,3,거래량 분석,DEX Analytics/Chart.js,가격차트
+분석,시장데이터,낮음,계획,개발팀,3,시장 전체 데이터,Market Data API,분석
+분석,기술적분석,낮음,계획,개발팀,6,기술적 분석 도구,TA Library/Chart.js,가격차트
+알림,가격알림,중간,계획,개발팀,3,토큰 가격 알림,Price Alert/Push,토큰관리
+알림,거래알림,중간,계획,개발팀,2,거래 완료 알림,Transaction Monitor/Push,스왑
+알림,청산알림,높음,계획,개발팀,3,담보 청산 위험 알림,Liquidation Alert/Push,대출
+알림,수익알림,낮음,계획,개발팀,2,수익 발생 알림,Yield Alert/Push,농장
+보안,스마트컨트랙트감사,높음,계획,보안팀,10,컨트랙트 보안 감사,Security Audit/Testing,스마트컨트랙트
+보안,프론트엔드보안,높음,계획,보안팀,5,프론트엔드 보안 강화,Security Headers/CSP,웹앱
+보안,거래검증,높음,계획,개발팀,4,거래 전 검증,Transaction Validation,스왑
+보안,피싱방지,중간,계획,보안팀,3,피싱 사이트 방지,Domain Verification,웹앱
+네트워크,멀티체인지원,높음,계획,개발팀,10,다중 블록체인 지원,Multi-Chain/Bridge,토큰관리
+네트워크,크로스체인브릿지,중간,계획,개발팀,12,체인 간 자산 이동,Bridge Protocol/Web3.js,멀티체인지원
+네트워크,레이어2지원,중간,계획,개발팀,8,L2 솔루션 지원,Polygon/Arbitrum/Optimism,네트워크
+API,REST API,중간,계획,개발팀,5,RESTful API 제공,Express/Node.js,백엔드
+API,GraphQL API,낮음,계획,개발팀,6,GraphQL API 제공,GraphQL/Apollo,REST API
+API,웹소켓,중간,계획,개발팀,4,실시간 데이터 스트림,WebSocket/Socket.io,API
+API,SDK제공,낮음,계획,개발팀,8,개발자 SDK,Multi-language SDK,API
+모니터링,시스템모니터링,중간,계획,인프라팀,4,시스템 상태 모니터링,Grafana/Prometheus,없음
+모니터링,거래모니터링,높음,계획,개발팀,5,거래 모니터링 시스템,Transaction Monitor,스마트컨트랙트
+모니터링,성능모니터링,중간,계획,개발팀,3,앱 성능 모니터링,Performance Monitor,웹앱
+백업,데이터백업,중간,계획,인프라팀,3,정기적 데이터 백업,Database Backup,데이터베이스
+백업,설정백업,중간,계획,개발팀,2,사용자 설정 백업,Local Storage/Cloud,사용자설정
+테스트,단위테스트,높음,계획,개발팀,8,스마트컨트랙트 테스트,Hardhat/Truffle,스마트컨트랙트
+테스트,통합테스트,높음,계획,개발팀,10,전체 시스템 테스트,Cypress/Jest,단위테스트
+테스트,보안테스트,높음,계획,보안팀,6,보안 취약점 테스트,Security Testing,통합테스트

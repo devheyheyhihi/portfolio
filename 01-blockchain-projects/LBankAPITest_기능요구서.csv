@@ -1,0 +1,61 @@
+카테고리,기능명,우선순위,상태,담당자,예상공수(일),설명,기술스택,의존성
+API연결,인증시스템,높음,계획,API개발팀,4,LBank API 인증 구현,Python/Requests/HMAC,없음
+API연결,REST클라이언트,높음,계획,API개발팀,5,REST API 클라이언트 구축,Python/aiohttp/asyncio,인증시스템
+API연결,WebSocket연결,높음,계획,API개발팀,6,실시간 데이터 WebSocket 연결,Python/websockets/asyncio,REST클라이언트
+API연결,연결관리,중간,계획,API개발팀,4,연결 상태 관리 및 재연결,Python/Connection Pool,WebSocket연결
+API연결,에러핸들링,중간,계획,API개발팀,3,API 에러 처리 및 재시도,Python/Exception Handling,연결관리
+거래기능,주문생성,높음,계획,거래팀,6,매수/매도 주문 생성,Python/Order Management,REST클라이언트
+거래기능,주문조회,높음,계획,거래팀,4,주문 상태 및 히스토리 조회,Python/Query API,주문생성
+거래기능,주문취소,높음,계획,거래팀,3,주문 취소 기능,Python/Cancel Order,주문조회
+거래기능,포지션관리,중간,계획,거래팀,5,선물 포지션 관리,Python/Position API,주문생성
+거래기능,잔액조회,중간,계획,거래팀,3,계정 잔액 실시간 조회,Python/Balance API,인증시스템
+시장데이터,가격정보,높음,계획,데이터팀,5,실시간 가격 데이터 수집,Python/Market Data API,WebSocket연결
+시장데이터,호가정보,높음,계획,데이터팀,4,주문서 호가 데이터,Python/Orderbook API,가격정보
+시장데이터,거래내역,중간,계획,데이터팀,4,최근 거래 내역 조회,Python/Trade History,호가정보
+시장데이터,캔들데이터,중간,계획,데이터팀,5,OHLCV 캔들 데이터,Python/Kline API,거래내역
+시장데이터,24시간통계,중간,계획,데이터팀,3,24시간 거래 통계,Python/Ticker API,캔들데이터
+데이터저장,데이터베이스,중간,계획,데이터팀,6,수집 데이터 저장,PostgreSQL/SQLAlchemy,없음
+데이터저장,실시간저장,중간,계획,데이터팀,5,실시간 데이터 저장,Python/Database Insert,데이터베이스
+데이터저장,배치처리,중간,계획,데이터팀,4,대량 데이터 배치 처리,Python/Batch Processing,실시간저장
+데이터저장,데이터압축,낮음,계획,데이터팀,3,저장 데이터 압축,Python/Compression,배치처리
+데이터저장,백업시스템,낮음,계획,데이터팀,4,데이터 백업 및 복구,Python/Backup Tools,데이터압축
+분석도구,기술분석,중간,계획,분석팀,8,기술적 지표 계산,Python/TA-Lib/NumPy,캔들데이터
+분석도구,차트생성,중간,계획,분석팀,6,가격 차트 시각화,Python/Plotly/Matplotlib,기술분석
+분석도구,알림시스템,중간,계획,분석팀,5,가격 알림 및 신호,Python/Notification/Slack,차트생성
+분석도구,백테스팅,중간,계획,분석팀,10,거래 전략 백테스팅,Python/Backtesting Framework,알림시스템
+분석도구,성과분석,중간,계획,분석팀,5,거래 성과 분석,Python/Statistics/Pandas,백테스팅
+자동거래,전략엔진,중간,계획,알고리즘팀,12,자동 거래 전략 엔진,Python/Strategy Pattern,분석도구
+자동거래,리스크관리,높음,계획,알고리즘팀,8,리스크 관리 시스템,Python/Risk Management,전략엔진
+자동거래,포트폴리오관리,중간,계획,알고리즘팀,6,포트폴리오 밸런싱,Python/Portfolio Theory,리스크관리
+자동거래,실행엔진,중간,계획,알고리즘팀,7,주문 실행 엔진,Python/Execution Algorithm,포트폴리오관리
+자동거래,모니터링,중간,계획,알고리즘팀,5,거래 모니터링 대시보드,Python/Dashboard/Streamlit,실행엔진
+테스트,단위테스트,높음,계획,QA팀,6,API 기능 단위 테스트,Python/pytest/unittest,개발완료
+테스트,통합테스트,높음,계획,QA팀,8,시스템 통합 테스트,Python/Integration Testing,단위테스트
+테스트,성능테스트,중간,계획,QA팀,5,API 성능 및 부하 테스트,Python/Load Testing,통합테스트
+테스트,보안테스트,높음,계획,보안팀,6,API 보안 테스트,Security Testing/Penetration,성능테스트
+테스트,샌드박스테스트,높음,계획,QA팀,4,LBank 테스트넷 테스트,Python/Testnet API,보안테스트
+모니터링,로그시스템,중간,계획,DevOps팀,4,구조화된 로깅,Python/Logging/ELK,없음
+모니터링,메트릭수집,중간,계획,DevOps팀,5,성능 지표 수집,Python/Prometheus/Grafana,로그시스템
+모니터링,알림설정,중간,계획,DevOps팀,3,시스템 알림 설정,Python/Alerting/PagerDuty,메트릭수집
+모니터링,대시보드,중간,계획,DevOps팀,6,모니터링 대시보드,Grafana/Prometheus,알림설정
+모니터링,헬스체크,중간,계획,DevOps팀,3,시스템 상태 체크,Python/Health Check,대시보드
+보안,API키관리,높음,계획,보안팀,4,API 키 안전한 관리,Python/Key Management/Vault,없음
+보안,데이터암호화,높음,계획,보안팀,5,민감 데이터 암호화,Python/Cryptography/AES,API키관리
+보안,접근제어,중간,계획,보안팀,4,API 접근 권한 제어,Python/RBAC/Authentication,데이터암호화
+보안,감사로그,중간,계획,보안팀,3,보안 이벤트 로깅,Python/Audit Trail,접근제어
+보안,취약점스캔,중간,계획,보안팀,5,보안 취약점 스캔,Security Scanner/OWASP,감사로그
+배포,Docker화,중간,계획,DevOps팀,4,컨테이너 기반 배포,Docker/Dockerfile,테스트완료
+배포,CI/CD,중간,계획,DevOps팀,5,자동화 배포 파이프라인,GitHub Actions/Jenkins,Docker화
+배포,환경관리,중간,계획,DevOps팀,3,개발/운영 환경 분리,Docker Compose/Kubernetes,CI/CD
+배포,스케일링,중간,계획,DevOps팀,6,자동 스케일링 설정,Kubernetes/Auto Scaling,환경관리
+배포,롤백시스템,중간,계획,DevOps팀,4,배포 롤백 메커니즘,Kubernetes/Blue-Green,스케일링
+최적화,성능최적화,중간,계획,개발팀,6,API 호출 최적화,Python/Async/Caching,모니터링
+최적화,메모리최적화,중간,계획,개발팀,4,메모리 사용량 최적화,Python/Memory Profiling,성능최적화
+최적화,네트워크최적화,중간,계획,개발팀,5,네트워크 통신 최적화,Python/Connection Pool,메모리최적화
+최적화,캐싱시스템,중간,계획,개발팀,5,데이터 캐싱 구현,Redis/Memcached,네트워크최적화
+최적화,데이터베이스최적화,중간,계획,개발팀,6,쿼리 및 인덱스 최적화,PostgreSQL/Query Optimization,캐싱시스템
+문서화,API문서,중간,계획,문서팀,4,API 사용법 문서화,Markdown/Swagger,API연결
+문서화,사용자가이드,중간,계획,문서팀,5,사용자 매뉴얼 작성,Markdown/GitBook,API문서
+문서화,개발자가이드,중간,계획,문서팀,4,개발 환경 설정 가이드,Markdown/Documentation,사용자가이드
+문서화,예제코드,중간,계획,문서팀,3,코드 예제 및 튜토리얼,Python/Jupyter Notebook,개발자가이드
+문서화,FAQ,낮음,계획,문서팀,2,자주 묻는 질문,Markdown/FAQ,예제코드 

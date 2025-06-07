@@ -1,0 +1,58 @@
+카테고리,기능명,우선순위,상태,담당자,예상공수(일),설명,기술스택,의존성
+게임엔진,캐릭터시스템,높음,계획,게임개발팀,10,Fire Chicken 캐릭터 생성 및 관리,Unity/C#/NFT,없음
+게임엔진,인벤토리시스템,높음,계획,게임개발팀,8,아이템 및 자산 인벤토리,Unity/C#/Database,캐릭터시스템
+게임엔진,배틀시스템,높음,계획,게임개발팀,12,PvP/PvE 전투 시스템,Unity/C#/Photon,캐릭터시스템
+게임엔진,레벨링시스템,중간,계획,게임개발팀,6,경험치 및 레벨업 시스템,Unity/C#/JSON,배틀시스템
+게임엔진,퀘스트시스템,중간,계획,게임개발팀,8,미션 및 퀘스트 관리,Unity/C#/Scriptable Objects,레벨링시스템
+게임엔진,길드시스템,중간,계획,게임개발팀,7,플레이어 길드 기능,Unity/C#/Network,배틀시스템
+DeFi통합,토큰경제,높음,계획,블록체인팀,10,FIRE 토큰 이코노미 설계,Solidity/Web3.js/OpenZeppelin,없음
+DeFi통합,스테이킹,높음,계획,블록체인팀,8,토큰 스테이킹 메커니즘,Solidity/Compound/Staking Pool,토큰경제
+DeFi통합,유동성마이닝,높음,계획,블록체인팀,9,LP 토큰 리워드 시스템,Solidity/Uniswap V3/Farming,스테이킹
+DeFi통합,거버넌스,중간,계획,블록체인팀,7,DAO 기반 의사결정,Solidity/Governance/Voting,토큰경제
+DeFi통합,수익분배,중간,계획,블록체인팀,6,게임 수익의 토큰홀더 분배,Solidity/Revenue Sharing,거버넌스
+DeFi통합,크로스체인,중간,계획,블록체인팀,12,다중 블록체인 지원,Bridge Protocol/LayerZero,토큰경제
+NFT시스템,NFT발행,높음,계획,블록체인팀,8,게임 아이템 NFT화,Solidity/ERC-721/IPFS,없음
+NFT시스템,NFT거래,높음,계획,블록체인팀,10,마켓플레이스 구축,Solidity/OpenSea API/0x Protocol,NFT발행
+NFT시스템,NFT업그레이드,중간,계획,블록체인팀,6,NFT 특성 강화 시스템,Solidity/Metadata/IPFS,NFT발행
+NFT시스템,NFT렌탈,중간,계획,블록체인팀,8,NFT 대여 시스템,Solidity/Rental Protocol,NFT거래
+NFT시스템,NFT합성,중간,계획,블록체인팀,7,여러 NFT 조합으로 새 NFT 생성,Solidity/Crafting System,NFT업그레이드
+게임플레이,PvP아레나,높음,계획,게임개발팀,10,실시간 PvP 대전,Unity/Photon/Matchmaking,배틀시스템
+게임플레이,PvE던전,높음,계획,게임개발팀,12,AI 적과의 던전 탐험,Unity/AI/Procedural Generation,배틀시스템
+게임플레이,토너먼트,중간,계획,게임개발팀,8,정기 토너먼트 이벤트,Unity/Tournament System,PvP아레나
+게임플레이,랭킹시스템,중간,계획,게임개발팀,5,글로벌 리더보드,Unity/Database/API,PvP아레나
+게임플레이,시즌패스,중간,계획,게임개발팀,6,시즌별 보상 시스템,Unity/Progression System,랭킹시스템
+경제시스템,게임내화폐,높음,계획,경제설계팀,6,GOLD 게임 화폐 시스템,Unity/Economy/Database,없음
+경제시스템,아이템거래,높음,계획,경제설계팀,8,플레이어 간 아이템 거래,Unity/Trading System/Escrow,게임내화폐
+경제시스템,경매시스템,중간,계획,경제설계팀,7,희귀 아이템 경매,Unity/Auction System/Timer,아이템거래
+경제시스템,가격안정화,중간,계획,경제설계팀,5,인플레이션 방지 메커니즘,Algorithm/Economics,경매시스템
+경제시스템,수수료시스템,중간,계획,경제설계팀,4,거래 수수료 관리,Unity/Fee Calculation,아이템거래
+소셜기능,친구시스템,중간,계획,소셜팀,5,친구 추가 및 관리,Unity/Social SDK/Database,없음
+소셜기능,채팅시스템,중간,계획,소셜팀,6,실시간 채팅 기능,Unity/Chat SDK/Moderation,친구시스템
+소셜기능,커뮤니티,중간,계획,소셜팀,8,게임 내 커뮤니티 허브,Unity/Forum System/CMS,채팅시스템
+소셜기능,이벤트시스템,중간,계획,소셜팀,6,정기 이벤트 및 축제,Unity/Event Management,커뮤니티
+소셜기능,추천시스템,낮음,계획,소셜팀,4,친구 추천 알고리즘,Unity/ML/Recommendation,친구시스템
+보안,치트방지,높음,계획,보안팀,10,게임 치트 및 핵 방지,Anti-Cheat/Server Validation,없음
+보안,자산보안,높음,계획,보안팀,8,블록체인 자산 보안,Multi-Sig/Hardware Security,없음
+보안,개인정보보호,높음,계획,보안팀,6,사용자 데이터 보호,Encryption/GDPR,없음
+보안,스마트컨트랙트감사,높음,계획,보안팀,12,컨트랙트 보안 감사,Security Audit/Formal Verification,DeFi통합
+보안,침입탐지,중간,계획,보안팀,5,비정상 활동 탐지,IDS/Anomaly Detection,치트방지
+성능최적화,렌더링최적화,중간,계획,게임개발팀,8,그래픽 성능 최적화,Unity/GPU Optimization/LOD,게임엔진
+성능최적화,네트워크최적화,중간,계획,게임개발팀,6,네트워크 지연 최소화,Unity/Network Optimization,배틀시스템
+성능최적화,메모리최적화,중간,계획,게임개발팀,5,메모리 사용량 최적화,Unity/Memory Profiler,렌더링최적화
+성능최적화,로딩최적화,중간,계획,게임개발팀,4,게임 로딩 시간 단축,Unity/Asset Bundling,메모리최적화
+성능최적화,서버최적화,중간,계획,백엔드팀,7,서버 응답 시간 최적화,Node.js/Caching/Load Balancing,네트워크최적화
+분석,게임분석,중간,계획,데이터팀,6,플레이어 행동 분석,Analytics SDK/Big Data,없음
+분석,경제분석,중간,계획,데이터팀,5,게임 경제 지표 분석,Data Analytics/Economics,게임분석
+분석,DeFi분석,중간,계획,데이터팀,7,DeFi 프로토콜 성과 분석,Blockchain Analytics/DeFiPulse,경제분석
+분석,사용자분석,중간,계획,데이터팀,5,사용자 세그멘테이션,User Analytics/ML,게임분석
+분석,수익분석,중간,계획,데이터팀,4,수익 모델 분석,Revenue Analytics/BI,DeFi분석
+모바일,iOS앱,높음,계획,모바일팀,15,iOS 네이티브 앱,Swift/iOS SDK/Unity Integration,게임엔진
+모바일,Android앱,높음,계획,모바일팀,15,Android 네이티브 앱,Kotlin/Android SDK/Unity Integration,게임엔진
+모바일,크로스플랫폼,중간,계획,모바일팀,10,플랫폼 간 호환성,Unity/Cross Platform,모바일앱
+모바일,푸시알림,중간,계획,모바일팀,4,모바일 푸시 알림,FCM/APNs,모바일앱
+모바일,오프라인모드,중간,계획,모바일팀,8,인터넷 없이도 일부 기능 사용,Local Storage/Sync,크로스플랫폼
+테스트,알파테스트,높음,계획,QA팀,8,내부 알파 테스트,Unity Test Framework/Automation,개발완료
+테스트,베타테스트,높음,계획,QA팀,10,공개 베타 테스트,TestFlight/Play Console,알파테스트
+테스트,로드테스트,중간,계획,QA팀,6,서버 부하 테스트,Load Testing/Artillery,베타테스트
+테스트,보안테스트,높음,계획,보안팀,8,보안 취약점 테스트,Penetration Testing/Security Audit,베타테스트
+테스트,경제테스트,중간,계획,경제설계팀,5,게임 경제 밸런스 테스트,Economic Simulation,로드테스트 

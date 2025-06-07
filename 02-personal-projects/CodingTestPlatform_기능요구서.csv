@@ -1,0 +1,81 @@
+카테고리,기능명,우선순위,상태,담당자,예상공수(일),설명,기술스택,의존성
+사용자관리,회원가입,높음,계획,개발팀,3,개발자 회원가입,React/Node.js/JWT,없음
+사용자관리,로그인,높음,계획,개발팀,2,사용자 인증 및 로그인,JWT/OAuth,회원가입
+사용자관리,프로필관리,중간,계획,개발팀,3,개발자 프로필 관리,React/Database,로그인
+사용자관리,스킬태그,중간,계획,개발팀,3,프로그래밍 언어 스킬 태그,Tag System/Database,프로필관리
+사용자관리,소셜로그인,중간,계획,개발팀,4,GitHub/Google 로그인,OAuth/Social API,로그인
+문제관리,문제생성,높음,계획,개발팀,6,새 코딩 문제 생성,React/Database,사용자관리
+문제관리,문제편집,높음,계획,개발팀,4,문제 내용 수정,React/Database,문제생성
+문제관리,문제삭제,중간,계획,개발팀,2,문제 삭제 기능,Database,문제편집
+문제관리,문제분류,중간,계획,개발팀,4,알고리즘/자료구조별 분류,Category/Database,문제생성
+문제관리,난이도설정,중간,계획,개발팀,3,문제 난이도 레벨,Difficulty/Database,문제생성
+코드에디터,온라인에디터,높음,계획,개발팀,8,웹 기반 코드 에디터,Monaco Editor/CodeMirror,없음
+코드에디터,언어지원,높음,계획,개발팀,6,다양한 프로그래밍 언어 지원,Multi-language/Compiler,온라인에디터
+코드에디터,자동완성,중간,계획,개발팀,5,코드 자동완성 기능,IntelliSense/LSP,온라인에디터
+코드에디터,문법하이라이팅,중간,계획,개발팀,3,문법 강조 표시,Syntax Highlighting,온라인에디터
+코드에디터,테마설정,낮음,계획,개발팀,2,에디터 테마 변경,Theme/CSS,온라인에디터
+실행환경,코드실행,높음,계획,개발팀,10,코드 실행 엔진,Docker/Sandbox,코드에디터
+실행환경,테스트케이스,높음,계획,개발팀,6,자동 테스트 케이스 실행,Test Runner/Judge,코드실행
+실행환경,디버깅,중간,계획,개발팀,8,코드 디버깅 도구,Debugger/Breakpoint,코드실행
+실행환경,성능측정,중간,계획,개발팀,5,실행 시간/메모리 측정,Performance Monitor,코드실행
+실행환경,보안샌드박스,높음,계획,보안팀,8,안전한 코드 실행 환경,Security Sandbox/Docker,실행환경
+채점시스템,자동채점,높음,계획,개발팀,8,자동 채점 시스템,Judge System/Comparison,실행환경
+채점시스템,부분점수,중간,계획,개발팀,4,부분 점수 계산,Partial Scoring,자동채점
+채점시스템,채점결과,높음,계획,개발팀,4,채점 결과 표시,Result Display/React,자동채점
+채점시스템,오답분석,중간,계획,개발팀,5,틀린 부분 분석,Error Analysis,채점결과
+채점시스템,시간제한,중간,계획,개발팀,3,실행 시간 제한,Time Limit/Timeout,채점시스템
+대회시스템,대회생성,중간,계획,개발팀,6,코딩 대회 생성,Contest/Database,문제관리
+대회시스템,대회참가,중간,계획,개발팀,4,대회 참가 신청,Registration/Database,대회생성
+대회시스템,실시간순위,중간,계획,개발팀,5,실시간 순위표,Leaderboard/WebSocket,대회참가
+대회시스템,대회결과,중간,계획,개발팀,4,대회 최종 결과,Result/Ranking,실시간순위
+대회시스템,시간관리,중간,계획,개발팀,4,대회 시간 관리,Timer/Countdown,대회시스템
+연습모드,문제풀이,높음,계획,개발팀,5,개별 문제 연습,Practice/Database,문제관리
+연습모드,힌트시스템,중간,계획,개발팀,4,문제 해결 힌트,Hint System,문제풀이
+연습모드,해설보기,중간,계획,개발팀,4,문제 해설 제공,Solution/Explanation,연습모드
+연습모드,코드저장,중간,계획,개발팀,3,작성한 코드 저장,Code Save/Database,연습모드
+연습모드,진도추적,중간,계획,개발팀,4,학습 진도 추적,Progress Tracking,연습모드
+랭킹시스템,개인랭킹,중간,계획,개발팀,4,개인 순위 시스템,Ranking/ELO,채점시스템
+랭킹시스템,레이팅,중간,계획,개발팀,5,실력 레이팅 시스템,Rating/Algorithm,개인랭킹
+랭킹시스템,리더보드,중간,계획,개발팀,4,전체 순위표,Leaderboard/Database,랭킹시스템
+랭킹시스템,배지시스템,낮음,계획,개발팀,3,성취 배지 시스템,Badge/Achievement,랭킹시스템
+커뮤니티,토론게시판,중간,계획,개발팀,5,문제별 토론 게시판,Forum/React,문제관리
+커뮤니티,질문답변,중간,계획,개발팀,4,Q&A 시스템,QnA/Database,토론게시판
+커뮤니티,코드공유,중간,계획,개발팀,4,해결 코드 공유,Code Share/Gist,커뮤니티
+커뮤니티,스터디그룹,낮음,계획,개발팀,6,스터디 그룹 생성,Group Management,커뮤니티
+검색,문제검색,높음,계획,개발팀,4,문제 검색 기능,Search/Elasticsearch,문제관리
+검색,태그필터,중간,계획,개발팀,3,태그별 문제 필터링,Tag Filter/Database,문제검색
+검색,난이도필터,중간,계획,개발팀,3,난이도별 필터링,Difficulty Filter,검색
+검색,언어필터,중간,계획,개발팀,3,프로그래밍 언어별 필터,Language Filter,검색
+검색,추천문제,낮음,계획,개발팀,6,개인화 문제 추천,Recommendation/ML,검색
+통계,해결통계,중간,계획,개발팀,4,문제 해결 통계,Statistics/Chart.js,채점시스템
+통계,언어통계,중간,계획,개발팀,3,사용 언어 통계,Language Stats,통계
+통계,시간통계,중간,계획,개발팀,4,문제 해결 시간 통계,Time Stats,통계
+통계,성과분석,중간,계획,개발팀,5,개인 성과 분석,Performance Analytics,통계
+알림,제출알림,중간,계획,개발팀,3,코드 제출 결과 알림,Push Notification,채점시스템
+알림,대회알림,중간,계획,개발팀,3,대회 시작/종료 알림,Push Notification,대회시스템
+알림,순위알림,낮음,계획,개발팀,3,순위 변동 알림,Push Notification,랭킹시스템
+관리자,문제관리,중간,계획,개발팀,4,문제 승인 및 관리,Problem Management,문제관리
+관리자,사용자관리,중간,계획,개발팀,4,사용자 계정 관리,User Management,사용자관리
+관리자,대회관리,중간,계획,개발팀,5,대회 운영 관리,Contest Management,대회시스템
+관리자,시스템모니터링,중간,계획,개발팀,4,시스템 상태 모니터링,System Monitor,관리자
+API,REST API,중간,계획,개발팀,6,RESTful API 제공,Express/Node.js,백엔드
+API,GraphQL API,낮음,계획,개발팀,7,GraphQL API 제공,GraphQL/Apollo,REST API
+API,API문서화,중간,계획,개발팀,3,API 문서 작성,Swagger/OpenAPI,API
+API,SDK제공,낮음,계획,개발팀,8,개발자 SDK,Multi-language SDK,API
+보안,코드보안,높음,계획,보안팀,6,악성 코드 방지,Code Security/Sandbox,실행환경
+보안,데이터보호,높음,계획,보안팀,5,개인정보 보호,Data Protection/GDPR,없음
+보안,접근제어,중간,계획,보안팀,4,문제 접근 권한 제어,Access Control/RBAC,보안
+보안,DDoS방어,중간,계획,보안팀,4,DDoS 공격 방어,DDoS Protection,보안
+성능,코드실행최적화,높음,계획,개발팀,8,코드 실행 성능 최적화,Performance Optimization,실행환경
+성능,캐싱시스템,중간,계획,개발팀,4,데이터 캐싱,Redis/Memcached,백엔드
+성능,로드밸런싱,중간,계획,인프라팀,4,서버 로드 밸런싱,Load Balancer,성능
+성능,CDN적용,중간,계획,인프라팀,3,정적 자원 CDN,CloudFlare/AWS CloudFront,성능최적화
+모바일,모바일앱,낮음,계획,개발팀,15,모바일 코딩 앱,React Native,웹앱
+모바일,모바일에디터,낮음,계획,개발팀,8,모바일 코드 에디터,Mobile Editor,모바일앱
+백업,데이터백업,중간,계획,인프라팀,3,정기적 데이터 백업,Database Backup,데이터베이스
+백업,코드백업,중간,계획,인프라팀,4,사용자 코드 백업,Code Backup/Storage,코드에디터
+백업,재해복구,중간,계획,인프라팀,5,시스템 재해 복구,Disaster Recovery,백업
+테스트,단위테스트,높음,계획,개발팀,8,컴포넌트 단위 테스트,Jest/React Testing,개발
+테스트,통합테스트,높음,계획,개발팀,10,전체 시스템 테스트,Cypress/E2E,단위테스트
+테스트,성능테스트,중간,계획,개발팀,6,시스템 성능 테스트,Load Testing,통합테스트
+테스트,보안테스트,높음,계획,보안팀,8,보안 취약점 테스트,Security Testing,성능테스트

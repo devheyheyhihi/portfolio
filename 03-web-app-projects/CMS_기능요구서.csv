@@ -1,0 +1,62 @@
+카테고리,기능명,우선순위,상태,담당자,예상공수(일),설명,기술스택,의존성
+사용자관리,관리자로그인,높음,완료,개발팀,3,관리자 인증 시스템,Node.js/JWT,없음
+사용자관리,권한관리,높음,완료,개발팀,4,역할별 권한 설정,RBAC/Database,관리자로그인
+사용자관리,사용자등록,중간,완료,개발팀,2,새 사용자 등록,React/Node.js,권한관리
+사용자관리,프로필관리,중간,완료,개발팀,2,사용자 프로필 편집,React/Database,사용자등록
+콘텐츠관리,글작성,높음,완료,개발팀,4,새 콘텐츠 작성,Rich Text Editor/React,사용자관리
+콘텐츠관리,글편집,높음,완료,개발팀,3,기존 콘텐츠 편집,Rich Text Editor,글작성
+콘텐츠관리,글삭제,높음,완료,개발팀,2,콘텐츠 삭제 기능,React/Database,글편집
+콘텐츠관리,초안저장,중간,완료,개발팀,3,임시 저장 기능,Auto-save/Database,글작성
+콘텐츠관리,버전관리,중간,진행중,개발팀,5,콘텐츠 버전 히스토리,Version Control/Database,콘텐츠관리
+미디어관리,파일업로드,높음,완료,개발팀,4,이미지/파일 업로드,Multer/File Storage,없음
+미디어관리,이미지편집,중간,완료,개발팀,5,기본 이미지 편집,Image Processing/Canvas,파일업로드
+미디어관리,미디어라이브러리,중간,완료,개발팀,4,미디어 파일 관리,React/File Manager,파일업로드
+미디어관리,파일최적화,낮음,계획,개발팀,4,이미지 압축 및 최적화,Image Optimization,미디어라이브러리
+카테고리관리,카테고리생성,높음,완료,개발팀,2,콘텐츠 카테고리 생성,React/Database,없음
+카테고리관리,카테고리편집,높음,완료,개발팀,2,카테고리 수정/삭제,React/Database,카테고리생성
+카테고리관리,계층구조,중간,완료,개발팀,4,카테고리 계층 관리,Tree Structure/Database,카테고리편집
+카테고리관리,카테고리정렬,낮음,완료,개발팀,2,카테고리 순서 변경,Drag & Drop/React,계층구조
+발행관리,콘텐츠발행,높음,완료,개발팀,3,콘텐츠 게시,Publishing System,콘텐츠관리
+발행관리,예약발행,중간,완료,개발팀,4,예약 게시 기능,Scheduler/Cron,콘텐츠발행
+발행관리,발행취소,중간,완료,개발팀,2,게시 취소 기능,Publishing Control,콘텐츠발행
+발행관리,상태관리,중간,완료,개발팀,3,초안/검토/발행 상태,State Management,발행관리
+검색기능,콘텐츠검색,높음,완료,개발팀,4,콘텐츠 전문 검색,Elasticsearch/Search,콘텐츠관리
+검색기능,필터링,중간,완료,개발팀,3,카테고리/날짜 필터,Filter System,콘텐츠검색
+검색기능,정렬기능,중간,완료,개발팀,2,검색 결과 정렬,Sort Algorithm,필터링
+검색기능,검색통계,낮음,계획,개발팀,3,검색어 통계 분석,Analytics/Database,검색기능
+템플릿관리,템플릿생성,중간,완료,개발팀,5,페이지 템플릿 생성,Template Engine/React,없음
+템플릿관리,템플릿편집,중간,완료,개발팀,4,템플릿 수정 기능,Template Editor,템플릿생성
+템플릿관리,템플릿적용,중간,완료,개발팀,3,콘텐츠에 템플릿 적용,Template System,템플릿편집
+템플릿관리,반응형템플릿,낮음,진행중,개발팀,6,모바일 반응형 템플릿,Responsive Design/CSS,템플릿관리
+SEO관리,메타태그관리,중간,완료,개발팀,3,SEO 메타태그 설정,Meta Tags/React Helmet,콘텐츠관리
+SEO관리,사이트맵생성,중간,완료,개발팀,3,자동 사이트맵 생성,Sitemap Generator,SEO관리
+SEO관리,URL관리,중간,완료,개발팀,2,SEO 친화적 URL,URL Rewriting,사이트맵생성
+SEO관리,구조화데이터,낮음,계획,개발팀,4,Schema.org 구조화 데이터,Structured Data,SEO관리
+워크플로우,승인시스템,중간,진행중,개발팀,5,콘텐츠 승인 워크플로우,Workflow Engine,사용자관리
+워크플로우,댓글시스템,중간,완료,개발팀,4,콘텐츠 리뷰 댓글,Comment System,승인시스템
+워크플로우,알림시스템,중간,진행중,개발팀,4,워크플로우 알림,Notification System,워크플로우
+워크플로우,히스토리추적,낮음,계획,개발팀,4,변경 이력 추적,Audit Trail,워크플로우
+API,REST API,높음,완료,개발팀,6,RESTful API 제공,Express/Node.js,백엔드
+API,인증API,높음,완료,개발팀,4,API 인증 시스템,JWT/OAuth,REST API
+API,콘텐츠API,높음,완료,개발팀,5,콘텐츠 CRUD API,REST/GraphQL,인증API
+API,미디어API,중간,완료,개발팀,4,미디어 파일 API,File Upload API,콘텐츠API
+대시보드,통계대시보드,중간,완료,개발팀,5,콘텐츠 통계 대시보드,Chart.js/Analytics,없음
+대시보드,사용자활동,중간,완료,개발팀,4,사용자 활동 모니터링,Activity Tracking,통계대시보드
+대시보드,성능모니터링,낮음,계획,개발팀,4,시스템 성능 모니터링,Performance Monitor,대시보드
+대시보드,알림센터,중간,진행중,개발팀,3,통합 알림 센터,Notification Center,대시보드
+보안,데이터암호화,높음,완료,보안팀,4,민감 데이터 암호화,Encryption/bcrypt,없음
+보안,SQL인젝션방지,높음,완료,보안팀,3,SQL 인젝션 방지,Parameterized Query,데이터암호화
+보안,XSS방지,높음,완료,보안팀,3,XSS 공격 방지,Input Sanitization,SQL인젝션방지
+보안,CSRF방지,중간,완료,보안팀,2,CSRF 토큰 검증,CSRF Token,XSS방지
+백업,데이터백업,높음,완료,인프라팀,3,정기적 데이터 백업,Database Backup/Cron,없음
+백업,파일백업,높음,완료,인프라팀,3,미디어 파일 백업,File Backup/Cloud Storage,데이터백업
+백업,복구시스템,중간,완료,인프라팀,4,백업 복구 시스템,Backup Recovery,백업
+백업,백업모니터링,낮음,계획,인프라팀,2,백업 상태 모니터링,Backup Monitor,복구시스템
+성능최적화,캐싱시스템,중간,완료,개발팀,4,데이터 캐싱,Redis/Memcached,없음
+성능최적화,이미지최적화,중간,완료,개발팀,4,이미지 압축 및 CDN,Image CDN/Optimization,캐싱시스템
+성능최적화,데이터베이스최적화,중간,진행중,개발팀,5,쿼리 성능 최적화,Database Indexing,성능최적화
+성능최적화,로드밸런싱,낮음,계획,인프라팀,5,서버 로드 밸런싱,Load Balancer,성능최적화
+모니터링,로그관리,중간,완료,개발팀,3,시스템 로그 관리,Winston/Log Management,없음
+모니터링,에러추적,중간,완료,개발팀,3,에러 모니터링,Error Tracking/Sentry,로그관리
+모니터링,성능추적,낮음,계획,개발팀,4,성능 메트릭 추적,Performance Monitoring,에러추적
+모니터링,알림설정,중간,진행중,개발팀,3,시스템 알림 설정,Alert System,모니터링 

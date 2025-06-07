@@ -1,0 +1,69 @@
+카테고리,기능명,우선순위,상태,담당자,예상공수(일),설명,기술스택,의존성
+Web3기본,지갑연결,높음,계획,Web3개발팀,3,MetaMask 지갑 연결,JavaScript/Web3.js/MetaMask,없음
+Web3기본,네트워크감지,높음,계획,Web3개발팀,2,현재 네트워크 감지,JavaScript/Web3.js,지갑연결
+Web3기본,계정정보,높음,계획,Web3개발팀,2,연결된 계정 정보 표시,JavaScript/Web3.js,네트워크감지
+Web3기본,잔액조회,높음,계획,Web3개발팀,3,ETH 잔액 조회,JavaScript/Web3.js,계정정보
+Web3기본,네트워크전환,중간,계획,Web3개발팀,3,네트워크 전환 기능,JavaScript/Web3.js,잔액조회
+스마트컨트랙트,컨트랙트배포,높음,계획,스마트컨트랙트팀,5,간단한 컨트랙트 배포,Solidity/Truffle/Hardhat,없음
+스마트컨트랙트,컨트랙트연결,높음,계획,스마트컨트랙트팀,3,배포된 컨트랙트 연결,JavaScript/Web3.js/ABI,컨트랙트배포
+스마트컨트랙트,함수호출,높음,계획,스마트컨트랙트팀,4,컨트랙트 함수 호출,JavaScript/Web3.js,컨트랙트연결
+스마트컨트랙트,이벤트리스닝,중간,계획,스마트컨트랙트팀,4,컨트랙트 이벤트 모니터링,JavaScript/Web3.js/Events,함수호출
+스마트컨트랙트,상태조회,중간,계획,스마트컨트랙트팀,3,컨트랙트 상태 변수 조회,JavaScript/Web3.js,이벤트리스닝
+트랜잭션,ETH전송,높음,계획,Web3개발팀,4,ETH 전송 기능,JavaScript/Web3.js,잔액조회
+트랜잭션,트랜잭션서명,높음,계획,Web3개발팀,3,트랜잭션 서명,JavaScript/Web3.js,ETH전송
+트랜잭션,트랜잭션전송,높음,계획,Web3개발팀,3,서명된 트랜잭션 전송,JavaScript/Web3.js,트랜잭션서명
+트랜잭션,트랜잭션조회,중간,계획,Web3개발팀,3,트랜잭션 상태 조회,JavaScript/Web3.js,트랜잭션전송
+트랜잭션,가스추정,중간,계획,Web3개발팀,3,가스 사용량 추정,JavaScript/Web3.js,트랜잭션조회
+토큰,ERC20토큰,중간,계획,토큰개발팀,6,ERC-20 토큰 컨트랙트,Solidity/OpenZeppelin,컨트랙트배포
+토큰,토큰잔액,중간,계획,토큰개발팀,3,토큰 잔액 조회,JavaScript/Web3.js/ERC20,ERC20토큰
+토큰,토큰전송,중간,계획,토큰개발팀,4,토큰 전송 기능,JavaScript/Web3.js/ERC20,토큰잔액
+토큰,토큰승인,중간,계획,토큰개발팀,3,토큰 사용 승인,JavaScript/Web3.js/ERC20,토큰전송
+토큰,토큰정보,낮음,계획,토큰개발팀,2,토큰 메타데이터 조회,JavaScript/Web3.js/ERC20,토큰승인
+사용자인터페이스,기본UI,높음,계획,프론트엔드팀,5,기본 웹 인터페이스,HTML/CSS/JavaScript,없음
+사용자인터페이스,지갑상태표시,높음,계획,프론트엔드팀,3,지갑 연결 상태 표시,HTML/CSS/JavaScript,기본UI
+사용자인터페이스,계정표시,높음,계획,프론트엔드팀,2,계정 주소 표시,HTML/CSS/JavaScript,지갑상태표시
+사용자인터페이스,잔액표시,높음,계획,프론트엔드팀,3,잔액 실시간 표시,HTML/CSS/JavaScript,계정표시
+사용자인터페이스,트랜잭션폼,중간,계획,프론트엔드팀,4,트랜잭션 입력 폼,HTML/CSS/JavaScript,잔액표시
+사용자인터페이스,상태메시지,중간,계획,프론트엔드팀,2,작업 상태 메시지,HTML/CSS/JavaScript,트랜잭션폼
+사용자인터페이스,반응형디자인,중간,계획,프론트엔드팀,4,모바일 반응형 디자인,CSS/Media Query,상태메시지
+사용자인터페이스,다크모드,낮음,계획,프론트엔드팀,3,다크/라이트 테마,CSS/JavaScript,반응형디자인
+에러처리,연결에러,높음,계획,Web3개발팀,3,지갑 연결 에러 처리,JavaScript/Error Handling,지갑연결
+에러처리,트랜잭션에러,높음,계획,Web3개발팀,4,트랜잭션 실패 처리,JavaScript/Error Handling,트랜잭션전송
+에러처리,네트워크에러,중간,계획,Web3개발팀,3,네트워크 오류 처리,JavaScript/Error Handling,네트워크감지
+에러처리,사용자에러,중간,계획,Web3개발팀,2,사용자 입력 에러 처리,JavaScript/Validation,사용자인터페이스
+에러처리,에러로깅,중간,계획,Web3개발팀,3,에러 로깅 시스템,JavaScript/Console/Logging,사용자에러
+보안,입력검증,높음,계획,보안팀,4,사용자 입력 검증,JavaScript/Validation/Sanitization,없음
+보안,주소검증,높음,계획,보안팀,3,이더리움 주소 검증,JavaScript/Web3.js/Address Validation,입력검증
+보안,금액검증,높음,계획,보안팀,3,전송 금액 검증,JavaScript/BigNumber/Validation,주소검증
+보안,권한확인,중간,계획,보안팀,3,지갑 권한 확인,JavaScript/Web3.js/Permissions,금액검증
+보안,XSS방지,중간,계획,보안팀,3,XSS 공격 방지,JavaScript/DOM Sanitization,권한확인
+테스트,단위테스트,높음,계획,QA팀,5,JavaScript 단위 테스트,Jest/Mocha,개발완료
+테스트,통합테스트,높음,계획,QA팀,6,Web3 통합 테스트,Ganache/Truffle Test,단위테스트
+테스트,E2E테스트,중간,계획,QA팀,7,브라우저 E2E 테스트,Puppeteer/Cypress,통합테스트
+테스트,컨트랙트테스트,높음,계획,스마트컨트랙트팀,6,스마트 컨트랙트 테스트,Solidity/Truffle/Hardhat,E2E테스트
+테스트,성능테스트,중간,계획,QA팀,4,성능 및 가스 최적화 테스트,Lighthouse/Gas Reporter,컨트랙트테스트
+개발도구,로컬블록체인,높음,계획,DevOps팀,3,로컬 개발 환경 구축,Ganache/Hardhat Network,없음
+개발도구,개발서버,높음,계획,DevOps팀,2,로컬 개발 서버,Node.js/Express/Live Server,로컬블록체인
+개발도구,핫리로드,중간,계획,DevOps팀,3,코드 변경 자동 반영,Webpack/Vite/Hot Reload,개발서버
+개발도구,디버깅도구,중간,계획,DevOps팀,4,브라우저 디버깅 도구,Browser DevTools/Source Maps,핫리로드
+개발도구,빌드시스템,중간,계획,DevOps팀,5,프로덕션 빌드 시스템,Webpack/Vite/Build Tools,디버깅도구
+배포,정적호스팅,중간,계획,DevOps팀,3,정적 사이트 호스팅,GitHub Pages/Netlify/Vercel,빌드시스템
+배포,IPFS배포,중간,계획,DevOps팀,4,IPFS 분산 호스팅,IPFS/Pinata,정적호스팅
+배포,도메인설정,낮음,계획,DevOps팀,2,커스텀 도메인 설정,DNS/Domain Management,IPFS배포
+배포,SSL인증서,낮음,계획,DevOps팀,2,HTTPS SSL 인증서,Let's Encrypt/SSL,도메인설정
+배포,CDN설정,낮음,계획,DevOps팀,3,CDN 캐싱 설정,CloudFlare/AWS CloudFront,SSL인증서
+모니터링,사용량분석,중간,계획,분석팀,4,사용자 행동 분석,Google Analytics/Mixpanel,배포완료
+모니터링,에러추적,중간,계획,분석팀,3,런타임 에러 추적,Sentry/LogRocket,사용량분석
+모니터링,성능모니터링,중간,계획,분석팀,4,웹사이트 성능 모니터링,Web Vitals/Lighthouse,에러추적
+모니터링,트랜잭션추적,중간,계획,분석팀,5,블록체인 트랜잭션 추적,Etherscan API/Block Explorer,성능모니터링
+모니터링,알림시스템,낮음,계획,분석팀,3,시스템 알림 설정,Slack/Discord Webhook,트랜잭션추적
+문서화,사용자가이드,중간,계획,문서팀,4,사용자 매뉴얼 작성,Markdown/GitBook,배포완료
+문서화,개발자가이드,중간,계획,문서팀,5,개발 환경 설정 가이드,Markdown/Documentation,사용자가이드
+문서화,API문서,중간,계획,문서팀,3,Web3 API 사용법,Markdown/JSDoc,개발자가이드
+문서화,튜토리얼,중간,계획,문서팀,6,단계별 튜토리얼,Markdown/Interactive Guide,API문서
+문서화,FAQ,낮음,계획,문서팀,2,자주 묻는 질문,Markdown/FAQ,튜토리얼
+교육자료,예제코드,중간,계획,교육팀,5,다양한 예제 코드,JavaScript/Solidity,문서화
+교육자료,비디오가이드,낮음,계획,교육팀,8,비디오 튜토리얼,Video Production/YouTube,예제코드
+교육자료,워크샵자료,낮음,계획,교육팀,6,워크샵 및 세미나 자료,Presentation/Workshop,비디오가이드
+교육자료,블로그포스트,낮음,계획,교육팀,4,기술 블로그 포스트,Markdown/Blog Platform,워크샵자료
+교육자료,커뮤니티지원,낮음,계획,교육팀,지속적,커뮤니티 질문 답변,Discord/GitHub Issues,블로그포스트 

@@ -1,0 +1,80 @@
+구분,기능ID,기능명,상세설명,우선순위,현재상태,담당모듈,관련API/기술,입력,출력,비고
+인증,AUTH-001,Cafe24 OAuth 인증,Cafe24 앱스토어를 통한 OAuth 2.0 인증 처리,High,구현완료,routes/index.js,Cafe24 OAuth API,"mall_id, client_id, redirect_uri","access_token, refresh_token",HMAC 검증 포함
+인증,AUTH-002,토큰 자동 갱신,Access Token 만료 시 Refresh Token으로 자동 갱신,High,구현완료,utils/cafe24.js,Cafe24 Token API,refresh_token,"access_token, expires_at",만료 시간 체크 로직 포함
+인증,AUTH-003,HMAC 검증,요청 무결성 확인을 위한 HMAC SHA256 검증,High,구현완료,routes/index.js,crypto,"query_string, secret_key",boolean,보안 강화
+인증,AUTH-004,세션 관리,사용자 세션 정보 저장 및 관리,Medium,구현완료,app.js,express-session,"shop_no, check_mac",session_data,
+크롤링,CRAWL-001,네이버 자동 로그인,Puppeteer를 통한 네이버 스마트스토어 자동 로그인,High,구현완료,utils/schedule.js,Puppeteer,"naver_id, naver_pw",login_success,팝업 처리 포함
+크롤링,CRAWL-002,SMS 인증 처리,Firebase를 통한 SMS 인증 코드 자동 입력,High,구현완료,utils/schedule.js,Firebase Realtime DB,sms_code,auth_success,실시간 데이터 수신
+크롤링,CRAWL-003,리뷰 API 인터셉트,네이버 리뷰 API 응답을 가로채서 데이터 추출,High,구현완료,utils/schedule.js,Puppeteer Request Interception,api_response,review_data,JSON 파싱
+크롤링,CRAWL-004,리뷰 데이터 저장,크롤링한 리뷰 데이터를 DB에 저장,High,구현완료,utils/schedule.js,Sequelize,review_object,saved_review,중복 방지 로직
+크롤링,CRAWL-005,브라우저 자동 종료,크롤링 완료 후 브라우저 리소스 정리,Medium,구현완료,utils/schedule.js,Puppeteer,browser_instance,closed,메모리 누수 방지
+스케줄,SCHED-001,매시간 자동 실행,Cron 스케줄러를 통한 매시간 정각 실행,High,구현완료,utils/schedule.js,node-schedule,cron_pattern,execution_result,"0 * * * * (매시간)"
+스케줄,SCHED-002,배치 작업 초기화,서버 시작 시 스케줄러 자동 초기화,High,구현완료,app.js,node-schedule,-,scheduler_instance,
+스케줄,SCHED-003,작업 실패 재시도,크롤링 실패 시 재시도 로직,High,미구현,-,-,retry_count,success/fail,개선 필요
+Cafe24연동,CAFE-001,상품 검색,상품 코드로 Cafe24 상품 정보 검색,High,구현완료,utils/cafe24.js,Cafe24 Products API,custom_product_code,product_list,2초 딜레이 포함
+Cafe24연동,CAFE-002,리뷰 등록,네이버 리뷰를 Cafe24 게시판에 등록,High,구현완료,utils/cafe24.js,Cafe24 Boards API,"product_no, review_data",article_no,이미지 첨부 지원
+Cafe24연동,CAFE-003,게시글 조회,Cafe24 게시판 게시글 목록 조회,Medium,구현완료,utils/cafe24.js,Cafe24 Boards API,"offset, limit",articles_list,페이지네이션 지원
+Cafe24연동,CAFE-004,게시글 수정,특정 게시글의 제목/내용 수정,Low,구현완료,utils/cafe24.js,Cafe24 Boards API,"article_no, title",updated_article,
+Cafe24연동,CAFE-005,회원 그룹 변경,회원 그룹 일괄 변경 (200개씩 배치),Low,구현완료,utils/cafe24.js,Cafe24 CustomerGroups API,"group_no, member_ids",result_list,
+Cafe24연동,CAFE-006,쿠폰 발급,특정 회원에게 쿠폰 발급,Low,구현완료,utils/cafe24.js,Cafe24 Coupons API,"coupon_no, member_id",issue_result,중복 발급 방지
+API,API-001,상품별 리뷰 통계,특정 상품의 리뷰 개수 및 평균 평점 조회,High,구현완료,routes/api.js,Sequelize Raw Query,product_no,"count, avg",display=T만 집계
+API,API-002,전체 리뷰 통계,전체 상품의 리뷰 통계를 JSON 객체로 반환,High,구현완료,routes/api.js,Sequelize Raw Query,-,"{product_no: {count, avg}}",
+API,API-003,외부 리뷰 등록,외부에서 리뷰 데이터를 POST로 수신하여 등록,Medium,구현완료,routes/api.js,"Sequelize, Cafe24 API",review_json,success/fail,중복 체크
+API,API-004,수동 크롤링 실행,테스트용 수동 크롤링 엔드포인트,Low,구현완료,routes/api.js,Puppeteer,-,crawl_result,개발/테스트용
+데이터모델,MODEL-001,Article 모델,Cafe24 게시글 데이터 모델,High,구현완료,models/article.js,Sequelize,article_data,Article instance,60개 필드
+데이터모델,MODEL-002,Naver 모델,네이버 리뷰 데이터 모델,High,구현완료,models/naver.js,Sequelize,review_data,Naver instance,inserted 플래그 포함
+데이터모델,MODEL-003,Mall 모델,쇼핑몰 인증 정보 모델,High,구현완료,models/mall.js,Sequelize,oauth_data,Mall instance,토큰 정보 저장
+데이터모델,MODEL-004,모델 자동 로드,models 디렉토리의 모델 자동 초기화,High,구현완료,models/index.js,Sequelize,-,db_object,
+데이터베이스,DB-001,MariaDB 연결,MariaDB 데이터베이스 연결 및 풀 관리,High,구현완료,models/index.js,Sequelize + MariaDB,config,sequelize_instance,
+데이터베이스,DB-002,중복 방지,findOrCreate를 통한 중복 데이터 방지,High,구현완료,models/naver.js,Sequelize,"where, defaults",instance,
+데이터베이스,DB-003,일괄 업데이트,bulkCreate를 통한 대량 데이터 처리,Medium,구현완료,routes/index.js,Sequelize,data_array,result,updateOnDuplicate 옵션
+데이터베이스,DB-004,Raw Query 실행,복잡한 집계 쿼리를 위한 Raw SQL 실행,Medium,구현완료,routes/api.js,Sequelize Raw Query,sql_string,query_result,
+라우팅,ROUTE-001,동적 라우트 로딩,routes 디렉토리의 모든 라우트 자동 로드,High,구현완료,app.js,glob,route_files,loaded_routes,파일명 기반 경로
+라우팅,ROUTE-002,OAuth 콜백 처리,Cafe24 OAuth 인증 후 콜백 처리,High,구현완료,routes/callback.js,Cafe24 API,authorization_code,token_data,
+라우팅,ROUTE-003,웹훅 처리,Cafe24 웹훅 이벤트 수신 및 처리,Medium,구현완료,routes/hook.js,-,webhook_payload,processed_result,
+라우팅,ROUTE-004,에러 핸들링,404 및 500 에러 처리,Medium,구현완료,app.js,Express Error Handler,error_object,error_page,
+보안,SEC-001,환경변수 관리,민감 정보를 환경변수로 관리,High,부분구현,ecosystem.config.js,-,-,.env 파일 미사용
+보안,SEC-002,CORS 설정,Cross-Origin 요청 허용 설정,Medium,구현완료,app.js,cors,-,cors_headers,
+보안,SEC-003,쿠키 파싱,쿠키 데이터 파싱 및 보안 설정,Medium,구현완료,app.js,cookie-parser,cookies,parsed_cookies,
+보안,SEC-004,인증 정보 암호화,DB에 저장되는 토큰 정보 암호화,High,미구현,-,-,token,encrypted_token,개선 필요
+모니터링,MON-001,로깅,개발 환경 로그 출력,Medium,구현완료,app.js,morgan,request,log_output,dev 모드
+모니터링,MON-002,에러 로깅,에러 발생 시 로그 기록,High,부분구현,utils/cafe24.js,console.error,error_object,log_message,Winston 도입 권장
+모니터링,MON-003,성능 모니터링,API 응답 시간 및 DB 쿼리 성능 모니터링,Medium,미구현,-,-,-,APM 도입 권장
+모니터링,MON-004,알림 시스템,크롤링 실패 시 관리자 알림,High,미구현,-,-,error_event,notification,Slack/Email 연동
+배치처리,BATCH-001,미등록 리뷰 처리,inserted=false인 리뷰를 Cafe24에 등록,High,구현완료,utils/schedule.js,Sequelize + Cafe24 API,-,processed_count,
+배치처리,BATCH-002,상품 매칭,네이버 상품 코드와 Cafe24 상품 매칭,High,구현완료,utils/schedule.js,Cafe24 Products API,product_code,matched_product,
+배치처리,BATCH-003,이미지 처리,리뷰 이미지 URL 추출 및 첨부,Medium,구현완료,utils/cafe24.js,-,image_urls,attach_file_urls,최대 2000자
+배치처리,BATCH-004,Rate Limiting,API 호출 제한 준수를 위한 딜레이,High,구현완료,utils/cafe24.js,-,-,2초 딜레이,
+테스트,TEST-001,단위 테스트,주요 함수의 단위 테스트,High,미구현,-,Jest,-,test_result,개선 필요
+테스트,TEST-002,통합 테스트,API 엔드포인트 통합 테스트,High,미구현,-,Jest + Supertest,-,test_result,개선 필요
+테스트,TEST-003,테스트 엔드포인트,수동 테스트를 위한 엔드포인트,Low,구현완료,routes/index.js,-,test_data,test_result,/test /test2 /test3 /test4
+배포,DEPLOY-001,PM2 설정,PM2 Ecosystem 설정 파일,High,구현완료,ecosystem.config.js,PM2,config,pm2_process,
+배포,DEPLOY-002,환경 분리,개발/프로덕션 환경 분리,High,구현완료,ecosystem.config.js,PM2,env_name,env_config,
+배포,DEPLOY-003,자동 재시작,프로세스 크래시 시 자동 재시작,High,구현완료,ecosystem.config.js,PM2,-,restarted_process,autorestart: true
+배포,DEPLOY-004,Git 배포,Git 저장소 기반 자동 배포,Medium,구현완료,ecosystem.config.js,PM2 Deploy,git_repo,deployed_app,
+성능,PERF-001,DB 인덱스,주요 컬럼에 인덱스 추가,High,부분구현,models/*.js,Sequelize,-,indexed_columns,product_no 등
+성능,PERF-002,캐싱,자주 조회되는 데이터 캐싱,Medium,미구현,-,Redis,cache_key,cached_data,Redis 도입 권장
+성능,PERF-003,쿼리 최적화,복잡한 쿼리 최적화 및 N+1 문제 해결,Medium,부분구현,routes/api.js,Sequelize,query,optimized_result,
+성능,PERF-004,연결 풀 관리,DB 연결 풀 크기 최적화,Medium,미구현,models/index.js,Sequelize,pool_config,connection_pool,
+확장성,SCALE-001,다중 쇼핑몰 지원,여러 Cafe24 쇼핑몰 동시 관리,High,미구현,-,-,mall_list,processed_malls,현재 svrkorea만 지원
+확장성,SCALE-002,워커 프로세스,크롤링 작업을 별도 워커로 분리,Medium,미구현,-,Bull Queue,job_data,job_result,
+확장성,SCALE-003,수평 확장,로드 밸런싱을 통한 수평 확장,Low,미구현,-,Nginx + PM2 Cluster,-,load_balanced,
+데이터분석,ANAL-001,리뷰 통계,일별/월별 리뷰 통계 생성,Medium,미구현,-,Sequelize Aggregation,date_range,statistics,
+데이터분석,ANAL-002,감성 분석,리뷰 내용의 긍정/부정 분석,Low,미구현,-,NLP Library,review_content,sentiment_score,
+데이터분석,ANAL-003,키워드 추출,리뷰에서 주요 키워드 추출,Low,미구현,-,NLP Library,review_content,keywords,
+UI/UX,UI-001,관리자 대시보드,리뷰 동기화 현황 모니터링 대시보드,Medium,미구현,-,"React/Vue, Chart.js",-,dashboard_view,
+UI/UX,UI-002,설정 페이지,쇼핑몰별 설정 관리 페이지,Medium,미구현,-,React/Vue,settings,saved_settings,
+UI/UX,UI-003,로그 뷰어,크롤링 로그 실시간 조회,Low,미구현,-,WebSocket,log_stream,log_view,
+에러처리,ERROR-001,재시도 로직,API 호출 실패 시 재시도,High,미구현,-,axios-retry,failed_request,retry_result,Exponential Backoff
+에러처리,ERROR-002,에러 추적,Sentry 등을 통한 에러 추적,Medium,미구현,-,Sentry,error_event,tracked_error,
+에러처리,ERROR-003,Graceful Shutdown,서버 종료 시 진행 중인 작업 완료,Medium,미구현,-,process.on('SIGTERM'),-,shutdown_complete,
+에러처리,ERROR-004,타임아웃 처리,장시간 응답 없는 요청 타임아웃,Medium,부분구현,utils/cafe24.js,axios timeout,timeout_ms,timeout_error,
+데이터검증,VALID-001,입력 데이터 검증,API 요청 데이터 유효성 검증,High,미구현,-,Joi/Yup,input_data,validation_result,
+데이터검증,VALID-002,스키마 검증,DB 스키마와 데이터 일치성 검증,Medium,구현완료,models/*.js,Sequelize,model_data,validated_data,
+데이터검증,VALID-003,타입 체크,TypeScript 도입을 통한 타입 안정성,Low,미구현,-,TypeScript,code,type_checked_code,
+백업,BACKUP-001,DB 백업,정기적인 데이터베이스 백업,High,미구현,-,mysqldump,db_name,backup_file,
+백업,BACKUP-002,로그 백업,로그 파일 정기 백업 및 로테이션,Medium,미구현,-,logrotate,log_files,archived_logs,
+문서화,DOC-001,API 문서,API 엔드포인트 문서화,Medium,부분구현,windsurf-project-analysis.md,Markdown,-,api_docs,Swagger 도입 권장
+문서화,DOC-002,코드 주석,주요 함수 및 로직 주석 추가,Medium,부분구현,*.js,JSDoc,code,documented_code,
+문서화,DOC-003,README,프로젝트 README 작성,Medium,부분구현,README.md,Markdown,-,readme_file,기본 템플릿만 존재
+문서화,DOC-004,아키텍처 다이어그램,시스템 아키텍처 다이어그램 작성,Low,구현완료,windsurf-project-analysis.md,Markdown,-,diagram,

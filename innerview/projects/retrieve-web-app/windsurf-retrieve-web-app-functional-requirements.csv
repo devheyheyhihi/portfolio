@@ -1,0 +1,111 @@
+분류,기능ID,기능명,상세설명,우선순위,구현상태,관련페이지/컴포넌트,API엔드포인트,비고
+인증,AUTH-001,로그인,사용자 계정 정보를 입력하여 시스템에 로그인,High,구현완료,Login.js,/auth/login,Redux Persist로 상태 유지
+인증,AUTH-002,로그아웃,현재 세션을 종료하고 로그인 화면으로 이동,High,구현완료,Setting.js,-,인증 상태 초기화
+인증,AUTH-003,세션 유지,페이지 새로고침 시에도 로그인 상태 유지,High,구현완료,AuthSlice.js,-,Redux Persist 활용
+인증,AUTH-004,자동 로그인,이전 로그인 정보로 자동 로그인,Medium,구현완료,App.js,-,로컬 스토리지 기반
+지도뷰,MAP-001,지도 표시,카카오 지도를 통한 기본 지도 표시,High,구현완료,RetrieveMap.js,-,react-kakao-maps-sdk 사용
+지도뷰,MAP-002,회수 위치 마커,지도에 회수 작업 위치를 마커로 표시,High,구현완료,RetrieveMap.js,GET /retrieveApp/retrieveMapList,위도/경도 기반
+지도뷰,MAP-003,마커 클릭,마커 클릭 시 회수 작업 간략 정보 표시,High,구현완료,RetrieveMap.js,-,인포윈도우 표시
+지도뷰,MAP-004,현재 위치 표시,사용자의 현재 위치를 지도에 표시,Medium,구현완료,RetrieveMap.js,-,Geolocation API 활용
+지도뷰,MAP-005,지도 필터링,상태별/날짜별로 지도 마커 필터링,High,구현완료,RetrieveMap.js,GET /retrieveApp/retrieveMapList,쿼리 파라미터 활용
+목록뷰,LIST-001,회수 목록 조회,전체 회수 작업 목록을 리스트 형태로 표시,High,구현완료,RetrieveList.js,GET /retrieveApp/retrieveList,페이지네이션 지원
+목록뷰,LIST-002,목록 아이템 표시,각 회수 작업의 주요 정보를 카드 형태로 표시,High,구현완료,RetrieveListItem.js,-,상태/주소/시간 표시
+목록뷰,LIST-003,상태별 필터링,작업 상태(대기/진행중/완료)별로 목록 필터링,High,구현완료,CountTab.js,GET /retrieveApp/retrieveList,탭 형태의 UI
+목록뷰,LIST-004,날짜별 필터링,특정 날짜의 회수 작업만 조회,High,구현완료,DatePickerButton.js,GET /retrieveApp/retrieveList,DatePicker 모달 활용
+목록뷰,LIST-005,목록 정렬,거리순/시간순 등으로 목록 정렬,Medium,구현완료,RetrieveList.js,-,클라이언트 사이드 정렬
+목록뷰,LIST-006,목록 새로고침,Pull-to-refresh로 목록 갱신,Low,구현완료,RetrieveList.js,-,React Query refetch
+상세뷰,DETAIL-001,상세 정보 조회,선택한 회수 작업의 상세 정보 표시,High,구현완료,RetrieveDetail.js,GET /retrieveApp/retrieve/:id,동적 라우팅
+상세뷰,DETAIL-002,고객 정보 표시,고객명/연락처/주소 등 고객 정보 표시,High,구현완료,RetrieveDetail.js,-,UserInfo 컴포넌트
+상세뷰,DETAIL-003,작업 정보 표시,작업 내용/상태/담당자 등 작업 정보 표시,High,구현완료,RetrieveDetail.js,-,StatusLabel 컴포넌트
+상세뷰,DETAIL-004,위치 정보 표시,회수 위치를 지도로 표시,Medium,구현완료,RetrieveDetail.js,-,카카오 지도 임베드
+상세뷰,DETAIL-005,작업 완료 처리,회수 작업을 완료 상태로 변경,High,구현완료,RetrieveDetail.js,PUT /retrieveApp/retrieve/:id,확인 다이얼로그 포함
+상세뷰,DETAIL-006,작업 히스토리,작업의 상태 변경 이력 표시,Low,미구현,-,-,향후 개선사항
+QR스캔,QR-001,QR 스캔 화면,카메라를 활성화하여 QR 코드 스캔 준비,High,구현완료,QR.js,-,react-qr-reader 사용
+QR스캔,QR-002,QR 코드 인식,QR 코드를 스캔하여 데이터 추출,High,구현완료,QRViewFinder.js,-,WebRTC 카메라 접근
+QR스캔,QR-003,자산 태그 확인,스캔한 QR 코드로 자산 정보 조회,High,구현완료,QR.js,GET /retrieveApp/asset/:unique_id,unique_id 기반 조회
+QR스캔,QR-004,스캔 결과 표시,스캔 성공/실패 결과를 토스트로 표시,Medium,구현완료,QR.js,-,react-toastify 활용
+QR스캔,QR-005,카메라 권한 요청,카메라 접근 권한 요청 및 처리,High,구현완료,QR.js,-,브라우저 권한 API
+QR스캔,QR-006,플래시 제어,어두운 환경에서 플래시 켜기/끄기,Low,미구현,-,-,향후 개선사항
+내작업,MY-001,내 작업 목록,담당자로 배정된 작업 목록 조회,High,구현완료,MyPage.js,GET /retrieveApp/myRetrieveList,페이지네이션 지원
+내작업,MY-002,작업 통계,완료/진행중/대기 작업 수 표시,Medium,구현완료,MyList.js,-,CountTab 활용
+내작업,MY-003,날짜별 조회,특정 날짜의 내 작업만 조회,High,구현완료,MyPage.js,GET /retrieveApp/myRetrieveList,date 파라미터
+내작업,MY-004,작업 바로가기,내 작업에서 상세 페이지로 바로 이동,High,구현완료,MyList.js,-,라우터 네비게이션
+날짜관리,DATE-001,날짜 선택 버튼,날짜 선택 모달을 여는 버튼 표시,High,구현완료,DatePickerButton.js,-,현재 선택된 날짜 표시
+날짜관리,DATE-002,날짜 선택 모달,달력 형태의 날짜 선택 UI,High,구현완료,DatepickerModal.js,-,react-datepicker 사용
+날짜관리,DATE-003,날짜 포맷팅,선택된 날짜를 한국어 형식으로 표시,Medium,구현완료,DatePickerButton.js,-,Day.js 활용
+날짜관리,DATE-004,날짜 초기화,오늘 날짜로 초기화,Medium,구현완료,DatepickerModal.js,-,버튼 클릭
+날짜관리,DATE-005,날짜 범위 제한,과거/미래 날짜 선택 제한,Low,미구현,-,-,비즈니스 로직에 따라 구현
+설정,SET-001,설정 화면,앱 설정 메뉴 표시,Medium,구현완료,Setting.js,-,리스트 형태
+설정,SET-002,마이페이지 이동,사용자 정보 페이지로 이동,Medium,구현완료,Setting.js,-,라우터 네비게이션
+설정,SET-003,버전 정보,앱 버전 정보 표시,Low,구현완료,Setting.js,-,package.json 버전
+설정,SET-004,로그아웃 버튼,로그아웃 기능 실행,High,구현완료,Setting.js,-,확인 다이얼로그 포함
+설정,SET-005,알림 설정,푸시 알림 on/off 설정,Low,미구현,-,-,향후 개선사항
+설정,SET-006,테마 설정,라이트/다크 모드 전환,Low,미구현,-,-,향후 개선사항
+네비게이션,NAV-001,하단 탭 네비게이션,주요 화면 간 이동을 위한 하단 탭,High,구현완료,BottomTabNav.js,-,4개 탭 (지도/목록/QR/설정)
+네비게이션,NAV-002,탭 아이콘 표시,각 탭의 아이콘 및 라벨 표시,High,구현완료,BottomTabNav.js,-,SVG 아이콘 사용
+네비게이션,NAV-003,활성 탭 표시,현재 활성화된 탭 시각적 표시,High,구현완료,BottomTabNav.js,-,색상 변경
+네비게이션,NAV-004,뒤로가기,이전 페이지로 이동,High,구현완료,RetrieveDetail.js,-,브라우저 히스토리 활용
+알림,NOTI-001,토스트 알림,작업 결과를 토스트 메시지로 표시,High,구현완료,App.js (StyledToastContainer),-,react-toastify
+알림,NOTI-002,성공 메시지,작업 성공 시 성공 메시지 표시,High,구현완료,-,-,초록색 토스트
+알림,NOTI-003,에러 메시지,작업 실패 시 에러 메시지 표시,High,구현완료,-,-,빨간색 토스트
+알림,NOTI-004,확인 다이얼로그,중요 작업 전 확인 다이얼로그 표시,High,구현완료,Confirm.js,-,ConfirmSlice로 상태 관리
+알림,NOTI-005,푸시 알림,새 작업 배정 시 푸시 알림,Low,미구현,-,-,향후 개선사항
+상태관리,STATE-001,Redux 스토어,전역 상태 관리,High,구현완료,store.js,-,Redux Toolkit 사용
+상태관리,STATE-002,인증 상태,로그인 사용자 정보 관리,High,구현완료,AuthSlice.js,-,토큰/사용자 정보
+상태관리,STATE-003,회수 작업 상태,선택된 회수 작업 정보 관리,High,구현완료,RetrieveSlice.js,-,필터/정렬 상태
+상태관리,STATE-004,모달 상태,각종 모달의 열림/닫힘 상태 관리,Medium,구현완료,DatePickerModalSlice.js / ConfirmSlice.js,-,모달별 Slice
+상태관리,STATE-005,상태 영속화,앱 종료 후에도 상태 유지,High,구현완료,store.js,-,redux-persist
+데이터페칭,FETCH-001,React Query 설정,서버 상태 관리 및 캐싱,High,구현완료,App.js,-,QueryClient 설정
+데이터페칭,FETCH-002,자동 리페치 비활성화,윈도우 포커스 시 자동 리페치 방지,Medium,구현완료,App.js,-,refetchOnWindowFocus: false
+데이터페칭,FETCH-003,캐시 관리,API 응답 데이터 캐싱,High,구현완료,-,-,React Query 기본 기능
+데이터페칭,FETCH-004,로딩 상태,데이터 로딩 중 로딩 스피너 표시,High,구현완료,Loading.js,-,공통 컴포넌트
+데이터페칭,FETCH-005,에러 핸들링,API 에러 발생 시 에러 처리,High,부분구현,apis/index.js,-,인터셉터 일부 주석처리
+API통신,API-001,Axios 인스턴스,API 통신을 위한 Axios 설정,High,구현완료,apis/index.js,-,baseURL/timeout 설정
+API통신,API-002,요청 인터셉터,API 요청 전 헤더 설정 등 전처리,Medium,부분구현,apis/index.js,-,인증 토큰 로직 주석처리
+API통신,API-003,응답 인터셉터,API 응답 후 데이터 추출 및 에러 처리,High,부분구현,apis/index.js,-,에러 토스트 로직 주석처리
+API통신,API-004,CORS 설정,크로스 오리진 요청 처리,High,구현완료,apis/index.js,-,withCredentials: true
+API통신,API-005,타임아웃 설정,15초 타임아웃 설정,Medium,구현완료,apis/index.js,-,timeout: 15000
+스타일,STYLE-001,전역 스타일,앱 전체에 적용되는 기본 스타일,High,구현완료,GlobalStyle.js,-,Styled Components
+스타일,STYLE-002,테마 시스템,라이트 테마 색상 및 변수 관리,High,구현완료,theme.js,-,ThemeProvider
+스타일,STYLE-003,SCSS 변수,색상/폰트/간격 등 SCSS 변수,High,구현완료,_variables.scss,-,전역 변수
+스타일,STYLE-004,CSS 리셋,브라우저 기본 스타일 초기화,High,구현완료,_reset.scss,-,styled-reset 활용
+스타일,STYLE-005,반응형 디자인,모바일 화면 최적화,High,구현완료,-,-,모바일 퍼스트 디자인
+스타일,STYLE-006,다크모드,다크 테마 지원,Low,미구현,-,-,향후 개선사항
+PWA,PWA-001,Manifest 설정,PWA 기본 설정 파일,High,구현완료,public/manifest.json,-,앱 이름/아이콘 등
+PWA,PWA-002,앱 아이콘,홈 화면 추가 시 표시될 아이콘,High,구현완료,public/ic_launcher@192.png,-,192x192 크기
+PWA,PWA-003,설치 프롬프트,앱 설치 안내 프롬프트,Medium,구현완료,App.js,-,beforeinstallprompt 이벤트
+PWA,PWA-004,서비스 워커,오프라인 지원 및 캐싱,High,미구현,webpack.common.js,-,Workbox 주석처리
+PWA,PWA-005,오프라인 모드,네트워크 없이도 기본 기능 사용,Medium,미구현,-,-,서비스 워커 필요
+PWA,PWA-006,백그라운드 동기화,오프라인 작업 후 자동 동기화,Low,미구현,-,-,향후 개선사항
+보안,SEC-001,HTTPS 지원,보안 연결을 통한 통신,High,구현완료,localhost.crt/key,-,SSL 인증서
+보안,SEC-002,환경 변수 관리,API URL 등 민감 정보 환경 변수화,High,구현완료,.env,-,process.env 활용
+보안,SEC-003,쿠키 기반 인증,세션 쿠키를 통한 인증,High,구현완료,apis/index.js,-,withCredentials
+보안,SEC-004,XSS 방지,크로스 사이트 스크립팅 방지,High,구현완료,-,-,React 기본 보호
+보안,SEC-005,CSRF 방지,크로스 사이트 요청 위조 방지,Medium,미구현,-,-,CSRF 토큰 필요
+성능,PERF-001,코드 스플리팅,페이지별 코드 분할 로딩,Medium,미구현,-,-,React.lazy() 활용 가능
+성능,PERF-002,이미지 최적화,이미지 압축 및 레이지 로딩,Medium,미구현,-,-,향후 개선사항
+성능,PERF-003,메모이제이션,불필요한 리렌더링 방지,Medium,미구현,-,-,React.memo 등 활용
+성능,PERF-004,번들 최적화,Webpack을 통한 번들 크기 최적화,High,구현완료,webpack.prod.js,-,프로덕션 빌드
+성능,PERF-005,캐시 전략,API 응답 캐싱 및 재사용,High,구현완료,-,-,React Query 활용
+배포,DEPLOY-001,개발 서버 배포,develop 브랜치 자동 배포,High,구현완료,.gitlab-ci.yml,-,GitLab CI/CD
+배포,DEPLOY-002,프로덕션 배포,master 브랜치 자동 배포,High,구현완료,.gitlab-ci.yml,-,GitLab CI/CD
+배포,DEPLOY-003,빌드 최적화,프로덕션 빌드 최적화,High,구현완료,webpack.prod.js,-,압축/난독화
+배포,DEPLOY-004,환경별 설정,개발/프로덕션 환경 분리,High,구현완료,.env / .env.dev,-,BASE_URL 분리
+배포,DEPLOY-005,배포 롤백,배포 실패 시 이전 버전으로 복구,Low,미구현,-,-,향후 개선사항
+테스트,TEST-001,유닛 테스트,개별 함수/컴포넌트 테스트,High,미구현,-,-,Jest 도입 필요
+테스트,TEST-002,통합 테스트,컴포넌트 간 통합 테스트,Medium,미구현,-,-,React Testing Library
+테스트,TEST-003,E2E 테스트,전체 사용자 플로우 테스트,Medium,미구현,-,-,Cypress 도입 가능
+테스트,TEST-004,API 모킹,테스트용 API 응답 모킹,Medium,미구현,-,-,MSW 활용 가능
+접근성,A11Y-001,키보드 네비게이션,키보드만으로 모든 기능 사용 가능,Medium,미구현,-,-,향후 개선사항
+접근성,A11Y-002,스크린 리더 지원,시각 장애인을 위한 스크린 리더 지원,Medium,미구현,-,-,ARIA 속성 추가 필요
+접근성,A11Y-003,색상 대비,WCAG 기준 색상 대비 준수,Medium,미구현,-,-,디자인 검토 필요
+접근성,A11Y-004,포커스 표시,포커스된 요소 명확히 표시,Medium,미구현,-,-,CSS 개선 필요
+에러처리,ERROR-001,에러 바운더리,컴포넌트 에러 캐치 및 폴백 UI,High,미구현,-,-,React Error Boundary
+에러처리,ERROR-002,404 페이지,존재하지 않는 페이지 처리,Medium,미구현,-,-,라우터 설정 필요
+에러처리,ERROR-003,네트워크 에러,네트워크 오류 시 재시도 로직,Medium,부분구현,apis/index.js,-,인터셉터 개선 필요
+에러처리,ERROR-004,에러 로깅,에러 발생 시 로그 수집,Low,미구현,-,-,Sentry 등 도입 가능
+모니터링,MONITOR-001,성능 모니터링,페이지 로딩 속도 등 성능 지표 수집,Low,미구현,-,-,Google Analytics 등
+모니터링,MONITOR-002,사용자 행동 추적,사용자 행동 패턴 분석,Low,미구현,-,-,향후 개선사항
+모니터링,MONITOR-003,에러 추적,프로덕션 에러 모니터링,Medium,미구현,-,-,Sentry 도입 가능
+국제화,I18N-001,다국어 지원,한국어/영어 등 다국어 지원,Low,미구현,-,-,react-i18next 도입 가능
+국제화,I18N-002,날짜 로케일,지역별 날짜 형식 지원,Low,부분구현,-,-,Day.js 로케일 주석처리

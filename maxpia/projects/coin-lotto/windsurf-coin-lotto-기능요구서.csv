@@ -1,0 +1,106 @@
+카테고리,기능ID,기능명,상세설명,우선순위,상태,담당페이지/컴포넌트,관련API,비고
+인증,AUTH-001,회원가입,사용자명/닉네임/비밀번호로 회원가입,High,완료,SignupModal.tsx,POST /auth/signup,JWT 토큰 발급
+인증,AUTH-002,로그인,사용자명/비밀번호로 로그인,High,완료,LoginModal.tsx,POST /auth/login,JWT 토큰 저장
+인증,AUTH-003,자동 로그인,페이지 새로고침 시 토큰 검증 후 자동 로그인,High,완료,AuthContext.tsx,-,로컬스토리지 토큰 사용
+인증,AUTH-004,로그아웃,로그아웃 및 토큰 삭제,High,완료,Header.tsx,-,로컬스토리지 클리어
+인증,AUTH-005,토큰 만료 처리,만료된 JWT 토큰 자동 감지 및 로그아웃,High,완료,AuthContext.tsx,-,jwt-decode 사용
+인증,AUTH-006,사용자 상태 관리,PENDING/ACTIVE 상태 관리,Medium,완료,AuthContext.tsx,-,지갑 등록 여부에 따라 구분
+지갑연동,WALLET-001,지갑 연결,Web3Modal을 통한 지갑 연결,High,완료,MyPageModal.tsx,-,@web3modal/wagmi 사용
+지갑연동,WALLET-002,지갑 주소 등록,연결된 지갑 주소를 사용자 계정에 등록,High,완료,MyPageModal.tsx,POST /user/wallet,PENDING → ACTIVE 상태 변경
+지갑연동,WALLET-003,네트워크 확인,BNB Smart Chain Testnet 연결 확인,High,완료,MyPageModal.tsx,-,Chain ID 0x61 확인
+지갑연동,WALLET-004,지갑 연결 해제,지갑 연결 해제 기능,Low,완료,MyPageModal.tsx,-,Web3Modal disconnect
+잔액관리,BALANCE-001,잔액 조회,사용자의 오프체인 USDT 잔액 조회,High,완료,Header.tsx/MyPageModal.tsx,GET /balance/:address,실시간 업데이트
+잔액관리,BALANCE-002,입금,온체인 USDT를 오프체인으로 입금,High,완료,MyPageModal.tsx,POST /deposit,Vault 컨트랙트 approve 필요
+잔액관리,BALANCE-003,출금 요청,오프체인 USDT를 온체인으로 출금 요청,High,완료,MyPageModal.tsx,POST /withdraw,관리자 승인 대기
+잔액관리,BALANCE-004,출금 내역 조회,출금 요청 및 승인 내역 조회,Medium,완료,MyPageModal.tsx,GET /withdrawals/:address,상태별 필터링
+잔액관리,BALANCE-005,잔액 실시간 업데이트,베팅/당첨 시 잔액 즉시 반영,High,완료,전역 이벤트,balance:update 이벤트,CustomEvent 사용
+메인페이지,MAIN-001,룸 목록 표시,4개 게임 룸 카드 표시,High,완료,EntrySection.tsx,GET /rooms/status,1/10/50/100 USDT
+메인페이지,MAIN-002,참가자 수 표시,각 룸의 실시간 참가자 수 표시,Medium,완료,EntrySection.tsx,GET /rooms/status,5초마다 폴링
+메인페이지,MAIN-003,글로벌 라운드 표시,현재 진행 중인 글로벌 라운드 번호 표시,Medium,완료,GlobalRoundBar.tsx,GET /lottery-status/1,모바일에서만 표시
+메인페이지,MAIN-004,마감 시간 타이머,메인 게임의 마감 시간 카운트다운,High,완료,SideMenu.tsx,GET /lottery-status/1,실시간 타이머
+메인페이지,MAIN-005,당첨자 정보 바,최근 당첨자 정보 스크롤 표시,Low,완료,WinnerInfoBar.tsx,GET /recent-winners,자동 스크롤
+메인페이지,MAIN-006,룰렛 룸 입장,룰렛 게임 모달 오픈,High,완료,RouletteRoom.tsx,-,별도 마감시간 관리
+메인페이지,MAIN-007,게임 설명 모달,게임 규칙 및 방법 설명,Medium,완료,GameExplainModal.tsx,-,초보자 가이드
+메인페이지,MAIN-008,모바일 배너,모바일 사용자 안내 메시지,Low,완료,Header.tsx,-,모바일에서만 표시
+게임룸,ROOM-001,룸 정보 표시,룸 이름/티켓 가격/상금 풀 표시,High,완료,room/[roomId]/page.tsx,GET /lottery-status/:roomId,동적 라우팅
+게임룸,ROOM-002,마감 시간 타이머,해당 룸의 마감 시간 카운트다운,High,완료,Timer.tsx,-,LABDigital 폰트 사용
+게임룸,ROOM-003,게임 참가,티켓 구매 및 게임 참가,High,완료,room/[roomId]/page.tsx,POST /participate/:roomId,오프체인 잔액 차감
+게임룸,ROOM-004,참가자 목록,현재 참가자 지갑 주소 목록 표시,Medium,완료,room/[roomId]/page.tsx,GET /lottery-status/:roomId,실시간 업데이트
+게임룸,ROOM-005,실시간 로그,참가/추첨/당첨 로그 실시간 표시,High,완료,room/[roomId]/page.tsx,GET /lottery-status/:roomId,타입별 색상 구분
+게임룸,ROOM-006,로그 애니메이션,로그 순차적 표시 애니메이션,Medium,완료,room/[roomId]/page.tsx,-,50ms 간격
+게임룸,ROOM-007,추첨 카운트다운,추첨 시작 5초 전 카운트다운,Medium,완료,room/[roomId]/page.tsx,-,Prize Pool 영역에 표시
+게임룸,ROOM-008,과거 당첨자 조회,해당 룸의 과거 라운드 당첨자 목록,Low,완료,room/[roomId]/page.tsx,GET /winners/:roomId,페이지네이션 버튼
+게임룸,ROOM-009,상태별 UI 변경,OPEN/DRAWING/CLOSED 상태별 버튼 변경,High,완료,room/[roomId]/page.tsx,-,disabled 처리
+게임룸,ROOM-010,로그 자동 스크롤,새 로그 추가 시 자동 스크롤,Low,완료,room/[roomId]/page.tsx,-,useRef 사용
+룰렛게임,ROULETTE-001,룰렛 모달 오픈,룰렛 게임 모달 표시,High,완료,RouletteModal.tsx,-,전체화면 모달
+룰렛게임,ROULETTE-002,HIGH/LOW 선택,1-5(LOW) 또는 6-10(HIGH) 선택,High,완료,RouletteModal.tsx,-,버튼 토글
+룰렛게임,ROULETTE-003,베팅 금액 입력,베팅할 USDT 금액 입력,High,완료,RouletteModal.tsx,-,최소/최대 금액 검증
+룰렛게임,ROULETTE-004,베팅 확인 모달,베팅 내용 확인 후 최종 제출,High,완료,BettingConfirmModal.tsx,POST /api/roulette/bet,잔액 확인
+룰렛게임,ROULETTE-005,실시간 풀 정보,LOW/HIGH 각각의 총 베팅액 표시,Medium,완료,RouletteModal.tsx,GET /api/roulette/current,5초마다 업데이트
+룰렛게임,ROULETTE-006,마감 시간 타이머,룰렛 라운드 마감 시간 표시,High,완료,RouletteModal.tsx,GET /api/roulette/current,독립적 타이머
+룰렛게임,ROULETTE-007,숫자 애니메이션,당첨 번호 스피닝 애니메이션,Medium,완료,SpinningNumbers.tsx,-,1-10 숫자 회전
+룰렛게임,ROULETTE-008,결과 표시,당첨 번호 및 당첨 타입 표시,High,완료,RouletteModal.tsx,GET /api/roulette/result,HIGH/LOW 표시
+룰렛게임,ROULETTE-009,무효 라운드 처리,한쪽 베팅 없을 시 환불 처리,High,완료,RouletteModal.tsx,-,RoundCanceledMessage 표시
+룰렛게임,ROULETTE-010,베팅 완료 메시지,베팅 성공 시 확인 메시지,Low,완료,BettingCompleteMessage.tsx,-,3초 후 자동 닫힘
+룰렛게임,ROULETTE-011,룰렛 히스토리,과거 라운드 결과 조회,Medium,완료,RouletteHistoryModal.tsx,GET /api/roulette/history,모달 형태
+마이페이지,MYPAGE-001,마이페이지 모달,사용자 정보 및 관리 모달,High,완료,MyPageModal.tsx,-,전체화면 모달
+마이페이지,MYPAGE-002,사용자 정보 표시,닉네임/사용자명/지갑주소 표시,Medium,완료,MyPageModal.tsx,-,지갑 주소 축약 표시
+마이페이지,MYPAGE-003,잔액 표시,현재 오프체인 USDT 잔액 표시,High,완료,MyPageModal.tsx,GET /balance/:address,실시간 업데이트
+마이페이지,MYPAGE-004,입금 기능,온체인 → 오프체인 입금,High,완료,MyPageModal.tsx,POST /deposit,트랜잭션 처리
+마이페이지,MYPAGE-005,출금 기능,오프체인 → 온체인 출금 요청,High,완료,MyPageModal.tsx,POST /withdraw,관리자 승인 필요
+마이페이지,MYPAGE-006,게임 히스토리,참가/당첨 내역 조회,Medium,완료,MyPageModal.tsx,GET /user/history,탭 형태
+마이페이지,MYPAGE-007,입출금 내역,입출금 트랜잭션 내역,Medium,완료,MyPageModal.tsx,GET /user/transactions,상태별 표시
+마이페이지,MYPAGE-008,지갑 등록,지갑 주소 등록 및 상태 변경,High,완료,MyPageModal.tsx,POST /user/wallet,PENDING → ACTIVE
+관리자,ADMIN-001,관리자 페이지 접근,관리자 전용 페이지,High,완료,admin/page.tsx,-,권한 확인 필요
+관리자,ADMIN-002,모든 룸 추첨,4개 룸 동시 추첨 실행,High,완료,admin/page.tsx,POST /start-draw-all,글로벌 라운드 종료
+관리자,ADMIN-003,다음 라운드 오픈,새로운 글로벌 라운드 시작,High,완료,admin/page.tsx,POST /admin/open-next-round,모든 룸 OPEN 상태
+관리자,ADMIN-004,출금 요청 목록,대기 중인 출금 요청 조회,High,완료,admin/page.tsx,GET /admin/withdrawals,테이블 형태
+관리자,ADMIN-005,출금 승인,출금 요청 승인 및 온체인 전송,High,완료,admin/page.tsx,POST /admin/withdrawals/approve,트랜잭션 해시 반환
+관리자,ADMIN-006,룰렛 상태 모니터링,현재 룰렛 라운드 상태 조회,Medium,완료,admin/page.tsx,GET /api/roulette/current,5초마다 자동 새로고침
+관리자,ADMIN-007,룰렛 추첨 실행,룰렛 수동 추첨 실행,High,완료,admin/page.tsx,POST /api/roulette/draw,당첨자 발표 및 배당
+관리자,ADMIN-008,룰렛 결과 조회,최근 룰렛 결과 조회,Medium,완료,admin/page.tsx,GET /api/roulette/result,당첨 번호/타입 표시
+관리자,ADMIN-009,룰렛 애니메이션 테스트,특정 숫자로 애니메이션 테스트,Low,완료,admin/page.tsx,POST /api/roulette/test-animation,1-10 숫자 선택
+관리자,ADMIN-010,애니메이션 중지,테스트 애니메이션 중지,Low,완료,admin/page.tsx,DELETE /api/roulette/test-status,테스트 결과 삭제
+UI/UX,UI-001,반응형 디자인,모바일/데스크톱 대응,High,완료,전체,-,Tailwind md: 브레이크포인트
+UI/UX,UI-002,다크 테마,다크 모드 UI,Medium,완료,전체,-,#1a1a2e 배경
+UI/UX,UI-003,그라디언트 효과,헤더/텍스트 그라디언트,Low,완료,전체,-,Tailwind gradient 사용
+UI/UX,UI-004,로딩 스피너,트랜잭션 처리 중 표시,Medium,완료,전체,-,회전 애니메이션
+UI/UX,UI-005,호버 효과,버튼 호버 시 색상 변경,Low,완료,전체,-,transition-all 사용
+UI/UX,UI-006,모달 오버레이,모달 배경 어둡게 처리,Medium,완료,전체,-,bg-black/80
+UI/UX,UI-007,비디오 아이콘,룸별 아이콘 비디오 재생,Low,완료,EntrySection.tsx,-,webm 포맷
+UI/UX,UI-008,배경 이미지,고정 배경 이미지,Low,완료,전체,-,bg-fixed
+실시간,REALTIME-001,룸 상태 폴링,3초마다 룸 상태 업데이트,High,완료,room/[roomId]/page.tsx,-,setInterval 사용
+실시간,REALTIME-002,참가자 수 폴링,5초마다 참가자 수 업데이트,Medium,완료,page.tsx,-,메인 페이지
+실시간,REALTIME-003,룰렛 상태 폴링,5초마다 룰렛 상태 업데이트,High,완료,RouletteModal.tsx,-,독립적 폴링
+실시간,REALTIME-004,잔액 이벤트,잔액 변경 시 전역 이벤트 발행,High,완료,전체,balance:update,CustomEvent
+실시간,REALTIME-005,타이머 동기화,서버 시간과 클라이언트 타이머 동기화,Medium,완료,Timer.tsx,-,1초마다 계산
+에러처리,ERROR-001,API 에러 처리,API 요청 실패 시 에러 메시지 표시,High,완료,전체,-,try-catch 사용
+에러처리,ERROR-002,트랜잭션 에러,온체인 트랜잭션 실패 처리,High,완료,MyPageModal.tsx,-,사용자 친화적 메시지
+에러처리,ERROR-003,네트워크 에러,잘못된 네트워크 연결 시 안내,Medium,완료,MyPageModal.tsx,-,Chain ID 확인
+에러처리,ERROR-004,잔액 부족,잔액 부족 시 에러 메시지,High,완료,전체,-,서버 검증
+에러처리,ERROR-005,토큰 만료,JWT 만료 시 자동 로그아웃,High,완료,AuthContext.tsx,-,jwt-decode 사용
+보안,SECURITY-001,JWT 인증,모든 API 요청에 토큰 포함,High,완료,전체,Authorization: Bearer,헤더에 포함
+보안,SECURITY-002,토큰 저장,로컬스토리지에 토큰 저장,High,완료,AuthContext.tsx,-,XSS 주의
+보안,SECURITY-003,입력 검증,사용자 입력값 검증,Medium,완료,전체,-,클라이언트/서버 양쪽
+보안,SECURITY-004,금액 검증,베팅/입출금 금액 검증,High,완료,전체,-,최소/최대 금액
+보안,SECURITY-005,관리자 권한,관리자 페이지 접근 제어,High,진행중,admin/page.tsx,-,백엔드 검증 필요
+성능,PERF-001,코드 스플리팅,페이지별 코드 분할,Medium,완료,전체,-,Next.js 자동 처리
+성능,PERF-002,이미지 최적화,Next.js Image 컴포넌트 사용,Low,진행중,전체,-,일부 적용
+성능,PERF-003,폰트 최적화,Google Fonts 최적화,Low,완료,layout.tsx,-,Geist 폰트
+성능,PERF-004,번들 크기 최적화,불필요한 라이브러리 제거,Medium,진행중,전체,-,지속적 개선
+접근성,A11Y-001,키보드 네비게이션,키보드로 모든 기능 접근,Low,미완료,전체,-,향후 개선
+접근성,A11Y-002,스크린 리더,스크린 리더 지원,Low,미완료,전체,-,ARIA 속성 추가 필요
+접근성,A11Y-003,색상 대비,WCAG 색상 대비 기준 준수,Medium,완료,전체,-,다크 테마 적용
+테스트,TEST-001,단위 테스트,컴포넌트 단위 테스트,Medium,미완료,전체,-,Jest/RTL 도입 필요
+테스트,TEST-002,통합 테스트,API 통합 테스트,Medium,미완료,전체,-,Cypress 도입 고려
+테스트,TEST-003,E2E 테스트,전체 플로우 테스트,Low,미완료,전체,-,Playwright 고려
+개선사항,IMPROVE-001,WebSocket 도입,실시간 양방향 통신,High,미완료,전체,-,폴링 방식 개선
+개선사항,IMPROVE-002,자동 출금,일정 금액 이하 자동 승인,Medium,미완료,admin/page.tsx,-,보안 검토 필요
+개선사항,IMPROVE-003,다국어 지원,i18n 라이브러리 도입,Medium,미완료,전체,-,next-i18next 고려
+개선사항,IMPROVE-004,알림 시스템,당첨/입출금 알림,Medium,미완료,전체,-,Push Notification
+개선사항,IMPROVE-005,통계 대시보드,사용자별 게임 통계,Low,미완료,MyPageModal.tsx,-,차트 라이브러리
+개선사항,IMPROVE-006,소셜 기능,친구 초대/리더보드,Low,미완료,전체,-,소셜 기능 추가
+개선사항,IMPROVE-007,캐싱 전략,React Query 캐싱 최적화,Medium,진행중,전체,-,staleTime 조정
+개선사항,IMPROVE-008,에러 바운더리,전역 에러 처리,Medium,미완료,전체,-,Error Boundary 추가
+개선사항,IMPROVE-009,로딩 상태 개선,Skeleton UI 적용,Low,미완료,전체,-,사용자 경험 개선
+개선사항,IMPROVE-010,PWA 지원,Progressive Web App,Low,미완료,전체,-,모바일 앱처럼 사용

@@ -1,0 +1,121 @@
+ID,카테고리,기능명,상세설명,우선순위,상태,담당모듈,기술스택,비고
+FR-001,에디터 코어,에디터 초기화,컨테이너 지정 및 에디터 인스턴스 생성,High,구현완료,editor/,TypeScript + Backbone,필수 기능
+FR-002,에디터 코어,헤드리스 모드,UI 없이 에디터 로직만 실행,Medium,구현완료,editor/,TypeScript,서버사이드 렌더링용
+FR-003,에디터 코어,자동 렌더링,초기화 시 자동으로 UI 렌더링,High,구현완료,editor/,TypeScript + Backbone,autorender 옵션
+FR-004,에디터 코어,다중 에디터 인스턴스,하나의 페이지에 여러 에디터 생성,Low,구현완료,editor/,TypeScript,editors 배열 관리
+FR-005,블록 관리,블록 추가,새로운 블록을 블록 매니저에 추가,High,구현완료,block_manager/,TypeScript + Backbone,BlockManager.add()
+FR-006,블록 관리,블록 삭제,기존 블록을 블록 매니저에서 제거,Medium,구현완료,block_manager/,TypeScript + Backbone,BlockManager.remove()
+FR-007,블록 관리,블록 렌더링,블록 목록을 UI로 렌더링,High,구현완료,block_manager/view/,Backbone.View,드래그 앤 드롭 지원
+FR-008,블록 관리,블록 카테고리,블록을 카테고리별로 분류,Medium,구현완료,block_manager/model/,TypeScript,Categories 모델
+FR-009,블록 관리,커스텀 블록,사용자 정의 HTML 블록 생성,High,구현완료,block_manager/,TypeScript,content 속성 지원
+FR-010,스타일 관리,스타일 속성 편집,CSS 속성을 비주얼하게 편집,High,구현완료,style_manager/,TypeScript + Backbone,실시간 반영
+FR-011,스타일 관리,스타일 섹터,스타일을 섹터별로 그룹화,Medium,구현완료,style_manager/model/,TypeScript,Sectors 모델
+FR-012,스타일 관리,속성 타입,다양한 입력 타입 지원,High,구현완료,style_manager/model/,TypeScript,"Number, Radio, Select, Slider 등"
+FR-013,스타일 관리,그라디언트 지원,그라디언트 스타일 편집,Low,플러그인,style_manager/,TypeScript,grapesjs-style-gradient
+FR-014,스타일 관리,필터 지원,CSS 필터 속성 편집,Low,플러그인,style_manager/,TypeScript,grapesjs-style-filter
+FR-015,레이어 관리,컴포넌트 계층 표시,DOM 트리 구조를 시각화,High,구현완료,navigator/,TypeScript + Backbone,트리 뷰
+FR-016,레이어 관리,드래그 앤 드롭 재배치,레이어를 드래그하여 순서 변경,High,구현완료,navigator/view/,Backbone.View,DOM 업데이트 연동
+FR-017,레이어 관리,요소 표시/숨김,레이어 가시성 토글,Medium,구현완료,navigator/,TypeScript,visibility 속성
+FR-018,레이어 관리,요소 잠금,레이어 편집 잠금,Medium,구현완료,navigator/,TypeScript,lock 속성
+FR-019,코드 편집,HTML 코드 편집,HTML 코드를 직접 편집,High,구현완료,code_manager/,CodeMirror,실시간 동기화
+FR-020,코드 편집,CSS 코드 편집,CSS 코드를 직접 편집,High,구현완료,code_manager/,CodeMirror,실시간 동기화
+FR-021,코드 편집,코드 하이라이팅,구문 강조 표시,Medium,구현완료,code_manager/,CodeMirror,언어별 지원
+FR-022,코드 편집,코드 포맷팅,코드 자동 정렬,Low,구현완료,code_manager/,codemirror-formatting,beautify
+FR-023,에셋 관리,이미지 업로드,로컬 이미지 파일 업로드,High,구현완료,asset_manager/,TypeScript + Backbone,파일 선택 UI
+FR-024,에셋 관리,원격 URL 추가,외부 URL의 에셋 추가,Medium,구현완료,asset_manager/,TypeScript,URL 입력
+FR-025,에셋 관리,에셋 라이브러리,업로드된 에셋 목록 관리,High,구현완료,asset_manager/model/,TypeScript,Assets 컬렉션
+FR-026,에셋 관리,에셋 삭제,에셋 라이브러리에서 제거,Medium,구현완료,asset_manager/,TypeScript,remove 메서드
+FR-027,에셋 관리,Filestack 통합,Filestack 업로더 사용,Low,플러그인,asset_manager/,TypeScript,grapesjs-plugin-filestack
+FR-028,캔버스,캔버스 렌더링,편집 가능한 캔버스 영역 표시,High,구현완료,canvas/,TypeScript + Backbone,iframe 기반
+FR-029,캔버스,반응형 프레임,다양한 디바이스 크기 시뮬레이션,High,구현완료,canvas/model/,TypeScript,Frames 모델
+FR-030,캔버스,오프셋 표시,선택된 요소의 크기 표시,Medium,구현완료,canvas/,TypeScript,showOffsets 옵션
+FR-031,캔버스,스팟 시스템,드롭 가능한 영역 표시,High,구현완료,canvas/model/,TypeScript,CanvasSpots 모델
+FR-032,캔버스,줌 인/아웃,캔버스 확대/축소,Low,구현예정,canvas/,TypeScript,향후 기능
+FR-033,컴포넌트,컴포넌트 추가,새로운 DOM 컴포넌트 추가,High,구현완료,dom_components/,TypeScript + Backbone,Component 모델
+FR-034,컴포넌트,컴포넌트 삭제,기존 컴포넌트 제거,High,구현완료,dom_components/,TypeScript,remove 메서드
+FR-035,컴포넌트,컴포넌트 복제,컴포넌트 복사,Medium,구현완료,dom_components/,TypeScript,clone 메서드
+FR-036,컴포넌트,컴포넌트 이동,드래그하여 위치 변경,High,구현완료,dom_components/view/,Backbone.View,드래그 앤 드롭
+FR-037,컴포넌트,컴포넌트 타입,다양한 컴포넌트 타입 지원,High,구현완료,dom_components/model/,TypeScript,"text, image, video 등"
+FR-038,컴포넌트,커스텀 컴포넌트,사용자 정의 컴포넌트 타입,Medium,구현완료,dom_components/,TypeScript,타입 확장 가능
+FR-039,컴포넌트,폼 컴포넌트,입력 폼 요소,Medium,플러그인,dom_components/,TypeScript,grapesjs-plugin-forms
+FR-040,컴포넌트,네비게이션 바,네비게이션 컴포넌트,Low,플러그인,dom_components/,TypeScript,grapesjs-navbar
+FR-041,컴포넌트,카운트다운,카운트다운 컴포넌트,Low,플러그인,dom_components/,TypeScript,grapesjs-component-countdown
+FR-042,컴포넌트,슬라이더,이미지 슬라이더 컴포넌트,Low,플러그인,dom_components/,TypeScript,grapesjs-lory-slider
+FR-043,컴포넌트,탭,탭 컴포넌트,Low,플러그인,dom_components/,TypeScript,grapesjs-tabs
+FR-044,컴포넌트,툴팁,툴팁 컴포넌트,Low,플러그인,dom_components/,TypeScript,grapesjs-tooltip
+FR-045,CSS 작성,CSS 규칙 생성,새로운 CSS 규칙 추가,High,구현완료,css_composer/,TypeScript + Backbone,CssRule 모델
+FR-046,CSS 작성,CSS 규칙 편집,기존 CSS 규칙 수정,High,구현완료,css_composer/,TypeScript,속성 업데이트
+FR-047,CSS 작성,CSS 규칙 삭제,CSS 규칙 제거,Medium,구현완료,css_composer/,TypeScript,remove 메서드
+FR-048,CSS 작성,셀렉터 관리,CSS 셀렉터 생성 및 관리,High,구현완료,css_composer/,TypeScript,Selectors 모델
+FR-049,CSS 작성,PostCSS 파싱,PostCSS로 CSS 파싱,Low,플러그인,css_composer/,TypeScript,grapesjs-parser-postcss
+FR-050,디바이스 관리,디바이스 추가,새로운 디바이스 프리셋 추가,Medium,구현완료,device_manager/,TypeScript,Device 모델
+FR-051,디바이스 관리,디바이스 전환,디바이스 간 전환,High,구현완료,device_manager/,TypeScript,반응형 테스트
+FR-052,디바이스 관리,커스텀 디바이스,사용자 정의 디바이스 크기,Medium,구현완료,device_manager/,TypeScript,width/height 설정
+FR-053,명령어,실행 취소,이전 작업 취소,High,구현완료,undo_manager/,backbone-undo,Ctrl+Z
+FR-054,명령어,다시 실행,취소한 작업 다시 실행,High,구현완료,undo_manager/,backbone-undo,Ctrl+Shift+Z
+FR-055,명령어,복사/붙여넣기,컴포넌트 복사 및 붙여넣기,High,구현완료,commands/,TypeScript,클립보드 관리
+FR-056,명령어,선택,컴포넌트 선택,High,구현완료,commands/,TypeScript,select 명령
+FR-057,명령어,미리보기,편집 모드 토글,Medium,구현완료,commands/,TypeScript,preview 명령
+FR-058,명령어,전체화면,전체화면 모드,Low,구현완료,commands/,TypeScript,fullscreen 명령
+FR-059,명령어,커스텀 명령,사용자 정의 명령 추가,Medium,구현완료,commands/,TypeScript,Commands.add()
+FR-060,스토리지,로컬 스토리지,브라우저 로컬 스토리지 저장,High,구현완료,storage_manager/,TypeScript,localStorage API
+FR-061,스토리지,원격 스토리지,서버에 데이터 저장,High,구현완료,storage_manager/,TypeScript,AJAX 요청
+FR-062,스토리지,자동 저장,주기적 자동 저장,Medium,구현완료,storage_manager/,TypeScript,autoload 옵션
+FR-063,스토리지,IndexedDB,IndexedDB 스토리지,Low,플러그인,storage_manager/,TypeScript,grapesjs-indexeddb
+FR-064,스토리지,Firestore,Firebase Firestore 연동,Low,플러그인,storage_manager/,TypeScript,grapesjs-firestore
+FR-065,페이지 관리,페이지 추가,새로운 페이지 생성,High,구현완료,pages/,TypeScript,Page 모델
+FR-066,페이지 관리,페이지 삭제,기존 페이지 제거,Medium,구현완료,pages/,TypeScript,remove 메서드
+FR-067,페이지 관리,페이지 전환,페이지 간 전환,High,구현완료,pages/,TypeScript,select 메서드
+FR-068,페이지 관리,페이지 복제,페이지 복사,Medium,구현완료,pages/,TypeScript,clone 메서드
+FR-069,페이지 관리,다중 페이지 내보내기,모든 페이지 HTML/CSS 추출,Medium,구현완료,pages/,TypeScript,getAll() 메서드
+FR-070,패널,패널 추가,새로운 UI 패널 추가,Medium,구현완료,panels/,TypeScript,Panel 모델
+FR-071,패널,패널 제거,기존 패널 제거,Medium,구현완료,panels/,TypeScript,removePanel 메서드
+FR-072,패널,버튼 추가,패널에 버튼 추가,Medium,구현완료,panels/model/,TypeScript,Button 모델
+FR-073,패널,커스텀 패널,사용자 정의 패널 생성,Low,구현완료,panels/,TypeScript,Panels.add()
+FR-074,셀렉터,셀렉터 추가,새로운 CSS 셀렉터 추가,High,구현완료,selector_manager/,TypeScript,Selector 모델
+FR-075,셀렉터,셀렉터 삭제,기존 셀렉터 제거,Medium,구현완료,selector_manager/,TypeScript,remove 메서드
+FR-076,셀렉터,클래스 자동완성,클래스명 자동완성,Low,플러그인,selector_manager/,TypeScript,grapesjs-ui-suggest-classes
+FR-077,셀렉터,상태 관리,hover/active 등 상태 관리,Medium,구현완료,selector_manager/model/,TypeScript,State 모델
+FR-078,속성 관리,속성 추가,컴포넌트 속성 추가,High,구현완료,trait_manager/,TypeScript,Trait 모델
+FR-079,속성 관리,속성 편집,컴포넌트 속성 수정,High,구현완료,trait_manager/,TypeScript,속성 업데이트
+FR-080,속성 관리,속성 타입,다양한 속성 타입 지원,Medium,구현완료,trait_manager/model/,TypeScript,"text, number, checkbox 등"
+FR-081,리치 텍스트,텍스트 편집,인라인 텍스트 편집,High,구현완료,rich_text_editor/,TypeScript,contenteditable
+FR-082,리치 텍스트,포맷팅,텍스트 스타일 적용,Medium,구현완료,rich_text_editor/,TypeScript,"bold, italic 등"
+FR-083,리치 텍스트,CKEditor 통합,CKEditor로 대체,Low,플러그인,rich_text_editor/,TypeScript,grapesjs-plugin-ckeditor
+FR-084,모달,모달 열기,모달 다이얼로그 표시,Medium,구현완료,modal_dialog/,TypeScript,Modal 모델
+FR-085,모달,모달 닫기,모달 다이얼로그 숨김,Medium,구현완료,modal_dialog/,TypeScript,close 메서드
+FR-086,모달,커스텀 컨텐츠,모달에 커스텀 HTML 표시,Medium,구현완료,modal_dialog/,TypeScript,setContent 메서드
+FR-087,키맵,단축키 추가,새로운 키보드 단축키 등록,Medium,구현완료,keymaps/,TypeScript,Keymaps.add()
+FR-088,키맵,단축키 제거,기존 단축키 제거,Low,구현완료,keymaps/,TypeScript,remove 메서드
+FR-089,키맵,단축키 실행,키 입력 시 명령 실행,High,구현완료,keymaps/,TypeScript,이벤트 리스너
+FR-090,플러그인,플러그인 로드,플러그인 초기화 및 로드,High,구현완료,plugin_manager/,TypeScript,plugins 배열
+FR-091,플러그인,플러그인 옵션,플러그인별 설정 전달,Medium,구현완료,plugin_manager/,TypeScript,pluginsOpts 객체
+FR-092,플러그인,플러그인 등록,전역 플러그인 등록,Medium,구현완료,plugin_manager/,TypeScript,plugins.add()
+FR-093,플러그인,usePlugin 헬퍼,플러그인 사용 헬퍼 함수,Low,구현완료,plugin_manager/,TypeScript,usePlugin()
+FR-094,국제화,언어 설정,UI 언어 변경,Medium,구현완료,i18n/,TypeScript,locale 설정
+FR-095,국제화,번역 추가,새로운 언어 번역 추가,Low,구현완료,i18n/locale/,JSON,locale 파일
+FR-096,파서,HTML 파싱,HTML 문자열을 컴포넌트로 변환,High,구현완료,parser/,TypeScript,DOMParser
+FR-097,파서,CSS 파싱,CSS 문자열을 규칙으로 변환,High,구현완료,parser/,TypeScript,CSS 파서
+FR-098,내보내기,HTML 내보내기,컴포넌트를 HTML로 변환,High,구현완료,editor/,TypeScript,getHtml()
+FR-099,내보내기,CSS 내보내기,스타일을 CSS로 변환,High,구현완료,editor/,TypeScript,getCss()
+FR-100,내보내기,JSON 내보내기,프로젝트를 JSON으로 저장,High,구현완료,editor/,TypeScript,getProjectData()
+FR-101,내보내기,ZIP 내보내기,프로젝트를 ZIP으로 다운로드,Low,플러그인,editor/,TypeScript,grapesjs-plugin-export
+FR-102,가져오기,HTML 가져오기,HTML을 컴포넌트로 로드,High,구현완료,editor/,TypeScript,setComponents()
+FR-103,가져오기,CSS 가져오기,CSS를 스타일로 로드,High,구현완료,editor/,TypeScript,setStyle()
+FR-104,가져오기,JSON 가져오기,JSON에서 프로젝트 복원,High,구현완료,editor/,TypeScript,loadProjectData()
+FR-105,터치,터치 이벤트,모바일 터치 지원,Low,플러그인,canvas/,TypeScript,grapesjs-touch
+FR-106,심볼,심볼 생성,재사용 가능한 심볼 생성,Low,플러그인,dom_components/,TypeScript,grapesjs-symbols
+FR-107,심볼,심볼 동기화,심볼 인스턴스 동기화,Low,플러그인,dom_components/,TypeScript,grapesjs-symbols
+FR-108,폰트,폰트 추가,커스텀 폰트 추가,Low,플러그인,style_manager/,TypeScript,grapesjs-fonts
+FR-109,폰트,폰트 관리,폰트 라이브러리 관리,Low,플러그인,style_manager/,TypeScript,grapesjs-fonts
+FR-110,프리셋,웹페이지 프리셋,웹페이지 빌더 설정,Medium,플러그인,editor/,TypeScript,grapesjs-preset-webpage
+FR-111,프리셋,뉴스레터 프리셋,뉴스레터 빌더 설정,Medium,플러그인,editor/,TypeScript,grapesjs-preset-newsletter
+FR-112,프리셋,MJML 프리셋,MJML 뉴스레터 빌더,Low,플러그인,editor/,TypeScript,grapesjs-mjml
+FR-113,이미지 편집,이미지 크롭,이미지 자르기,Low,플러그인,asset_manager/,TypeScript,grapesjs-tui-image-editor
+FR-114,이미지 편집,이미지 필터,이미지 필터 적용,Low,플러그인,asset_manager/,TypeScript,grapesjs-tui-image-editor
+FR-115,커스텀 코드,코드 임베드,HTML/JS 코드 임베드,Medium,플러그인,dom_components/,TypeScript,grapesjs-custom-code
+FR-116,Flexbox,Flexbox 블록,Flexbox 레이아웃 블록,Medium,플러그인,block_manager/,TypeScript,grapesjs-blocks-flexbox
+FR-117,애니메이션,Typed.js 통합,타이핑 애니메이션,Low,플러그인,dom_components/,TypeScript,grapesjs-typed
+FR-118,React,React 래퍼,React 컴포넌트로 사용,Medium,플러그인,editor/,React,@grapesjs/react
+FR-119,성능,지연 로딩,컴포넌트 지연 로딩,Low,구현예정,dom_components/,TypeScript,향후 기능
+FR-120,성능,가상 스크롤,대량 컴포넌트 최적화,Low,구현예정,dom_components/,TypeScript,향후 기능

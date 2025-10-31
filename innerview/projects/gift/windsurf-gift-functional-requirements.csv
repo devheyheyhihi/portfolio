@@ -1,0 +1,141 @@
+번호,대분류,중분류,기능명,기능설명,우선순위,상태,담당자,비고
+1,인증/권한,OAuth 인증,Cafe24 OAuth 연동,Cafe24 쇼핑몰과 OAuth 2.0 인증 연동,높음,완료,Backend,HMAC 검증 포함
+2,인증/권한,OAuth 인증,Access Token 관리,Access Token 발급 및 저장,높음,완료,Backend,GiftMall 테이블에 저장
+3,인증/권한,OAuth 인증,Refresh Token 자동 갱신,만료된 Access Token 자동 갱신,높음,완료,Backend,expires_at 체크
+4,인증/권한,OAuth 인증,HMAC 요청 검증,Cafe24 요청의 HMAC SHA256 검증,높음,완료,Backend,보안 강화
+5,인증/권한,관리자 인증,로그인 기능,관리자 로그인 (Passport Local),높음,완료,Backend,bcrypt 비밀번호 해싱
+6,인증/권한,관리자 인증,세션 관리,Express Session 기반 세션 관리,높음,완료,Backend,Remember Me 지원
+7,인증/권한,권한 관리,권한 확인,사용자 권한 확인 미들웨어,중간,완료,Backend,auth.js 유틸리티
+8,인증/권한,권한 관리,권한 설정 페이지,관리자 권한 설정 UI,낮음,완료,Frontend,/permission 경로
+9,주문 관리,주문 조회,주문 목록 조회,선물 주문 목록 조회 (페이징),높음,완료,Backend,DataTables 연동
+10,주문 관리,주문 조회,주문 검색,주문 ID/상품명/수령인 검색,높음,완료,Backend,LIKE 검색
+11,주문 관리,주문 조회,날짜 범위 검색,주문 날짜 기준 범위 검색,높음,완료,Backend,시작일/종료일
+12,주문 관리,주문 조회,상태별 필터링,작성완료/미작성 상태 필터,높음,완료,Backend,is_written 플래그
+13,주문 관리,주문 조회,주문 상세 정보,개별 주문 상세 정보 조회,높음,완료,Backend,Cafe24 API 연동
+14,주문 관리,주문 처리,주문 정보 수신,Cafe24 Webhook으로 주문 수신,높음,완료,Backend,실시간 동기화
+15,주문 관리,주문 처리,주문 데이터 저장,GiftOrder 테이블에 주문 저장,높음,완료,Backend,Sequelize ORM
+16,주문 관리,주문 처리,주문 취소 감지,취소된 주문 자동 감지,높음,완료,Backend,is_deny 플래그 설정
+17,주문 관리,주문 처리,주문 보류 관리,신규 주문 자동 보류 처리,높음,완료,Backend,is_hold 기본값 T
+18,배송 관리,배송지 관리,배송지 주소 변경,관리자가 배송지 주소 변경,높음,완료,Backend,Cafe24 API 호출
+19,배송 관리,배송지 관리,우편번호 변경,배송지 우편번호 변경,높음,완료,Backend,주소 변경 포함
+20,배송 관리,배송지 관리,주소 작성 여부 감지,Cafe24에서 주소 작성 자동 감지,높음,완료,Backend,배치 작업
+21,배송 관리,배송지 관리,주소 작성 완료 처리,작성 완료 시 is_written 업데이트,높음,완료,Backend,자동화
+22,배송 관리,배송 상태,배송 상태 조회,현재 배송 상태 조회,높음,완료,Backend,Cafe24 API
+23,배송 관리,배송 상태,배송 상태 동기화,배송 상태 자동 동기화 (배치),높음,완료,Backend,shippingStatusJob
+24,배송 관리,배송 상태,배송 전 주문 관리,배송 전(F) 주문 상태 업데이트,높음,완료,Backend,주기적 실행
+25,배송 관리,배송 상태,배송 보류 주문 관리,배송 보류(W) 주문 상태 업데이트,높음,완료,Backend,주기적 실행
+26,배송 관리,보류 관리,주문 보류,주문을 보류 상태로 변경,높음,완료,Backend,hold API
+27,배송 관리,보류 관리,보류 해제,주문 보류 해제,높음,완료,Backend,unhold API
+28,배송 관리,보류 관리,자동 보류 해제,주소 작성 시 자동 보류 해제,높음,완료,Backend,배치 작업
+29,알림 관리,알림톡 발송,배송 정보 알림,배송 정보 알림톡 발송,중간,완료,Backend,alertTalk.js
+30,알림 관리,알림톡 발송,선물 배송 안내,선물 배송 안내 알림톡,중간,완료,Backend,수령인에게 발송
+31,알림 관리,알림톡 발송,선물 거절 안내,선물 거절 안내 알림톡,중간,완료,Backend,구매자에게 발송
+32,알림 관리,알림톡 발송,선물 메시지 전달,선물 메시지 알림톡 전달,중간,완료,Backend,수령인에게 발송
+33,알림 관리,이메일 발송,이메일 알림,Nodemailer 기반 이메일 발송,낮음,완료,Backend,선택적 사용
+34,API 연동,Cafe24 API,상품 정보 조회,Cafe24 상품 정보 조회,중간,완료,Backend,mall.read_product
+35,API 연동,Cafe24 API,카테고리 조회,상품 카테고리 조회,낮음,완료,Backend,mall.read_category
+36,API 연동,Cafe24 API,브랜드 정보 조회,브랜드/제조사 정보 조회,낮음,완료,Backend,mall.read_collection
+37,API 연동,Cafe24 API,공급사 정보 조회,공급사 정보 조회,낮음,완료,Backend,mall.read_supply
+38,API 연동,Cafe24 API,회원 정보 조회,쇼핑몰 회원 정보 조회,중간,완료,Backend,mall.read_customer
+39,API 연동,Cafe24 API,쿠폰 정보 조회,쿠폰/혜택 정보 조회,낮음,완료,Backend,mall.read_promotion
+40,API 연동,Cafe24 API,배송 설정 조회,배송/반품 설정 조회,중간,완료,Backend,mall.read_shipping
+41,API 연동,Cafe24 API,배송 설정 변경,배송/반품 설정 변경,중간,완료,Backend,mall.write_shipping
+42,API 연동,Cafe24 API,앱 설치 관리,Cafe24 앱 설치 정보 관리,중간,완료,Backend,mall.write_application
+43,API 연동,Cafe24 API,Rate Limiting 처리,API 호출 간격 제어 (1초),높음,완료,Backend,sleep 함수 사용
+44,API 연동,Webhook,주문 생성 Webhook,신규 주문 생성 Webhook 수신,높음,완료,Backend,/hook 경로
+45,API 연동,Webhook,주문 변경 Webhook,주문 정보 변경 Webhook 수신,중간,완료,Backend,실시간 동기화
+46,데이터베이스,주문 데이터,GiftOrder 모델,선물 주문 데이터 모델,높음,완료,Backend,Sequelize 모델
+47,데이터베이스,주문 데이터,주문 생성,신규 주문 데이터 생성,높음,완료,Backend,beforeCreate Hook
+48,데이터베이스,주문 데이터,주문 수정,주문 데이터 수정,높음,완료,Backend,beforeUpdate Hook
+49,데이터베이스,주문 데이터,주문 조회,주문 데이터 조회 (필터링),높음,완료,Backend,findAndCountAll
+50,데이터베이스,쇼핑몰 데이터,GiftMall 모델,쇼핑몰 정보 데이터 모델,높음,완료,Backend,OAuth 토큰 저장
+51,데이터베이스,쇼핑몰 데이터,토큰 저장,OAuth 토큰 저장,높음,완료,Backend,access_token/refresh_token
+52,데이터베이스,쇼핑몰 데이터,토큰 업데이트,OAuth 토큰 업데이트,높음,완료,Backend,자동 갱신 시
+53,데이터베이스,CRM 데이터,CRM 모델,고객 관계 관리 데이터 모델,중간,완료,Backend,Crm 모델
+54,데이터베이스,CRM 데이터,CRM 관심사 모델,고객 관심사 데이터 모델,중간,완료,Backend,CrmInterest 모델
+55,데이터베이스,CRM 데이터,CRM 관계 설정,Crm-CrmInterest 관계,중간,완료,Backend,belongsTo/hasMany
+56,데이터베이스,활성화 데이터,Activate 모델,활성화 데이터 모델,낮음,완료,Backend,기능 활성화 관리
+57,데이터베이스,활성화 데이터,ActivateLog 모델,활성화 로그 데이터 모델,낮음,완료,Backend,로그 기록
+58,데이터베이스,상품 데이터,Product 모델,상품 데이터 모델,중간,완료,Backend,상품 정보 저장
+59,데이터베이스,주문 데이터,Order 모델,일반 주문 데이터 모델,중간,완료,Backend,일반 주문 관리
+60,배치 작업,스케줄링,Bree 설정,Bree 스케줄러 설정,높음,완료,Backend,bree.config.js
+61,배치 작업,스케줄링,배송 상태 Job,배송 상태 동기화 Job,높음,완료,Backend,shippingStatusJob.js
+62,배치 작업,스케줄링,Cron Job,정기 실행 Cron Job,중간,완료,Backend,cronJob.js
+63,배치 작업,스케줄링,Job 실행 관리,배치 작업 실행 관리,높음,완료,Backend,bree.js
+64,배치 작업,데이터 동기화,미배송 주문 동기화,배송 전/보류 주문 상태 동기화,높음,완료,Backend,주기적 실행
+65,배치 작업,데이터 동기화,미작성 주문 동기화,주소 미작성 주문 동기화,높음,완료,Backend,주기적 실행
+66,로깅,Winston,로그 설정,Winston 로거 설정,높음,완료,Backend,winston.js
+67,로깅,Winston,일별 로그 로테이션,일별 로그 파일 로테이션,높음,완료,Backend,winston-daily-rotate-file
+68,로깅,Winston,Info 로그,정보성 로그 기록,중간,완료,Backend,logger.info
+69,로깅,Winston,Error 로그,에러 로그 기록,높음,완료,Backend,logger.error
+70,로깅,Morgan,HTTP 로그,HTTP 요청/응답 로그,중간,완료,Backend,morgan 미들웨어
+71,프론트엔드,UI,선물 관리 페이지,선물 주문 관리 UI,높음,완료,Frontend,/gift 경로
+72,프론트엔드,UI,DataTables 연동,주문 목록 DataTables 표시,높음,완료,Frontend,서버사이드 페이징
+73,프론트엔드,UI,검색 폼,주문 검색 폼 UI,높음,완료,Frontend,날짜/키워드 검색
+74,프론트엔드,UI,주소 변경 모달,배송지 주소 변경 모달,높음,완료,Frontend,팝업 형태
+75,프론트엔드,UI,로그인 페이지,관리자 로그인 페이지,높음,완료,Frontend,/login 경로
+76,프론트엔드,UI,권한 설정 페이지,권한 설정 UI,낮음,완료,Frontend,/permission 경로
+77,프론트엔드,UI,비밀번호 변경 페이지,비밀번호 변경 UI,중간,완료,Frontend,/change_pw 경로
+78,프론트엔드,템플릿,Handlebars 레이아웃,HBS 레이아웃 템플릿,높음,완료,Frontend,layout.hbs
+79,프론트엔드,템플릿,Handlebars 파셜,HBS 파셜 템플릿,중간,완료,Frontend,header.hbs 등
+80,프론트엔드,템플릿,알림톡 템플릿,알림톡 메시지 템플릿,중간,완료,Frontend,alertTalk/*.hbs
+81,프론트엔드,스타일,CSS 스타일,커스텀 CSS 스타일,중간,완료,Frontend,JUI/Database/Review
+82,프론트엔드,스타일,반응형 디자인,모바일 반응형 지원,낮음,미완료,Frontend,개선 필요
+83,보안,암호화,비밀번호 해싱,bcrypt 비밀번호 해싱,높음,완료,Backend,bcrypt 5.1.0
+84,보안,암호화,데이터 암호화,crypto-js 데이터 암호화,중간,완료,Backend,민감 정보 보호
+85,보안,검증,HMAC 검증,요청 HMAC SHA256 검증,높음,완료,Backend,Cafe24 요청 검증
+86,보안,세션,세션 보안,세션 시크릿 키 관리,높음,완료,Backend,환경 변수
+87,보안,CORS,CORS 설정,Cross-Origin 요청 처리,중간,완료,Backend,cors 미들웨어
+88,보안,HTTPS,HTTPS 통신,프로덕션 HTTPS 적용,높음,완료,Infra,SSL 인증서
+89,배포,PM2,프로세스 관리,PM2 프로세스 관리,높음,완료,DevOps,ecosystem.config.js
+90,배포,PM2,자동 재시작,프로세스 자동 재시작,높음,완료,DevOps,autorestart: true
+91,배포,PM2,로그 관리,PM2 로그 관리,중간,완료,DevOps,pm2 logs
+92,배포,PM2,모니터링,PM2 모니터링,중간,완료,DevOps,pm2 monit
+93,배포,Git,Git 배포,Git 기반 자동 배포,높음,완료,DevOps,post-deploy 스크립트
+94,배포,서버,EC2 배포,AWS EC2 서버 배포,높음,완료,Infra,tkr-ec-01.kr
+95,배포,서버,SSH 접속,SSH 키 기반 접속,높음,완료,Infra,thermos-ssh.pem
+96,배포,환경 변수,개발 환경 설정,개발 환경 변수 설정,높음,완료,DevOps,ecosystem.config.js
+97,배포,환경 변수,프로덕션 환경 설정,프로덕션 환경 변수 설정,높음,완료,DevOps,env_production
+98,설정,데이터베이스,DB 연결 설정,MariaDB 연결 설정,높음,완료,Backend,config/config.js
+99,설정,데이터베이스,Connection Pool,DB Connection Pool 설정,중간,완료,Backend,Sequelize 설정
+100,설정,미들웨어,Body Parser,JSON/URL-encoded 파싱,높음,완료,Backend,express.json/urlencoded
+101,설정,미들웨어,Cookie Parser,쿠키 파싱 미들웨어,높음,완료,Backend,cookie-parser
+102,설정,미들웨어,Static Files,정적 파일 서빙,높음,완료,Backend,express.static
+103,설정,미들웨어,Flash Messages,플래시 메시지 미들웨어,중간,완료,Backend,connect-flash
+104,설정,미들웨어,File Upload,파일 업로드 처리,중간,완료,Backend,multer/express-fileupload
+105,설정,AWS,S3 연동,AWS S3 파일 저장,중간,완료,Backend,multer-s3
+106,설정,AWS,AWS SDK,AWS SDK 설정,중간,완료,Backend,aws-sdk
+107,에러 처리,HTTP 에러,404 에러 처리,Not Found 에러 처리,높음,완료,Backend,http-errors
+108,에러 처리,HTTP 에러,500 에러 처리,서버 에러 처리,높음,완료,Backend,에러 미들웨어
+109,에러 처리,API 에러,API 에러 로깅,API 에러 로그 기록,높음,완료,Backend,Winston 로거
+110,에러 처리,API 에러,에러 응답,클라이언트 에러 응답,높음,완료,Backend,JSON/Script 응답
+111,에러 처리,데이터베이스,DB 에러 처리,Sequelize 에러 처리,높음,완료,Backend,try-catch
+112,에러 처리,네트워크,네트워크 에러 처리,API 호출 에러 처리,높음,완료,Backend,axios 에러 핸들링
+113,유틸리티,날짜 처리,Moment.js,날짜/시간 포맷팅,중간,완료,Backend,moment 2.29.1
+114,유틸리티,데이터 처리,Lodash,데이터 조작 유틸리티,낮음,완료,Backend,lodash 4.17.21
+115,유틸리티,파일 처리,Glob,파일 패턴 매칭,중간,완료,Backend,라우트 자동 로드
+116,유틸리티,쿼리 처리,QS,쿼리스트링 파싱,중간,완료,Backend,qs 6.10.3
+117,유틸리티,MIME 타입,MIME Types,MIME 타입 처리,낮음,완료,Backend,mime-types
+118,개선 사항,보안,CORS 제한,특정 도메인 CORS 제한,높음,미완료,Backend,보안 강화 필요
+119,개선 사항,보안,.env 파일 분리,환경 변수 .env 파일 분리,높음,미완료,Backend,보안 강화 필요
+120,개선 사항,보안,Rate Limiting,API Rate Limiting 미들웨어,중간,미완료,Backend,DDoS 방지
+121,개선 사항,성능,DB 인덱스 최적화,데이터베이스 인덱스 최적화,중간,미완료,Backend,성능 개선
+122,개선 사항,성능,API 응답 캐싱,API 응답 캐싱 구현,중간,미완료,Backend,성능 개선
+123,개선 사항,성능,배치 병렬 처리,배치 작업 병렬 처리,낮음,미완료,Backend,성능 개선
+124,개선 사항,성능,Connection Pool 최적화,DB Connection Pool 최적화,중간,미완료,Backend,성능 개선
+125,개선 사항,코드 품질,TypeScript 도입,TypeScript 마이그레이션,낮음,미완료,Backend,타입 안정성
+126,개선 사항,코드 품질,ESLint 설정,ESLint 코드 린팅,중간,미완료,Backend,코드 품질
+127,개선 사항,코드 품질,Prettier 설정,Prettier 코드 포맷팅,중간,미완료,Backend,코드 품질
+128,개선 사항,코드 품질,단위 테스트,Jest/Mocha 단위 테스트,중간,미완료,Backend,테스트 커버리지
+129,개선 사항,코드 품질,API 문서화,Swagger API 문서화,중간,미완료,Backend,개발자 경험
+130,개선 사항,기능,실시간 알림,WebSocket 실시간 알림,낮음,미완료,Backend,사용자 경험
+131,개선 사항,기능,통계 대시보드,주문 통계 대시보드,중간,미완료,Frontend,데이터 시각화
+132,개선 사항,기능,엑셀 내보내기,주문 데이터 엑셀 내보내기,중간,미완료,Backend,데이터 관리
+133,개선 사항,기능,일괄 주소 변경,여러 주문 일괄 주소 변경,낮음,미완료,Backend,효율성 개선
+134,개선 사항,기능,주문 이력 관리,주문 변경 이력 추적,낮음,미완료,Backend,감사 추적
+135,개선 사항,UI/UX,모바일 최적화,모바일 UI/UX 최적화,중간,미완료,Frontend,사용자 경험
+136,개선 사항,UI/UX,다크 모드,다크 모드 지원,낮음,미완료,Frontend,사용자 경험
+137,개선 사항,UI/UX,다국어 지원,i18n 다국어 지원,낮음,미완료,Frontend,글로벌 확장
+138,개선 사항,모니터링,APM 도입,Application Performance Monitoring,중간,미완료,DevOps,성능 모니터링
+139,개선 사항,모니터링,에러 트래킹,Sentry 에러 트래킹,중간,미완료,DevOps,에러 관리
+140,개선 사항,모니터링,로그 분석,ELK Stack 로그 분석,낮음,미완료,DevOps,로그 관리

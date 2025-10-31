@@ -1,0 +1,135 @@
+카테고리,기능ID,기능명,상세설명,우선순위,구현상태,관련모델,관련라우트,비고
+사용자관리,USER-001,회원가입,사용자 정보를 입력받아 신규 회원 등록,High,구현완료,USER_INFO,/login,이메일/소셜 로그인 지원
+사용자관리,USER-002,로그인,username/password 기반 로그인,High,구현완료,USER_INFO,/login,Passport.js Local Strategy 사용
+사용자관리,USER-003,로그아웃,세션 종료 및 로그아웃 처리,High,구현완료,USER_INFO,/login,
+사용자관리,USER-004,자동로그인,Remember Me 토큰 기반 자동 로그인,Medium,미구현,USER_INFO,/login,코드는 있으나 주석처리됨
+사용자관리,USER-005,회원정보 수정,프로필 정보 수정 (이름/이메일/주소 등),High,구현완료,USER_INFO,/myPage,
+사용자관리,USER-006,비밀번호 변경,기존 비밀번호 확인 후 새 비밀번호 설정,High,구현완료,USER_INFO,/myPage,보안 강화 필요 (해싱)
+사용자관리,USER-007,회원탈퇴,회원 탈퇴 처리 (soft delete),Medium,구현완료,USER_INFO,/myPage,isdelete 플래그 사용
+사용자관리,USER-008,마이페이지,사용자 정보 및 학습 현황 조회,High,구현완료,USER_INFO,/myPage,
+사용자관리,USER-009,로그인 이력 관리,최근 로그인 날짜 기록,Low,구현완료,USER_INFO,/login,lastlogindate 필드
+사용자관리,USER-010,사용자 로그 기록,사용자 활동 로그 저장,Medium,구현완료,log_user,/api,
+
+레슨관리,LESSON-001,레슨 목록 조회,카테고리/테마/시리즈별 레슨 목록,High,구현완료,"LESSON,l_category,l_series,l_thema",/lesson,
+레슨관리,LESSON-002,레슨 상세 조회,레슨 상세 정보 및 스크립트 조회,High,구현완료,"LESSON,l_script,l_unit",/lesson,
+레슨관리,LESSON-003,레슨 검색,키워드/태그 기반 레슨 검색,High,구현완료,"LESSON,l_tag",/lesson,
+레슨관리,LESSON-004,레슨 필터링,레벨/카테고리/테마별 필터링,High,구현완료,LESSON,/lesson,
+레슨관리,LESSON-005,신규 레슨 표시,최근 등록된 레슨 표시,Medium,구현완료,LESSON,/lesson,is_new 플래그
+레슨관리,LESSON-006,베스트 레슨 표시,인기 레슨 표시,Medium,구현완료,LESSON,/lesson,is_best 플래그
+레슨관리,LESSON-007,레슨 조회수 증가,레슨 조회 시 카운트 증가,Low,구현완료,LESSON,/lesson,cnt_view 필드
+레슨관리,LESSON-008,레슨 북마크,관심 레슨 북마크 추가/삭제,Medium,구현완료,"h_bookmark,u_bookmark",/lesson,
+레슨관리,LESSON-009,레슨 좋아요,레슨 좋아요 추가/삭제,Medium,구현완료,u_like,/lesson,
+레슨관리,LESSON-010,제작자별 레슨,특정 제작자의 레슨 목록,Medium,구현완료,"LESSON,l_creator",/lesson,
+
+학습콘텐츠,CONTENT-001,리스닝 학습,리스닝 콘텐츠 재생 및 학습,High,구현완료,l_listening,/lesson,
+학습콘텐츠,CONTENT-002,어휘 학습,단어/어휘 학습 기능,High,구현완료,"l_voca,u_voca",/lesson,
+학습콘텐츠,CONTENT-003,카드 학습,플래시카드 방식 학습,Medium,구현완료,l_card,/lesson,
+학습콘텐츠,CONTENT-004,간단 학습,간단한 학습 콘텐츠,Medium,구현완료,"l_simple,l_simple_script",/lesson,
+학습콘텐츠,CONTENT-005,스크립트 보기,레슨 스크립트 표시/숨김,High,구현완료,l_script,/lesson,
+학습콘텐츠,CONTENT-006,선택형 문제,객관식 문제 풀이,High,구현완료,l_choice,/lesson,
+학습콘텐츠,CONTENT-007,유닛별 학습,레슨을 유닛 단위로 학습,High,구현완료,"l_unit,h_unit,u_unit",/lesson,
+학습콘텐츠,CONTENT-008,테마별 학습,테마 기반 학습 콘텐츠,Medium,구현완료,"l_theme,l_theme_tag",/lesson,
+학습콘텐츠,CONTENT-009,STT 음성인식,음성 인식 학습 기능,High,구현완료,"stt_history,u_speak",/lesson,
+학습콘텐츠,CONTENT-010,비디오 학습,비디오 콘텐츠 재생 및 학습,High,구현완료,log_video,/lesson,
+
+학습기록,HISTORY-001,학습 진행률 저장,레슨별 학습 진행 상태 저장,High,구현완료,"history,user_lesson",/lesson,
+학습기록,HISTORY-002,학습 이력 조회,사용자별 학습 이력 조회,High,구현완료,"history,s_history,t_history",/myPage,
+학습기록,HISTORY-003,유닛 완료 기록,유닛별 완료 상태 기록,High,구현완료,h_unit,/lesson,
+학습기록,HISTORY-004,북마크 관리,북마크한 레슨/테마 관리,Medium,구현완료,"h_bookmark,h_bookmark_thema",/myPage,
+학습기록,HISTORY-005,검색 이력,사용자 검색 키워드 저장,Low,구현완료,u_search,/lesson,
+학습기록,HISTORY-006,비디오 시청 로그,비디오 시청 시간 및 완료 여부,Medium,구현완료,log_video,/lesson,
+학습기록,HISTORY-007,평가 기록,레슨 평가 및 피드백,Medium,구현완료,b_evaluate,/lesson,
+학습기록,HISTORY-008,학습 통계,일별/주별/월별 학습 통계,High,구현완료,"history,tag_stat,tag_stat_theme",/myPage,
+학습기록,HISTORY-009,포인트 이력,학습 포인트 적립/사용 이력,Medium,구현완료,p_history,/myPage,
+학습기록,HISTORY-010,지연 학습 관리,복습이 필요한 콘텐츠 관리,Medium,구현완료,"delay_study,s_delay_study",/myPage,
+
+학습계획,PLAN-001,학습 계획 생성,나만의 학습 계획 수립,High,구현완료,myc_plan,/myPage,
+학습계획,PLAN-002,일별 학습 계획,날짜별 학습 목표 설정,High,구현완료,myc_plan_day,/myPage,
+학습계획,PLAN-003,학습 스케줄 관리,학습 일정 관리,High,구현완료,myc_user_schedule,/myPage,
+학습계획,PLAN-004,학습 로그 기록,계획 대비 실제 학습 기록,Medium,구현완료,myc_user_log,/myPage,
+학습계획,PLAN-005,오늘의 학습,오늘 학습할 콘텐츠 추천,High,구현완료,"today,today_thematag",/lesson,
+학습계획,PLAN-006,학습 알림,학습 시간 알림 설정,Medium,구현완료,push,/myPage,
+학습계획,PLAN-007,학습 목표 설정,일일/주간 학습 목표 설정,Medium,구현완료,myc_plan,/myPage,
+학습계획,PLAN-008,진행률 확인,계획 대비 진행률 확인,High,구현완료,myc_user_schedule,/myPage,
+
+챌린지,CHALLENGE-001,챌린지 목록,진행 중인 챌린지 목록,Medium,구현완료,challengr,/lesson,
+챌린지,CHALLENGE-002,챌린지 참여,챌린지 참여 신청,Medium,구현완료,challengr,/lesson,
+챌린지,CHALLENGE-003,챌린지 상세,챌린지 상세 정보 및 규칙,Medium,구현완료,c_detail,/lesson,
+챌린지,CHALLENGE-004,챌린지 진행 기록,챌린지 진행 상황 기록,Medium,구현완료,c_history,/lesson,
+챌린지,CHALLENGE-005,챌린지 완료,챌린지 완료 처리 및 보상,Medium,구현완료,c_history,/lesson,
+
+구독결제,PAYMENT-001,구독 상품 조회,구독 상품 목록 및 가격,High,구현완료,product,/customer,
+구독결제,PAYMENT-002,구독 신청,구독 상품 구매,High,구현완료,"subscribe,orders",/customer,
+구독결제,PAYMENT-003,구독 상태 조회,현재 구독 상태 확인,High,구현완료,subscribe,/myPage,
+구독결제,PAYMENT-004,구독 갱신,구독 자동 갱신 처리,High,구현완료,subscribe,/customer,
+구독결제,PAYMENT-005,구독 취소,구독 해지 처리,High,구현완료,subscribe,/myPage,
+구독결제,PAYMENT-006,결제 내역,결제 이력 조회,High,구현완료,orders,/myPage,
+구독결제,PAYMENT-007,쿠폰 사용,할인 쿠폰 적용,Medium,구현완료,coupon,/customer,
+구독결제,PAYMENT-008,쿠폰 관리,보유 쿠폰 조회 및 관리,Medium,구현완료,coupon,/myPage,
+구독결제,PAYMENT-009,상품 관리,구독 상품 정보 관리,Medium,구현완료,"o_product,s_product",/customer,
+구독결제,PAYMENT-010,포인트 적립,학습 활동 시 포인트 적립,Medium,구현완료,p_history,/lesson,
+
+커뮤니티,COMMUNITY-001,게시판 목록,게시판 목록 조회,Medium,구현완료,board,/customer,
+커뮤니티,COMMUNITY-002,게시글 작성,새 게시글 작성,Medium,구현완료,board,/customer,
+커뮤니티,COMMUNITY-003,게시글 조회,게시글 상세 보기,Medium,구현완료,board,/customer,
+커뮤니티,COMMUNITY-004,게시글 수정,작성한 게시글 수정,Medium,구현완료,board,/customer,
+커뮤니티,COMMUNITY-005,게시글 삭제,작성한 게시글 삭제,Medium,구현완료,board,/customer,
+커뮤니티,COMMUNITY-006,댓글 작성,게시글에 댓글 작성,Low,구현완료,board,/customer,
+
+공통기능,COMMON-001,배너 관리,메인 배너 표시,Low,구현완료,banner,/common,
+공통기능,COMMON-002,푸시 알림,푸시 알림 발송,Medium,구현완료,push,/common,
+공통기능,COMMON-003,설정 관리,앱 설정 정보 관리,Low,구현완료,setting,/common,
+공통기능,COMMON-004,파일 업로드,이미지/파일 업로드,Medium,구현완료,,/common,uploads 디렉토리
+공통기능,COMMON-005,에러 처리,404 및 에러 페이지 표시,High,구현완료,,/,
+공통기능,COMMON-006,세션 관리,사용자 세션 유지,High,구현완료,,/,Express-session
+공통기능,COMMON-007,CORS 처리,Cross-Origin 요청 처리,High,구현완료,,/,CORS 미들웨어
+공통기능,COMMON-008,로깅,HTTP 요청 로그 기록,Medium,구현완료,,/,Morgan 사용
+
+CMS-레슨,CMS-LESSON-001,레슨 등록,새 레슨 콘텐츠 등록,High,구현완료,LESSON,/cms/lesson,
+CMS-레슨,CMS-LESSON-002,레슨 수정,레슨 정보 수정,High,구현완료,LESSON,/cms/lesson,
+CMS-레슨,CMS-LESSON-003,레슨 삭제,레슨 삭제 (soft delete),High,구현완료,LESSON,/cms/lesson,isdelete 플래그
+CMS-레슨,CMS-LESSON-004,레슨 목록 관리,전체 레슨 목록 조회 및 관리,High,구현완료,LESSON,/cms/lesson,
+CMS-레슨,CMS-LESSON-005,레슨 공개/비공개,레슨 공개 상태 설정,High,구현완료,LESSON,/cms/lesson,is_publish 플래그
+CMS-레슨,CMS-LESSON-006,스크립트 관리,레슨 스크립트 등록/수정,High,구현완료,l_script,/cms/lesson,
+CMS-레슨,CMS-LESSON-007,유닛 관리,레슨 유닛 구성 관리,High,구현완료,l_unit,/cms/lesson,
+CMS-레슨,CMS-LESSON-008,카테고리 관리,레슨 카테고리 관리,Medium,구현완료,l_category,/cms/lesson,
+CMS-레슨,CMS-LESSON-009,시리즈 관리,레슨 시리즈 관리,Medium,구현완료,l_series,/cms/lesson,
+CMS-레슨,CMS-LESSON-010,테마 관리,레슨 테마 관리,Medium,구현완료,l_thema,/cms/lesson,
+CMS-레슨,CMS-LESSON-011,태그 관리,레슨 태그 관리,Low,구현완료,l_tag,/cms/lesson,
+CMS-레슨,CMS-LESSON-012,제작자 관리,콘텐츠 제작자 정보 관리,Medium,구현완료,l_creator,/cms/lesson,
+
+CMS-사용자,CMS-USER-001,회원 목록,전체 회원 목록 조회,High,구현완료,USER_INFO,/cms/user,
+CMS-사용자,CMS-USER-002,회원 상세,회원 상세 정보 조회,High,구현완료,USER_INFO,/cms/user,
+CMS-사용자,CMS-USER-003,회원 정보 수정,관리자가 회원 정보 수정,Medium,구현완료,USER_INFO,/cms/user,
+CMS-사용자,CMS-USER-004,회원 삭제,회원 계정 삭제,Medium,구현완료,USER_INFO,/cms/user,
+CMS-사용자,CMS-USER-005,회원 검색,조건별 회원 검색,High,구현완료,USER_INFO,/cms/user,
+CMS-사용자,CMS-USER-006,학습 현황 조회,회원별 학습 현황 조회,Medium,구현완료,"history,user_lesson",/cms/user,
+CMS-사용자,CMS-USER-007,구독 현황 조회,회원별 구독 상태 조회,High,구현완료,subscribe,/cms/user,
+CMS-사용자,CMS-USER-008,관리자 계정 관리,관리자 계정 생성/수정,High,구현완료,user_admin,/cms/user,
+
+CMS-게시판,CMS-BOARD-001,게시판 관리,게시판 생성/수정/삭제,Medium,구현완료,board,/cms/board,
+CMS-게시판,CMS-BOARD-002,게시글 관리,게시글 수정/삭제,Medium,구현완료,board,/cms/board,
+CMS-게시판,CMS-BOARD-003,댓글 관리,댓글 수정/삭제,Low,구현완료,board,/cms/board,
+
+CMS-쇼핑,CMS-SHOP-001,상품 등록,새 구독 상품 등록,High,구현완료,product,/cms/shop,
+CMS-쇼핑,CMS-SHOP-002,상품 수정,상품 정보 수정,High,구현완료,product,/cms/shop,
+CMS-쇼핑,CMS-SHOP-003,상품 삭제,상품 삭제,Medium,구현완료,product,/cms/shop,
+CMS-쇼핑,CMS-SHOP-004,주문 관리,주문 내역 조회 및 관리,High,구현완료,orders,/cms/shop,
+CMS-쇼핑,CMS-SHOP-005,쿠폰 발급,할인 쿠폰 생성 및 발급,Medium,구현완료,coupon,/cms/shop,
+CMS-쇼핑,CMS-SHOP-006,쿠폰 관리,쿠폰 목록 및 사용 현황,Medium,구현완료,coupon,/cms/shop,
+
+CMS-퀴즈,CMS-QUIZ-001,퀴즈 등록,새 퀴즈 문제 등록,Medium,구현완료,l_choice,/cms/quiz,
+CMS-퀴즈,CMS-QUIZ-002,퀴즈 수정,퀴즈 문제 수정,Medium,구현완료,l_choice,/cms/quiz,
+CMS-퀴즈,CMS-QUIZ-003,퀴즈 삭제,퀴즈 문제 삭제,Medium,구현완료,l_choice,/cms/quiz,
+
+CMS-시스템,CMS-MANAGE-001,배너 관리,메인 배너 등록/수정/삭제,Low,구현완료,banner,/cms/manage,
+CMS-시스템,CMS-MANAGE-002,푸시 발송,전체/개별 푸시 알림 발송,Medium,구현완료,push,/cms/manage,
+CMS-시스템,CMS-MANAGE-003,통계 조회,전체 서비스 통계 조회,High,구현완료,"tag_stat,log_user",/cms/manage,
+CMS-시스템,CMS-MANAGE-004,시스템 설정,앱 설정 관리,Medium,구현완료,setting,/cms/manage,
+CMS-시스템,CMS-MANAGE-005,로그 조회,사용자 활동 로그 조회,Medium,구현완료,log_user,/cms/manage,
+
+API,API-001,레슨 API,레슨 데이터 API,High,구현완료,LESSON,/api,RESTful API
+API,API-002,사용자 API,사용자 데이터 API,High,구현완료,USER_INFO,/api,RESTful API
+API,API-003,학습 기록 API,학습 진행 데이터 API,High,구현완료,history,/api,RESTful API
+API,API-004,구독 API,구독 정보 API,High,구현완료,subscribe,/api,RESTful API
+API,API-005,통계 API,학습 통계 데이터 API,Medium,구현완료,tag_stat,/api,RESTful API

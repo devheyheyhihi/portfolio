@@ -1,0 +1,100 @@
+카테고리,기능ID,기능명,상세설명,우선순위,현재상태,담당영역,기술스택,비고
+랜딩페이지,LP-001,헤더 네비게이션,5개 섹션으로 이동하는 네비게이션 메뉴 (HOME/ABOUT/HOW TO GET/TOKENOMICS/ROADMAP),High,완료,Frontend,"React, Tailwind CSS",스무스 스크롤 구현
+랜딩페이지,LP-002,반응형 레이아웃,PC와 모바일 환경에 최적화된 레이아웃 제공,High,완료,Frontend,Tailwind CSS,640px 브레이크포인트
+랜딩페이지,LP-003,Section 1 - HOME,브랜드 로고와 메인 비주얼 표시,High,완료,Frontend,"React, Next.js Image",배경 애니메이션 포함
+랜딩페이지,LP-004,Section 2 - ABOUT,Fire Chicken 코인 소개 및 스토리,High,완료,Frontend,React,브랜드 정보 전달
+랜딩페이지,LP-005,Section 3 - HOW TO GET,토큰 구매 방법 안내 및 Raydium 연동,High,완료,Frontend,"React, External Link",Raydium DEX 바로가기
+랜딩페이지,LP-006,Section 4 - TOKENOMICS,토큰 경제학 및 분배 정보 표시,High,완료,Frontend,React,토큰 분배 차트
+랜딩페이지,LP-007,Section 5 - ROADMAP,프로젝트 로드맵 타임라인 표시,High,완료,Frontend,React,마일스톤 시각화
+랜딩페이지,LP-008,스냅 스크롤,섹션별 전체 화면 스냅 스크롤 기능,Medium,완료,Frontend,CSS Snap Scroll,PC 버전만 적용
+랜딩페이지,LP-009,커스텀 애니메이션,10가지 Tailwind 커스텀 애니메이션 (fadeIn/grow/flyOut/shake 등),Medium,완료,Frontend,Tailwind CSS,tailwind.config.ts 정의
+랜딩페이지,LP-010,호버 효과,네비게이션 및 버튼 호버 시 스케일 변환,Low,완료,Frontend,Tailwind CSS,UX 개선
+랜딩페이지,LP-011,모바일 통합 섹션,모바일 전용 단일 스크롤 페이지,High,완료,Frontend,React,SectionMobile 컴포넌트
+랜딩페이지,LP-012,브랜드 이미지 최적화,WebP 포맷 및 적절한 크기의 이미지 제공,Medium,완료,Frontend,Next.js Image,성능 최적화
+랜딩페이지,LP-013,배경 비디오 애니메이션,섹션별 WebM 포맷 배경 비디오,Low,완료,Frontend,HTML5 Video,시각적 효과
+지갑연동,WL-001,Phantom 지갑 연결,Phantom 지갑 Provider를 통한 지갑 연결,High,완료,Blockchain,@phantom/wallet-sdk,멀티센드 필수 기능
+지갑연동,WL-002,지갑 연결 상태 관리,연결된 지갑의 공개키 상태 관리,High,완료,Blockchain,"React Hooks, @solana/web3.js",useState로 관리
+지갑연동,WL-003,지갑 연결 해제,사용자 요청 시 지갑 연결 해제,Medium,완료,Blockchain,@phantom/wallet-sdk,disconnect 함수
+지갑연동,WL-004,지갑 미설치 감지,Phantom 지갑 미설치 시 안내 메시지,Medium,완료,Blockchain,JavaScript,에러 핸들링
+지갑연동,WL-005,지갑 연결 지속성,페이지 새로고침 시 연결 상태 유지,Low,미완료,Blockchain,LocalStorage,개선 필요
+멀티센드,MS-001,Excel 파일 업로드,수령인 주소와 금액이 포함된 Excel 파일 업로드,High,완료,Frontend,xlsx,파일 파싱
+멀티센드,MS-002,주소 유효성 검증,업로드된 주소의 Solana 주소 형식 검증,High,완료,Blockchain,@solana/web3.js,PublicKey 검증
+멀티센드,MS-003,잘못된 주소 필터링,유효하지 않은 주소 자동 필터링 및 목록 표시,High,완료,Blockchain,@solana/web3.js,filteredAddresses 상태
+멀티센드,MS-004,수령인 목록 표시,업로드된 수령인 주소와 금액 테이블 표시,Medium,완료,Frontend,React,recipients 상태
+멀티센드,MS-005,ATA 존재 여부 확인,각 수령인의 Associated Token Account 존재 확인,High,완료,Blockchain,"@solana/spl-token, @solana/web3.js",getAccountInfo 사용
+멀티센드,MS-006,ATA 자동 생성,ATA가 없는 수령인을 위한 ATA 생성 트랜잭션,High,완료,Blockchain,@solana/spl-token,createAssociatedTokenAccountInstruction
+멀티센드,MS-007,배치 처리 (청크),여러 수령인을 청크 단위로 배치 처리,High,완료,Blockchain,JavaScript,기본 10개씩
+멀티센드,MS-008,청크 크기 조절,사용자가 배치 처리 크기 커스터마이징,Medium,완료,Frontend,React,chunkSize 상태
+멀티센드,MS-009,단일 처리 모드,하나씩 순차적으로 처리하는 모드,Medium,완료,Frontend,React,singleProcessMode 상태
+멀티센드,MS-010,토큰 전송 실행,ATA가 있는 수령인에게 SPL 토큰 전송,High,완료,Blockchain,"@solana/spl-token, @solana/web3.js",createTransferInstruction
+멀티센드,MS-011,진행률 표시,처리 진행 상황을 퍼센트로 표시,Medium,완료,Frontend,React,progress 상태
+멀티센드,MS-012,상태 로그 표시,실시간 처리 상태 메시지 표시,Medium,완료,Frontend,React,status 배열
+멀티센드,MS-013,로딩 애니메이션,처리 중 로딩 점(dots) 애니메이션,Low,완료,Frontend,React,setInterval 사용
+멀티센드,MS-014,처리 중지 기능,진행 중인 작업을 중단할 수 있는 기능,Medium,완료,Frontend,React,stopProcessing 플래그
+멀티센드,MS-015,실패 ATA 추적,ATA 생성 실패한 수령인 목록 관리,High,완료,Blockchain,React,failedATAs 상태
+멀티센드,MS-016,실패 토큰 추적,토큰 전송 실패한 수령인 목록 관리,High,완료,Blockchain,React,failedTokens 상태
+멀티센드,MS-017,성공 토큰 추적,토큰 전송 성공한 수령인 목록 관리,Medium,완료,Blockchain,React,sentTokens 상태
+멀티센드,MS-018,실패 목록 Excel 다운로드,실패한 수령인 목록을 Excel 파일로 다운로드,High,완료,Frontend,xlsx,재시도용
+멀티센드,MS-019,ATA 필터 보기,ATA가 있는 수령인만 표시하는 필터,Low,완료,Frontend,React,validRecipientsOnly 플래그
+멀티센드,MS-020,Compute Budget 설정,트랜잭션 가스비 최적화를 위한 Compute Budget 설정,Medium,완료,Blockchain,@solana/web3.js,ComputeBudgetProgram
+멀티센드,MS-021,트랜잭션 재시도 로직,실패한 트랜잭션 자동 재시도,Medium,부분완료,Blockchain,JavaScript,개선 필요
+멀티센드,MS-022,Step 완료 상태 관리,Step 1(ATA 초기화) 및 Step 2(토큰 전송) 완료 상태,Medium,완료,Frontend,React,isATAInitialized/isStep2Completed
+블록체인,BC-001,Solana RPC 연결,Solana 메인넷/데브넷 RPC 노드 연결,High,완료,Blockchain,@solana/web3.js,Connection 객체
+블록체인,BC-002,SPL 토큰 표준 지원,SPL 토큰 표준에 따른 토큰 전송,High,완료,Blockchain,@solana/spl-token,TOKEN_PROGRAM_ID
+블록체인,BC-003,트랜잭션 서명,Phantom 지갑을 통한 트랜잭션 서명,High,완료,Blockchain,@phantom/wallet-sdk,signAndSendTransaction
+블록체인,BC-004,트랜잭션 확인,전송된 트랜잭션의 컨펌 대기,Medium,완료,Blockchain,@solana/web3.js,confirmTransaction
+블록체인,BC-005,네트워크 에러 핸들링,RPC 노드 에러 및 네트워크 오류 처리,High,완료,Blockchain,JavaScript,try-catch
+블록체인,BC-006,가스비 추정,트랜잭션 가스비 사전 추정,Low,미완료,Blockchain,@solana/web3.js,개선 필요
+UI/UX,UX-001,툴팁 표시,복잡한 기능에 대한 설명 툴팁,Low,완료,Frontend,react-tooltip,사용자 가이드
+UI/UX,UX-002,에러 메시지 표시,사용자 친화적인 에러 메시지,Medium,완료,Frontend,React,alert/toast
+UI/UX,UX-003,성공 메시지 표시,작업 완료 시 성공 메시지,Medium,완료,Frontend,React,피드백 제공
+UI/UX,UX-004,반응형 테이블,모바일에서도 보기 좋은 테이블 레이아웃,Medium,부분완료,Frontend,Tailwind CSS,개선 필요
+UI/UX,UX-005,다크 테마,다크 모드 기반 UI 디자인,Low,완료,Frontend,Tailwind CSS,브랜드 컬러
+UI/UX,UX-006,로딩 스피너,비동기 작업 중 로딩 인디케이터,Medium,완료,Frontend,React,시각적 피드백
+UI/UX,UX-007,버튼 비활성화,처리 중 버튼 비활성화로 중복 클릭 방지,Medium,완료,Frontend,React,disabled 속성
+UI/UX,UX-008,진행 상태 바,시각적 진행률 표시 바,Low,부분완료,Frontend,React,개선 필요
+성능,PF-001,이미지 레이지 로딩,스크롤 시 이미지 지연 로딩,Medium,완료,Frontend,Next.js Image,자동 최적화
+성능,PF-002,코드 스플리팅,페이지별 자동 코드 분할,High,완료,Frontend,Next.js App Router,자동 처리
+성능,PF-003,CSS 애니메이션 최적화,GPU 가속 CSS 애니메이션,Medium,완료,Frontend,Tailwind CSS,transform/opacity 사용
+성능,PF-004,번들 사이즈 최적화,불필요한 의존성 제거 및 트리 쉐이킹,Low,미완료,Frontend,Next.js,개선 필요
+성능,PF-005,캐싱 전략,정적 자산 캐싱 및 API 응답 캐싱,Low,미완료,Frontend/Backend,Next.js,개선 필요
+보안,SC-001,개인키 미접근,사용자 개인키에 직접 접근하지 않음,High,완료,Blockchain,Phantom SDK,지갑 위임
+보안,SC-002,트랜잭션 사용자 승인,모든 트랜잭션은 사용자 승인 필요,High,완료,Blockchain,Phantom SDK,보안 정책
+보안,SC-003,입력값 검증,모든 사용자 입력값 검증,High,완료,Frontend/Blockchain,JavaScript,XSS 방지
+보안,SC-004,HTTPS 사용,프로덕션 환경에서 HTTPS 강제,High,미완료,Infrastructure,Next.js,배포 시 필요
+보안,SC-005,환경변수 관리,민감한 정보 환경변수로 관리,Medium,미완료,Infrastructure,.env,개선 필요
+접근성,AC-001,키보드 네비게이션,키보드만으로 모든 기능 접근 가능,Low,미완료,Frontend,HTML/CSS,개선 필요
+접근성,AC-002,스크린 리더 지원,시각 장애인을 위한 ARIA 레이블,Low,미완료,Frontend,HTML,개선 필요
+접근성,AC-003,색상 대비,WCAG 기준 색상 대비율 준수,Low,부분완료,Frontend,Tailwind CSS,검토 필요
+접근성,AC-004,포커스 인디케이터,포커스 상태 시각적 표시,Low,부분완료,Frontend,CSS,개선 필요
+SEO,SE-001,메타 태그,페이지별 적절한 메타 태그 설정,Medium,부분완료,Frontend,Next.js Metadata,개선 필요
+SEO,SE-002,오픈 그래프,소셜 미디어 공유를 위한 OG 태그,Low,미완료,Frontend,Next.js Metadata,개선 필요
+SEO,SE-003,구조화된 데이터,Schema.org 구조화된 데이터,Low,미완료,Frontend,JSON-LD,개선 필요
+SEO,SE-004,사이트맵,검색 엔진을 위한 sitemap.xml,Low,미완료,Frontend,Next.js,개선 필요
+SEO,SE-005,robots.txt,크롤러 제어를 위한 robots.txt,Low,미완료,Frontend,Next.js,개선 필요
+테스트,TS-001,단위 테스트,컴포넌트 및 함수 단위 테스트,Medium,미완료,Testing,Jest/Vitest,개선 필요
+테스트,TS-002,통합 테스트,페이지 및 기능 통합 테스트,Medium,미완료,Testing,React Testing Library,개선 필요
+테스트,TS-003,E2E 테스트,전체 사용자 플로우 E2E 테스트,Low,미완료,Testing,Playwright/Cypress,개선 필요
+테스트,TS-004,블록체인 테스트,Solana 트랜잭션 테스트 (데브넷),Medium,부분완료,Testing,@solana/web3.js,test-ledger 폴더
+모니터링,MN-001,에러 트래킹,프로덕션 에러 수집 및 알림,Medium,미완료,Infrastructure,Sentry,개선 필요
+모니터링,MN-002,성능 모니터링,페이지 로딩 속도 및 성능 메트릭,Low,미완료,Infrastructure,Vercel Analytics,개선 필요
+모니터링,MN-003,사용자 분석,사용자 행동 및 전환율 분석,Low,미완료,Infrastructure,Google Analytics,개선 필요
+모니터링,MN-004,트랜잭션 로깅,블록체인 트랜잭션 로그 수집,Medium,부분완료,Blockchain,Console.log,구조화 필요
+배포,DP-001,개발 환경 설정,로컬 개발 환경 구성,High,완료,Infrastructure,Node.js/npm,완료
+배포,DP-002,프로덕션 빌드,최적화된 프로덕션 빌드,High,완료,Infrastructure,Next.js,npm run build
+배포,DP-003,CI/CD 파이프라인,자동화된 빌드 및 배포,Medium,미완료,Infrastructure,GitHub Actions,개선 필요
+배포,DP-004,환경별 설정,개발/스테이징/프로덕션 환경 분리,Medium,미완료,Infrastructure,.env,개선 필요
+배포,DP-005,도메인 연결,커스텀 도메인 연결,Low,미완료,Infrastructure,DNS,배포 시 필요
+문서화,DC-001,README 작성,프로젝트 설명 및 설치 가이드,Medium,완료,Documentation,Markdown,기본 README 존재
+문서화,DC-002,API 문서,블록체인 함수 API 문서화,Low,미완료,Documentation,JSDoc,개선 필요
+문서화,DC-003,컴포넌트 문서,React 컴포넌트 사용법 문서,Low,미완료,Documentation,Storybook,개선 필요
+문서화,DC-004,배포 가이드,프로덕션 배포 절차 문서,Medium,미완료,Documentation,Markdown,개선 필요
+문서화,DC-005,기능요구서,현재 문서 - 기능 목록 및 상태,High,완료,Documentation,CSV,현재 파일
+확장기능,EX-001,다국어 지원,한국어/영어 등 다국어 지원,Low,미완료,Frontend,next-intl,향후 개발
+확장기능,EX-002,실시간 가격 표시,토큰 실시간 가격 및 차트,Medium,미완료,Frontend,CoinGecko API,향후 개발
+확장기능,EX-003,트랜잭션 히스토리,사용자별 트랜잭션 히스토리 조회,Medium,미완료,Frontend/Blockchain,Solana Explorer API,향후 개발
+확장기능,EX-004,커뮤니티 링크,소셜 미디어 및 커뮤니티 링크,Low,미완료,Frontend,React,향후 개발
+확장기능,EX-005,NFT 통합,Fire Chicken NFT 컬렉션 연동,Low,미완료,Blockchain,Metaplex,향후 개발
+확장기능,EX-006,스테이킹 기능,토큰 스테이킹 및 보상,Low,미완료,Blockchain,Solana Program,향후 개발
+확장기능,EX-007,에어드랍 캠페인,자동화된 에어드랍 캠페인 관리,Medium,미완료,Frontend/Blockchain,React,향후 개발
+확장기능,EX-008,지갑 다중 지원,Phantom 외 다른 지갑 지원 (Solflare 등),Low,미완료,Blockchain,Wallet Adapter,향후 개발

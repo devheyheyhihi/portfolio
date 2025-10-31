@@ -1,0 +1,73 @@
+카테고리,기능ID,기능명,상세설명,우선순위,상태,담당페이지/컴포넌트,기술스택,비고
+메인페이지,F001,히어로 배너,프로젝트 소개 및 주요 메시지 표시,높음,완료,Banner1.js,"React, Swiper",Hyundai Investment 파트너 로고 포함
+메인페이지,F002,CTA 버튼,GitHub 저장소 링크 제공,높음,완료,Banner1.js,React,외부 링크 새창 열기
+메인페이지,F003,파트너 섹션,협력사 로고 표시,중간,완료,Banner1.js,React,현재 Hyundai Investment만 표시
+메인페이지,F004,반응형 레이아웃,모바일/태블릿/데스크톱 지원,높음,완료,Layout.js,"React, SCSS",브레이크포인트 설정 완료
+암호화폐,F101,실시간 가격 표시,Bitcoin/Ethereum/Tether/BNB 가격 표시,높음,완료,Crypto1/index.js,"React, CoinGecko API",24시간 변동률 포함
+암호화폐,F102,가격 자동 업데이트,실시간 가격 데이터 갱신,높음,완료,Crypto1/index.js,"React Hooks, useEffect",API 폴링 방식
+암호화폐,F103,탭 기능,Crypto/DeFi/NFT/Metaverse 카테고리 분류,중간,완료,Crypto1/index.js,"React, useState",4개 탭 구현
+암호화폐,F104,DeFi 토큰 가격,DeFi 카테고리 토큰 가격 표시,중간,완료,CryptoTab.js,"React, CoinGecko API",동적 로딩
+암호화폐,F105,NFT 토큰 가격,NFT 카테고리 토큰 가격 표시,중간,완료,CryptoTab.js,"React, CoinGecko API",동적 로딩
+암호화폐,F106,Metaverse 토큰 가격,Metaverse 카테고리 토큰 가격 표시,낮음,완료,CryptoTab.js,"React, CoinGecko API",NFT 데이터 재사용
+암호화폐,F107,가격 변동 색상 표시,상승(녹색)/하락(빨강) 색상 구분,중간,완료,Crypto1/index.js,"React, CSS",success/critical 클래스
+암호화폐,F108,숫자 포맷팅,천단위 콤마 표시,낮음,완료,Crypto1/index.js,JavaScript Intl.NumberFormat,USD 가격 포맷
+API연동,F201,CoinGecko API 프록시,API 요청 프록시 처리,높음,완료,next.config.js,Next.js Rewrites,CORS 문제 해결
+API연동,F202,에러 핸들링,API 호출 실패 처리,중간,개선필요,Crypto1/index.js,React,현재 기본 에러 처리만 존재
+API연동,F203,로딩 상태 표시,데이터 로딩 중 UI 표시,중간,개선필요,Crypto1/index.js,React,스켈레톤 UI 추가 필요
+네비게이션,F301,헤더 메뉴,주요 페이지 링크,높음,완료,Header1.js/Header2.js,React,2가지 헤더 스타일
+네비게이션,F302,모바일 메뉴,모바일용 햄버거 메뉴,높음,완료,MobileMenu.js,"React, Headless UI",반응형 메뉴
+네비게이션,F303,푸터,사이트 정보 및 링크,중간,완료,Footer1.js/Footer2.js,React,2가지 푸터 스타일
+네비게이션,F304,브레드크럼,현재 페이지 경로 표시,낮음,완료,Breadcrumb.js,React,서브페이지용
+UI/UX,F401,다크/라이트 모드,테마 전환 기능,중간,완료,ThemeSwitch.js,React,토글 스위치
+UI/UX,F402,스크롤 애니메이션,페이지 스크롤 시 애니메이션,중간,완료,전역,AOS,data-aos 속성 사용
+UI/UX,F403,맨 위로 버튼,페이지 상단 이동 버튼,낮음,완료,BackToTop.js,React,스크롤 위치 감지
+UI/UX,F404,프리로더,페이지 로딩 화면,낮음,완료,Preloader.js,React,초기 로딩 시 표시
+UI/UX,F405,비디오 팝업,모달 비디오 재생,낮음,완료,VideoPopup.js,react-modal-video,모달 형태
+UI/UX,F406,툴팁,정보 표시 툴팁,낮음,완료,전역,react-tooltip,호버 시 표시
+블로그,F501,블로그 목록 (Default),기본 블로그 목록 페이지,중간,완료,/blog-default,React,
+블로그,F502,블로그 목록 (Grid v1),그리드 레이아웃 v1,중간,완료,/blog-grid-v1,React,
+블로그,F503,블로그 목록 (Grid v2),그리드 레이아웃 v2,중간,완료,/blog-grid-v2,React,
+블로그,F504,블로그 목록 (List),리스트 레이아웃,중간,완료,/blog-list,React,
+블로그,F505,블로그 상세,개별 블로그 포스트 상세 페이지,중간,완료,/blog-details,React,
+거래,F601,암호화폐 구매 - 선택,구매할 암호화폐 선택,높음,완료,/buy-crypto-select,React,구매 플로우 1단계
+거래,F602,암호화폐 구매 - 상세,구매 수량 및 정보 입력,높음,완료,/buy-crypto-details,React,구매 플로우 2단계
+거래,F603,암호화폐 구매 - 확인,구매 내역 확인 및 완료,높음,완료,/buy-crypto-confirm,React,구매 플로우 3단계
+거래,F604,암호화폐 판매 - 선택,판매할 암호화폐 선택,높음,완료,/sell-crypto,React,판매 플로우 1단계
+거래,F605,암호화폐 판매 - 수량,판매 수량 입력,높음,완료,/sell-crypto-amount,React,판매 플로우 2단계
+거래,F606,암호화폐 판매 - 상세,판매 상세 정보 입력,높음,완료,/sell-crypto-details,React,판매 플로우 3단계
+거래,F607,암호화폐 판매 - 확인,판매 내역 확인 및 완료,높음,완료,/sell-crypto-confirm,React,판매 플로우 4단계
+지갑,F701,지갑 메인,지갑 정보 표시,높음,완료,/wallet,React,
+지갑,F702,지갑 자산,보유 자산 목록 및 상세,높음,완료,/wallet-assets,React,
+사용자,F801,로그인,사용자 로그인 기능,높음,완료,/login,React,
+사용자,F802,회원가입,신규 사용자 등록,높음,완료,/register,React,
+사용자,F803,프로필,사용자 프로필 관리,중간,완료,/user-profile,React,
+정보페이지,F901,FAQ,자주 묻는 질문,중간,완료,/faq,React,
+정보페이지,F902,연락처,문의 페이지,중간,완료,/contact,React,
+정보페이지,F903,공지사항,시스템 공지사항,중간,완료,/notice,React,시스템 업데이트 공지 포함
+정보페이지,F904,마켓,암호화폐 마켓 정보,중간,완료,/markets,React,
+차트,F1001,영역 차트 1,데이터 시각화 차트,낮음,완료,ChartArea1.js,ApexCharts,
+차트,F1002,영역 차트 2,데이터 시각화 차트,낮음,완료,ChartArea2.js,ApexCharts,
+차트,F1003,채팅 목록,차트 목록 표시,낮음,완료,ChatList.js,React,
+섹션,F1101,작동 방식,서비스 작동 방식 설명,중간,완료,Work1.js,React,
+섹션,F1102,소개,프로젝트 소개 섹션,중간,완료,About1.js,React,
+섹션,F1103,다운로드,앱 다운로드 섹션,중간,완료,Download.js,React,
+섹션,F1104,사용자 후기,고객 리뷰 및 평가,낮음,완료,Testimonials1.js,React,
+섹션,F1105,판매,특별 판매 섹션,낮음,주석처리,Sale.js,React,현재 비활성화
+홈페이지,F1201,홈 v1,메인 홈페이지,높음,완료,/page.js,React,기본 홈
+홈페이지,F1202,홈 v2,대체 홈페이지 v2,중간,완료,/home-v2,React,
+홈페이지,F1203,홈 v3,대체 홈페이지 v3,중간,완료,/home-v3,React,
+시스템,F1301,404 페이지,페이지 없음 에러 처리,중간,완료,not-found.js,React,
+시스템,F1302,로딩 페이지,페이지 로딩 상태,중간,완료,loading.js,React,
+시스템,F1303,루트 레이아웃,전역 레이아웃 설정,높음,완료,layout.js,"React, Next.js",폰트 및 메타데이터 설정
+시스템,F1304,SCSS 컴파일,스타일 전처리,중간,완료,package.json,Sass,watch 모드 지원
+문서,F1401,백서,프로젝트 백서 PDF,중간,완료,/public/whitepaper.pdf,PDF,27MB 파일
+개선사항,F1501,TypeScript 도입,타입 안정성 향상,중간,미구현,-,TypeScript,코드 품질 개선
+개선사항,F1502,전역 상태 관리,상태 관리 라이브러리 도입,중간,미구현,-,"Redux, Zustand",복잡한 상태 관리
+개선사항,F1503,API 캐싱,API 응답 캐싱,중간,미구현,-,"React Query, SWR",성능 최적화
+개선사항,F1504,에러 바운더리,에러 처리 개선,중간,미구현,-,React Error Boundary,사용자 경험 개선
+개선사항,F1505,스켈레톤 UI,로딩 상태 UI 개선,낮음,미구현,-,React,로딩 경험 개선
+개선사항,F1506,다국어 지원,i18n 구현,낮음,미구현,-,next-i18next,글로벌 서비스
+개선사항,F1507,접근성 개선,ARIA 레이블 추가,낮음,미구현,-,React,웹 접근성 준수
+개선사항,F1508,이미지 최적화,Next.js Image 컴포넌트 사용,중간,미구현,-,Next.js Image,성능 최적화
+개선사항,F1509,코드 리팩토링,Crypto1 컴포넌트 개선,중간,미구현,Crypto1/index.js,React,TODO 주석 존재
+개선사항,F1510,PropTypes 추가,컴포넌트 타입 검증,낮음,미구현,-,PropTypes,타입 안정성

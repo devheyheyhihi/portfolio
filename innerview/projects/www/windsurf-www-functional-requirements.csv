@@ -1,0 +1,111 @@
+번호,대분류,중분류,기능명,기능설명,우선순위,구현상태,관련파일,비고
+1,사용자 관리,회원가입,이메일 회원가입,이메일과 비밀번호를 통한 회원가입 기능,High,구현완료,routes/login.js,Passport Local Strategy 사용
+2,사용자 관리,회원가입,소셜 로그인,소셜 계정을 통한 간편 회원가입,High,구현완료,config/passport.js,Provider 필드로 구분
+3,사용자 관리,로그인,이메일 로그인,이메일과 비밀번호로 로그인,High,구현완료,routes/login.js,세션 기반 인증
+4,사용자 관리,로그인,자동 로그인,Remember-Me 기능으로 자동 로그인,Medium,구현완료,app.js,passport-remember-me 사용
+5,사용자 관리,로그인,로그인 상태 유지,세션을 통한 로그인 상태 관리,High,구현완료,app.js,express-session 사용
+6,사용자 관리,계정 찾기,아이디/비밀번호 찾기,이메일을 통한 계정 정보 찾기,Medium,구현완료,views/Login/Find.hbs,
+7,사용자 관리,프로필,프로필 조회,사용자 프로필 정보 조회,High,구현완료,routes/myPage.js,
+8,사용자 관리,프로필,프로필 수정,사용자 정보 수정 기능,High,구현완료,routes/myPage.js,썸네일 이미지 포함
+9,사용자 관리,프로필,사용자명 표시,사용자명 또는 이메일 앞부분 표시,Low,구현완료,routes/lesson.js,username 우선 표시
+10,사용자 관리,권한 관리,무료 사용자,기본 무료 사용자 권한,High,구현완료,app.js,
+11,사용자 관리,권한 관리,유료 구독 사용자,구독 중인 유료 사용자 권한,High,구현완료,app.js,is_paid_user 플래그
+12,사용자 관리,권한 관리,구버전 유료 사용자,이전 결제 방식 사용자 권한,Medium,구현완료,app.js,is_old_paid_user 플래그
+13,학습 콘텐츠,레슨,오늘의 학습,오늘 추천되는 학습 콘텐츠,High,구현완료,routes/lesson.js - /Today,메인 학습 페이지
+14,학습 콘텐츠,레슨,코스별 학습,체계적인 코스 단위 학습,High,구현완료,routes/lesson.js - /Courses,
+15,학습 콘텐츠,레슨,테마별 학습,주제별 테마 학습,High,구현완료,routes/lesson.js - /Themes,
+16,학습 콘텐츠,레슨,쇼츠 학습,짧은 영상 기반 학습,Medium,구현완료,routes/lesson.js - /Short,
+17,학습 콘텐츠,레슨,브이로그 학습,브이로그 형식 콘텐츠 학습,Medium,구현완료,routes/lesson.js - /CourseVlogs,
+18,학습 콘텐츠,레슨,크리에이터별 학습,크리에이터 기반 콘텐츠 탐색,Medium,구현완료,routes/lesson.js - /CourseCreators,l_creator 모델 사용
+19,학습 콘텐츠,레슨,초급자용 학습,초급자를 위한 학습 콘텐츠,Medium,구현완료,routes/lesson.js - /CourseBegins,
+20,학습 콘텐츠,콘텐츠 관리,리스닝 콘텐츠,듣기 학습 콘텐츠 관리,High,구현완료,models/l_listening.js,
+21,학습 콘텐츠,콘텐츠 관리,시리즈 관리,학습 시리즈 구성 및 관리,High,구현완료,models/l_series.js,
+22,학습 콘텐츠,콘텐츠 관리,스크립트 관리,학습 스크립트 텍스트 관리,High,구현완료,models/l_script.js,
+23,학습 콘텐츠,콘텐츠 관리,단순 스크립트,간단한 스크립트 관리,Medium,구현완료,models/l_simple_script.js,
+24,학습 콘텐츠,콘텐츠 관리,카드 콘텐츠,카드 형식 학습 자료,Medium,구현완료,models/l_card.js,
+25,학습 콘텐츠,콘텐츠 관리,선택형 문제,객관식 문제 관리,High,구현완료,models/l_choice.js,
+26,학습 콘텐츠,콘텐츠 관리,단어장,학습 단어 관리,High,구현완료,models/l_voca.js,
+27,학습 콘텐츠,콘텐츠 관리,단어 제외 목록,특정 단어 제외 관리,Low,구현완료,models/l_voca_exclude.js,
+28,학습 콘텐츠,카테고리,카테고리 관리,콘텐츠 카테고리 분류,High,구현완료,models/l_category.js,
+29,학습 콘텐츠,카테고리,태그 관리,콘텐츠 태그 시스템,Medium,구현완료,models/l_tag.js,
+30,학습 콘텐츠,카테고리,테마 태그,테마별 태그 연결,Medium,구현완료,models/l_theme_tag.js,
+31,학습 콘텐츠,검색,콘텐츠 검색,학습 콘텐츠 검색 기능,High,구현완료,routes/lesson.js - /Search,
+32,학습 콘텐츠,재생,콘텐츠 재생,학습 콘텐츠 재생 페이지,High,구현완료,routes/lesson.js - /View,
+33,학습 콘텐츠,재생,콘텐츠 입장,학습 시작 페이지,High,구현완료,routes/lesson.js - /Enter,
+34,학습 기록,히스토리,학습 기록 저장,사용자 학습 이력 저장,High,구현완료,models/history.js,
+35,학습 기록,히스토리,학습 기록 조회,학습 히스토리 조회 페이지,High,구현완료,routes/lesson.js - /History,
+36,학습 기록,히스토리,학습 유닛 기록,유닛별 학습 기록,High,구현완료,models/h_unit.js,
+37,학습 기록,출석,출석 체크,일별 출석 체크 시스템,Medium,구현완료,routes/lesson.js,월별 출석일수 계산
+38,학습 기록,출석,출석 통계,월별 출석 통계 조회,Medium,구현완료,routes/lesson.js,distinct regdate 사용
+39,학습 기록,복습,복습 기능,학습 내용 복습 시스템,High,구현완료,routes/lesson.js - /Review,
+40,학습 기록,북마크,북마크 추가,학습 콘텐츠 북마크,Medium,구현완료,models/h_bookmark.js,
+41,학습 기록,북마크,북마크 테마,테마별 북마크 관리,Medium,구현완료,models/h_bookmark_thema.js,
+42,학습 기록,지연 학습,학습 지연 관리,학습 일정 지연 관리,Low,구현완료,models/delay_study.js,
+43,구독 및 결제,구독,구독 신청,유료 구독 신청 기능,High,구현완료,routes/shop.js - /Subscribe,
+44,구독 및 결제,구독,구독 정보 조회,현재 구독 상태 조회,High,구현완료,models/SUBSCRIBE.js,
+45,구독 및 결제,구독,구독 자동 갱신,카드 자동 결제 시스템,High,구현완료,app.js,card_rebill 방식
+46,구독 및 결제,결제,결제 처리,Bootpay 결제 연동,High,구현완료,routes/shop.js,Bootpay API 사용
+47,구독 및 결제,결제,결제 내역,결제 이력 조회,High,구현완료,routes/myPage.js - /OrderDetail,
+48,구독 및 결제,쿠폰,쿠폰 관리,할인 쿠폰 시스템,Medium,구현완료,models/coupon.js,
+49,구독 및 결제,쿠폰,쿠폰 적용,결제 시 쿠폰 적용,Medium,구현완료,routes/shop.js,
+50,구독 및 결제,가격 정책,가격 정보,구독 가격 정책 페이지,High,구현완료,routes/price.js,
+51,AI 기능,AI 학습,AI 기반 학습,AI를 활용한 학습 지원,High,구현완료,routes/ai.js,
+52,AI 기능,AI 분석,학습 분석,AI 기반 학습 분석,Medium,구현완료,routes/ai.js,
+53,커뮤니티,게시판,게시글 작성,커뮤니티 게시글 작성,Medium,구현완료,routes/board.js,
+54,커뮤니티,게시판,게시글 조회,게시글 목록 및 상세 조회,Medium,구현완료,routes/board.js,models/board.js 사용
+55,커뮤니티,게시판,게시글 수정,게시글 수정 기능,Medium,구현완료,routes/board.js,
+56,커뮤니티,게시판,게시글 삭제,게시글 삭제 기능,Medium,구현완료,routes/board.js,
+57,커뮤니티,챌린지,챌린지 생성,학습 챌린지 생성,Medium,구현완료,models/challengr.js,
+58,커뮤니티,챌린지,챌린지 참여,챌린지 참여 기능,Medium,구현완료,routes/myPage.js - /Challenge,
+59,커뮤니티,챌린지,챌린지 상세,챌린지 상세 정보 조회,Medium,구현완료,routes/myPage.js - /ChallengeDetail,
+60,커뮤니티,챌린지,챌린지 평가,챌린지 평가 시스템,Medium,구현완료,models/b_evaluate.js,
+61,커뮤니티,챌린지,챌린지 히스토리,챌린지 참여 이력,Medium,구현완료,models/c_history.js,
+62,커뮤니티,챌린지,챌린지 상세 기록,챌린지 세부 기록,Medium,구현완료,models/c_detail.js,
+63,마이페이지,대시보드,마이페이지 메인,사용자 대시보드,High,구현완료,routes/myPage.js,
+64,마이페이지,알림,알림 조회,사용자 알림 목록,Medium,구현완료,routes/myPage.js - /Alarm,
+65,마이페이지,인증서,학습 인증서,학습 완료 인증서 발급,Low,구현완료,routes/myPage.js - /Certificate,
+66,마이페이지,주문 내역,주문 상세,주문 상세 정보 조회,High,구현완료,routes/myPage.js - /OrderDetail,
+67,고객 지원,약관,이용약관,서비스 이용약관 페이지,High,구현완료,routes/customer.js - /Terms,
+68,고객 지원,약관,개인정보처리방침,개인정보 처리방침 페이지,High,구현완료,routes/customer.js - /Privacy,
+69,고객 지원,고객센터,고객센터 메인,고객 지원 페이지,Medium,구현완료,routes/customer.js,
+70,브랜드,브랜드 소개,브랜드 페이지,서비스 브랜드 소개,Medium,구현완료,routes/brand.js,
+71,브랜드,콘텐츠 소개,콘텐츠 안내,학습 콘텐츠 소개 페이지,Medium,구현완료,routes/contents.js,
+72,브랜드,에필로그,에필로그 페이지,서비스 에필로그,Low,구현완료,routes/epilogue.js,
+73,관리자,관리 기능,관리자 페이지,관리자 전용 기능,High,구현완료,routes/manage.js,
+74,관리자,콘텐츠 관리,콘텐츠 등록/수정,학습 콘텐츠 관리,High,구현완료,routes/manage.js,
+75,관리자,사용자 관리,사용자 정보 관리,사용자 계정 관리,High,구현완료,routes/user.js,
+76,관리자,배너 관리,배너 등록/수정,메인 배너 관리,Medium,구현완료,models/banner.js,
+77,시스템,인증,세션 관리,사용자 세션 관리,High,구현완료,app.js,express-session 사용
+78,시스템,인증,Passport 인증,Passport.js 인증 시스템,High,구현완료,config/passport.js,
+79,시스템,보안,쿠키 파싱,쿠키 처리,High,구현완료,app.js,cookie-parser 사용
+80,시스템,보안,CORS 처리,Cross-Origin 요청 처리,Medium,구현완료,package.json,cors 패키지
+81,시스템,파일,파일 업로드,파일 업로드 처리,High,구현완료,app.js,multer 사용
+82,시스템,파일,정적 파일 서빙,CSS/JS/이미지 서빙,High,구현완료,app.js,public 디렉토리
+83,시스템,이메일,이메일 발송,이메일 전송 기능,Medium,구현완료,package.json,nodemailer 사용
+84,시스템,로깅,접근 로그,HTTP 요청 로깅,Medium,구현완료,app.js,morgan 사용
+85,시스템,에러 처리,404 에러,페이지 없음 처리,High,구현완료,app.js,
+86,시스템,에러 처리,500 에러,서버 에러 처리,High,구현완료,app.js,
+87,시스템,디바이스 감지,브라우저 감지,사용자 브라우저 정보 감지,Medium,구현완료,app.js,browser-detect 사용
+88,시스템,디바이스 감지,모바일 감지,모바일 디바이스 감지,Medium,구현완료,app.js,ismobiledevice 플래그
+89,시스템,디바이스 감지,iOS 감지,iOS 디바이스 감지,Medium,구현완료,app.js,is_ios 플래그
+90,시스템,라우팅,동적 라우트 로딩,자동 라우트 등록,High,구현완료,app.js,glob 패턴 사용
+91,시스템,템플릿,Handlebars 엔진,템플릿 렌더링,High,구현완료,app.js,express-hbs 사용
+92,시스템,템플릿,레이아웃 시스템,레이아웃 및 파셜 관리,High,구현완료,app.js,views/layouts 사용
+93,시스템,템플릿,헬퍼 함수,커스텀 Handlebars 헬퍼,Medium,구현완료,helper/index.js,
+94,시스템,데이터베이스,Sequelize ORM,데이터베이스 ORM,High,구현완료,models/index.js,
+95,시스템,데이터베이스,MariaDB 연결,데이터베이스 연결 관리,High,구현완료,config/config.js,
+96,시스템,데이터베이스,트랜잭션 처리,데이터베이스 트랜잭션,High,구현완료,models/index.js,Sequelize 기본 기능
+97,시스템,배포,PM2 프로세스 관리,프로세스 관리 및 재시작,High,구현완료,ecosystem.config.js,
+98,시스템,배포,환경 변수 관리,개발/운영 환경 분리,High,구현완료,ecosystem.config.js,
+99,API,REST API,API 엔드포인트,RESTful API 제공,High,구현완료,routes/api.js,
+100,API,퀴즈,퀴즈 API,퀴즈 관련 API,Medium,구현완료,routes/quiz.js,
+101,보안 개선,환경 변수,세션 시크릿 분리,세션 시크릿 환경 변수화,High,미구현,,보안 강화 필요
+102,보안 개선,환경 변수,결제 키 분리,결제 키 환경 변수화,High,미구현,,보안 강화 필요
+103,보안 개선,환경 변수,채널 키 분리,채널 키 환경 변수화,High,미구현,,보안 강화 필요
+104,성능 개선,코드 정리,테스트 코드 제거,주석 처리된 테스트 코드 정리,Low,미구현,app.js,58-68줄
+105,성능 개선,코드 정리,로그 정리,불필요한 console.log 제거,Low,미구현,,전체 파일
+106,품질 개선,에러 처리,에러 핸들링 강화,체계적인 에러 처리,Medium,미구현,,
+107,품질 개선,문서화,API 문서 작성,API 명세 문서화,Medium,미구현,,Swagger 등 도입
+108,품질 개선,테스트,단위 테스트,단위 테스트 코드 작성,Medium,미구현,,Jest 등 도입
+109,품질 개선,테스트,통합 테스트,통합 테스트 작성,Medium,미구현,,
+110,품질 개선,타입,TypeScript 마이그레이션,TypeScript 전환 검토,Low,미구현,,장기 과제

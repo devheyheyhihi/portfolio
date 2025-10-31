@@ -1,0 +1,121 @@
+카테고리,기능ID,기능명,상세설명,우선순위,상태,담당모듈,관련API,비고
+사용자인증,AUTH-001,회원가입,사용자명/비밀번호/닉네임/지갑주소로 회원가입,높음,구현완료,Authentication,POST /auth/register,bcrypt 해싱 적용
+사용자인증,AUTH-002,로그인,JWT 토큰 기반 로그인,높음,구현완료,Authentication,POST /auth/login,토큰 유효기간 1일
+사용자인증,AUTH-003,토큰 인증,보호된 API 접근 시 JWT 검증,높음,구현완료,Middleware,authenticateToken,Bearer 토큰 방식
+사용자인증,AUTH-004,계정 활성화,첫 입금 시 PENDING → ACTIVE 전환,중간,구현완료,Event Listener,USDT Transfer Event,자동 활성화
+잔액관리,BAL-001,잔액 조회,사용자 USDT 잔액 조회,높음,구현완료,Balance,GET /balance/:address,실시간 조회
+잔액관리,BAL-002,입금 처리,블록체인 Transfer 이벤트 감지 및 잔액 증가,높음,구현완료,Event Listener,USDT Transfer Event,자동 처리
+잔액관리,BAL-003,출금 요청,사용자 출금 요청 생성,높음,구현완료,Withdrawal,POST /withdrawals/request,잔액 즉시 차감
+잔액관리,BAL-004,출금 승인,관리자 출금 승인 및 온체인 전송,높음,구현완료,Withdrawal,POST /admin/withdrawals/approve,Vault 컨트랙트 호출
+잔액관리,BAL-005,출금 목록,모든 출금 요청 조회,중간,구현완료,Withdrawal,GET /admin/withdrawals,상태별 정렬
+잔액관리,BAL-006,거래내역,사용자별 모든 거래 내역 조회,중간,구현완료,Transaction,GET /transactions/:address,시간순 정렬
+복권게임,LOT-001,게임룸 조회,4개 티켓 가격대별 룸 목록,높음,구현완료,Lottery,GET /rooms,1/10/50/100 USDT
+복권게임,LOT-002,룸 상태 조회,각 룸의 현재 참가자 수,높음,구현완료,Lottery,GET /rooms/status,실시간 업데이트
+복권게임,LOT-003,복권 상태 조회,특정 룸의 상세 상태 및 로그,높음,구현완료,Lottery,GET /lottery-status/:roomId,플레이어/로그 포함
+복권게임,LOT-004,게임 참가,티켓 구매로 게임 참가,높음,구현완료,Lottery,POST /participate/:roomId,잔액 차감 및 참가 기록
+복권게임,LOT-005,글로벌 라운드 생성,1시간 단위 글로벌 라운드 자동 생성,높음,구현완료,Round Management,createNewGlobalRound(),서버 시작 시 체크
+복권게임,LOT-006,자동 추첨,마감 시간 도달 시 전체 룸 자동 추첨,높음,구현완료,Draw System,autoStartDrawAll(),만료 라운드 감지
+복권게임,LOT-007,당첨자 선정,랜덤 알고리즘으로 당첨자 결정,높음,구현완료,Draw System,Math.random(),균등 확률
+복권게임,LOT-008,룰렛 애니메이션,100회 스핀 로그 생성,중간,구현완료,Draw System,logs 테이블,시각적 효과
+복권게임,LOT-009,배당금 지급,상금 풀의 98% 당첨자에게 지급,높음,구현완료,Draw System,user_balances 업데이트,2% 수수료
+복권게임,LOT-010,라운드 종료,7초 후 DRAWING → CLOSED 전환,중간,구현완료,Round Management,setTimeout(),자동 처리
+복권게임,LOT-011,다음 라운드 시작,모든 룸 종료 시 새 라운드 자동 생성,높음,구현완료,Round Management,autoOpenNextRound(),10초 후 실행
+복권게임,LOT-012,수동 추첨,관리자 수동 추첨 트리거,낮음,구현완료,Admin,POST /start-draw-all,테스트/긴급용
+복권게임,LOT-013,수동 라운드 시작,관리자 수동 라운드 시작,낮음,구현완료,Admin,POST /admin/open-next-round,테스트/긴급용
+복권게임,LOT-014,사용자 히스토리,사용자별 게임 참가 내역,중간,구현완료,History,GET /user-history/:address,승패 기록
+복권게임,LOT-015,당첨자 목록,룸별 과거 당첨자 조회,중간,구현완료,History,GET /winners/:roomId,글로벌 라운드별
+복권게임,LOT-016,당첨자 차트 데이터,전체 당첨자 데이터 집계,낮음,구현완료,Analytics,GET /winner-bar-data,시각화용
+룰렛게임,ROU-001,현재 라운드 조회,활성 룰렛 라운드 정보 및 남은 시간,높음,구현완료,Roulette,GET /api/roulette/current,5분 5초 라운드
+룰렛게임,ROU-002,룰렛 베팅,LOW/HIGH 베팅 배치,높음,구현완료,Roulette,POST /api/roulette/bet,잔액 차감
+룰렛게임,ROU-003,베팅 풀 조회,현재 LOW/HIGH 베팅 풀 금액,높음,구현완료,Roulette,GET /api/roulette/pool-status,실시간 업데이트
+룰렛게임,ROU-004,사용자 베팅 내역,사용자별 룰렛 베팅 기록,중간,구현완료,Roulette,GET /api/roulette/user-bets,최근 50개
+룰렛게임,ROU-005,현재 베팅 현황,현재 라운드 베팅 상세 내역,중간,구현완료,Roulette,GET /api/roulette/current-bets,플로팅 바용
+룰렛게임,ROU-006,룰렛 라운드 생성,5분 5초 라운드 자동 생성,높음,구현완료,Roulette,createNewRouletteRound(),숫자 시퀀스 생성
+룰렛게임,ROU-007,자동 추첨,라운드 만료 시 자동 추첨 실행,높음,구현완료,Roulette,drawRouletteRound(),30초 스케줄러
+룰렛게임,ROU-008,당첨 번호 생성,1-10 랜덤 번호 생성,높음,구현완료,Roulette,Math.random(),LOW(1-5) HIGH(6-10)
+룰렛게임,ROU-009,배당금 계산,베팅 비율에 따른 배당금 계산,높음,구현완료,Roulette,drawRouletteRound(),5% 수수료
+룰렛게임,ROU-010,배당금 지급,승자들에게 배당금 분배,높음,구현완료,Roulette,user_balances 업데이트,비율 배분
+룰렛게임,ROU-011,무효 라운드 처리,한쪽만 베팅 시 전액 환불,중간,구현완료,Roulette,drawRouletteRound(),INVALID 상태
+룰렛게임,ROU-012,라운드 완료,1초 후 completed 전환 및 새 라운드 생성,중간,구현완료,Roulette,setTimeout(),자동 처리
+룰렛게임,ROU-013,룰렛 스케줄러,30초마다 라운드 상태 체크,높음,구임완료,Roulette,startRouletteScheduler(),독립 스케줄러
+룰렛게임,ROU-014,수동 추첨,관리자 수동 추첨 트리거,낮음,구현완료,Admin,POST /api/roulette/draw,테스트용
+룰렛게임,ROU-015,결과 조회,최신 룰렛 결과 조회,중간,구현완료,Roulette,GET /api/roulette/result,completed 라운드
+룰렛게임,ROU-016,특정 결과 조회,특정 라운드 결과 조회,낮음,구현완료,Roulette,GET /api/roulette/result/:roundId,라운드ID로 조회
+룰렛게임,ROU-017,히스토리 조회,과거 룰렛 결과 페이지네이션,중간,구현완료,Roulette,GET /api/roulette/history,20개씩 조회
+룰렛게임,ROU-018,애니메이션 테스트,관리자용 애니메이션 테스트,낮음,구현완료,Admin,POST /api/roulette/test-animation,테스트 모드
+룰렛게임,ROU-019,테스트 상태 조회,테스트 진행 상태 확인,낮음,구현완료,Admin,GET /api/roulette/test-status,폴링용
+룰렛게임,ROU-020,테스트 중지,애니메이션 테스트 중지,낮음,구현완료,Admin,DELETE /api/roulette/test-status,수동 중지
+스마트컨트랙트,SC-001,USDT 입금,사용자가 Vault에 USDT 입금,높음,구현완료,Vault.sol,deposit(),approve 필요
+스마트컨트랙트,SC-002,USDT 출금,관리자가 사용자에게 USDT 출금,높음,구현완료,Vault.sol,withdraw(),onlyOwner
+스마트컨트랙트,SC-003,잔액 조회,Vault 컨트랙트 잔액 조회,중간,구현완료,Vault.sol,getBalance(),view 함수
+스마트컨트랙트,SC-004,Deposit 이벤트,입금 시 이벤트 발생,높음,구현완료,Vault.sol,event Deposit,백엔드 리스닝
+스마트컨트랙트,SC-005,Withdrawal 이벤트,출금 시 이벤트 발생,중간,구현완료,Vault.sol,event Withdrawal,트랜잭션 추적
+스마트컨트랙트,SC-006,Transfer 이벤트 감지,USDT Transfer 이벤트 리스닝,높음,구현완료,Event Listener,usdtContract.on(),자동 입금 처리
+데이터베이스,DB-001,사용자 테이블,사용자 인증 정보 저장,높음,구현완료,Schema,users,username/password/wallet
+데이터베이스,DB-002,잔액 테이블,사용자 USDT 잔액 관리,높음,구현완료,Schema,user_balances,실시간 업데이트
+데이터베이스,DB-003,거래 테이블,모든 거래 내역 기록,높음,구현완료,Schema,transactions,타입별 분류
+데이터베이스,DB-004,글로벌 라운드 테이블,복권 글로벌 라운드 관리,높음,구현완료,Schema,global_rounds,1시간 단위
+데이터베이스,DB-005,룸 라운드 테이블,룸별 라운드 상태 관리,높음,구현완료,Schema,room_rounds,4개 룸
+데이터베이스,DB-006,참가 테이블,게임 참가 기록,높음,구현완료,Schema,participations,사용자-라운드 매핑
+데이터베이스,DB-007,로그 테이블,게임 진행 로그,중간,구현완료,Schema,logs,SYSTEM/JOIN/SPIN/WINNER
+데이터베이스,DB-008,출금 테이블,출금 요청 관리,높음,구현완료,Schema,withdrawals,PENDING/APPROVED/REJECTED
+데이터베이스,DB-009,룰렛 라운드 테이블,룰렛 라운드 정보,높음,구현완료,Schema,roulette_rounds,5분 5초 라운드
+데이터베이스,DB-010,룰렛 베팅 테이블,룰렛 베팅 기록,높음,구현완료,Schema,roulette_bets,LOW/HIGH 베팅
+데이터베이스,DB-011,트랜잭션 관리,원자적 거래 처리,높음,구현완료,Transaction,BEGIN/COMMIT/ROLLBACK,데이터 무결성
+데이터베이스,DB-012,인덱스 최적화,성능 향상을 위한 인덱스,중간,구현완료,Performance,CREATE INDEX,조회 속도 향상
+데이터베이스,DB-013,외래키 제약,데이터 무결성 보장,중간,구현완료,Constraint,PRAGMA foreign_keys,참조 무결성
+보안,SEC-001,비밀번호 해싱,bcrypt로 비밀번호 암호화,높음,구현완료,Security,bcrypt.hash(),salt rounds 10
+보안,SEC-002,JWT 토큰 생성,로그인 시 JWT 발급,높음,구현완료,Security,jwt.sign(),1일 유효
+보안,SEC-003,JWT 토큰 검증,API 요청 시 토큰 검증,높음,구현완료,Security,jwt.verify(),미들웨어
+보안,SEC-004,금액 검증,모든 금액 양수 검증,높음,구현완료,Validation,amount > 0,입력 검증
+보안,SEC-005,잔액 검증,충분한 잔액 확인,높음,구현완료,Validation,balance >= amount,부족 시 거부
+보안,SEC-006,베팅 타입 검증,LOW/HIGH만 허용,중간,구현완료,Validation,['LOW''HIGH'].includes(),입력 검증
+보안,SEC-007,라운드 상태 검증,OPEN 상태만 참가 허용,중간,구현완료,Validation,status === 'OPEN',상태 체크
+보안,SEC-008,환경 변수 관리,민감 정보 .env 관리,높음,구현완료,Security,dotenv,Private Key 보호
+보안,SEC-009,CORS 설정,교차 출처 요청 제어,중간,구현완료,Middleware,cors(),보안 강화
+자동화,AUTO-001,복권 자동 추첨,마감 시간 도달 시 자동 추첨,높음,구현완료,Automation,autoStartDrawAll(),만료 감지
+자동화,AUTO-002,복권 자동 라운드,모든 룸 종료 시 새 라운드,높음,구현완료,Automation,autoOpenNextRound(),10초 후
+자동화,AUTO-003,룰렛 스케줄러,30초마다 상태 체크,높음,구현완료,Automation,setInterval(),독립 실행
+자동화,AUTO-004,룰렛 자동 추첨,라운드 만료 시 자동 추첨,높음,구현완료,Automation,getCurrentRouletteRound(),자동 감지
+자동화,AUTO-005,룰렛 자동 라운드,추첨 후 1초 뒤 새 라운드,높음,구현완료,Automation,setTimeout(),자동 생성
+자동화,AUTO-006,입금 자동 처리,Transfer 이벤트 감지 시 잔액 증가,높음,구현완료,Automation,usdtContract.on(),실시간
+자동화,AUTO-007,계정 자동 활성화,첫 입금 시 ACTIVE 전환,중간,구현완료,Automation,status 업데이트,자동 처리
+자동화,AUTO-008,DRAWING 자동 종료,7초 후 CLOSED 전환,중간,구현완료,Automation,setTimeout(),복권 게임
+자동화,AUTO-009,completed 자동 전환,1초 후 상태 변경,중간,구현완료,Automation,setTimeout(),룰렛 게임
+비즈니스로직,BIZ-001,복권 수수료,상금 풀의 2% 수수료,높음,구현완료,Business Logic,prizePool * 0.98,하우스 수익
+비즈니스로직,BIZ-002,룰렛 수수료,패자 풀의 5% 수수료,높음,구현완료,Business Logic,losingPool * 0.05,하우스 수익
+비즈니스로직,BIZ-003,복권 당첨 확률,1 / 참가자 수,높음,구현완료,Business Logic,Math.random(),균등 확률
+비즈니스로직,BIZ-004,룰렛 당첨 확률,50% (LOW/HIGH),높음,구현완료,Business Logic,winningNumber <= 5,균등 확률
+비즈니스로직,BIZ-005,복권 배당 계산,prizePool * 0.98,높음,구현완료,Business Logic,winnerPayout,단일 당첨자
+비즈니스로직,BIZ-006,룰렛 배당 계산,베팅 비율 기반 분배,높음,구현완료,Business Logic,betRatio * distributablePool,비율 배분
+비즈니스로직,BIZ-007,복권 무효 처리,참가자 1명 미만 시 스킵,중간,구현완료,Business Logic,players.length < 1,라운드 종료
+비즈니스로직,BIZ-008,룰렛 무효 처리,한쪽만 베팅 시 환불,중간,구현완료,Business Logic,totalLow === 0 || totalHigh === 0,전액 환불
+비즈니스로직,BIZ-009,상금 풀 계산,티켓가격 × 참가자 수,높음,구현완료,Business Logic,ticketPrice * playerCount,실시간 계산
+비즈니스로직,BIZ-010,베팅 풀 계산,LOW 풀 + HIGH 풀,높음,구현완료,Business Logic,totalLow + totalHigh,실시간 계산
+모니터링,MON-001,서버 로그,콘솔 로그 출력,중간,구현완료,Logging,console.log(),디버깅용
+모니터링,MON-002,에러 로그,에러 발생 시 로그,중간,구현완료,Logging,console.error(),에러 추적
+모니터링,MON-003,이벤트 로그,블록체인 이벤트 로그,중간,구현완료,Logging,console.log(),입금 추적
+모니터링,MON-004,추첨 로그,추첨 진행 상황 로그,중간,구현완료,Logging,console.log(),게임 추적
+모니터링,MON-005,라운드 로그,라운드 생성/종료 로그,중간,구현완료,Logging,console.log(),라운드 추적
+성능,PERF-001,데이터베이스 인덱스,조회 성능 향상,중간,구현완료,Performance,CREATE INDEX,wallet_address/round_id
+성능,PERF-002,트랜잭션 최적화,불필요한 쿼리 최소화,중간,구현완료,Performance,BEGIN/COMMIT,원자성
+성능,PERF-003,병렬 쿼리,Promise.all 활용,낮음,구현완료,Performance,Promise.all(),동시 조회
+성능,PERF-004,페이지네이션,대량 데이터 페이징,낮음,구현완료,Performance,LIMIT/OFFSET,룰렛 히스토리
+확장성,EXT-001,routes 디렉토리,라우트 분리,낮음,미구현,Architecture,routes/,모듈화 필요
+확장성,EXT-002,utils 디렉토리,유틸리티 함수 분리,낮음,미구현,Architecture,utils/,코드 재사용
+확장성,EXT-003,config 디렉토리,설정 파일 분리,낮음,미구현,Architecture,config/,환경별 설정
+확장성,EXT-004,수수료 로그 테이블,수수료 추적 테이블,낮음,미구현,Database,fee_logs,TODO 주석 있음
+확장성,EXT-005,WebSocket 지원,실시간 게임 상태 업데이트,낮음,미구현,Real-time,Socket.io,실시간 통신
+확장성,EXT-006,관리자 인증,관리자 API 보호,중간,미구현,Security,Admin Auth,현재 인증 없음
+확장성,EXT-007,파일 로깅,로그 파일 저장,낮음,미구현,Logging,Winston/Morgan,영구 보관
+확장성,EXT-008,에러 핸들링,세밀한 에러 처리,중간,미구현,Error Handling,try-catch 개선,사용자 친화적
+확장성,EXT-009,데이터베이스 마이그레이션,스키마 버전 관리,낮음,미구현,Database,Migration Tool,변경 이력
+확장성,EXT-010,테스트 코드,단위/통합 테스트,중간,미구현,Testing,Jest/Mocha,품질 보증
+블록체인,BC-001,BNB Testnet 연결,테스트넷 RPC 연결,높음,구현완료,Blockchain,JsonRpcProvider,ethers.js
+블록체인,BC-002,지갑 연결,Private Key로 지갑 생성,높음,구현완료,Blockchain,Wallet,Owner 권한
+블록체인,BC-003,Vault 컨트랙트 연결,ABI로 컨트랙트 인스턴스 생성,높음,구현완료,Blockchain,Contract,ethers.js
+블록체인,BC-004,USDT 컨트랙트 연결,Transfer 이벤트 리스닝용,높음,구현완료,Blockchain,Contract,ethers.js
+블록체인,BC-005,이벤트 리스너,Transfer 이벤트 감지,높음,구현완료,Blockchain,contract.on(),실시간 감지
+블록체인,BC-006,트랜잭션 전송,출금 시 온체인 트랜잭션,높음,구현완료,Blockchain,contract.withdraw(),가스비 필요
+블록체인,BC-007,트랜잭션 대기,receipt 확인,중간,구현완료,Blockchain,tx.wait(),완료 확인
+블록체인,BC-008,금액 포맷팅,Wei ↔ USDT 변환,중간,구현완료,Blockchain,formatUnits/parseUnits,18 decimals

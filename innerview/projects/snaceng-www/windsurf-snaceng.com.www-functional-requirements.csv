@@ -1,0 +1,103 @@
+카테고리,기능ID,기능명,상세설명,우선순위,현재상태,담당영역,관련페이지
+사용자인증,AUTH-001,이메일 회원가입,이메일과 비밀번호를 통한 회원가입 기능,High,구현완료,Backend,/Login/EmailJoin.html
+사용자인증,AUTH-002,이메일 로그인,이메일과 비밀번호를 통한 로그인 기능,High,구현완료,Backend,/Login/EmailLogin.html
+사용자인증,AUTH-003,네이버 소셜 로그인,네이버 OAuth를 통한 간편 로그인,High,구현완료,Backend,/Login/naverAuth.html
+사용자인증,AUTH-004,애플 소셜 로그인,Apple Sign In을 통한 간편 로그인,High,구현완료,Backend,/Login/appleAuth.html
+사용자인증,AUTH-005,계정 찾기,이메일/비밀번호 찾기 기능,Medium,구현완료,Backend,/Login/Find.html
+사용자인증,AUTH-006,세션 관리,사용자 로그인 상태 유지 및 관리,High,구현완료,Backend,전체
+사용자인증,AUTH-007,로그아웃,사용자 로그아웃 및 세션 종료,High,구현완료,Backend,/Common/_logout.html
+사용자인증,AUTH-008,자동 로그인,모바일 앱에서 접속 시 자동 로그인 처리,Medium,구현완료,Backend,index.html
+메인페이지,MAIN-001,메인 비주얼,풀스크린 비디오 배경과 메인 메시지 표시,High,구현완료,Frontend,index.html (섹션1)
+메인페이지,MAIN-002,무료 체험 CTA,무료 체험 시작 버튼 (여러 섹션에 배치),High,구현완료,Frontend,index.html (섹션1/7)
+메인페이지,MAIN-003,사용자 후기 슬라이더,10개의 실제 사용자 리뷰를 Swiper로 표시,High,구현완료,Frontend,index.html (섹션2)
+메인페이지,MAIN-004,학습 효과 소개,Before/After 비디오로 학습 효과 시각화,Medium,구현완료,Frontend,index.html (섹션3)
+메인페이지,MAIN-005,프리토킹 학습법,간결한 영어 표현 학습법 소개,Medium,구현완료,Frontend,index.html (섹션4)
+메인페이지,MAIN-006,AI 스피킹 소개,AI 머신러닝 기반 발음 교정 기능 소개,High,구현완료,Frontend,index.html (섹션5)
+메인페이지,MAIN-007,브랜드 스토리 요약,시애틀에서 시작된 스낵의 배경 소개,Low,구현완료,Frontend,index.html (섹션6)
+메인페이지,MAIN-008,앱 다운로드 링크,iOS/Android 앱스토어 링크 제공,High,구현완료,Frontend,index.html (섹션8)
+메인페이지,MAIN-009,반응형 비디오,모바일/데스크톱 별도 비디오 소스 제공,High,구현완료,Frontend,index.html (전체)
+메인페이지,MAIN-010,스크롤 애니메이션,스크롤 시 순차적 요소 등장 효과,Medium,구현완료,Frontend,index.html (전체)
+브랜드,BRAND-001,브랜드 스토리,스낵의 탄생 배경과 철학 소개,Medium,구현완료,Frontend,/Brand.html
+브랜드,BRAND-002,창업 스토리,시애틀 카페에서의 시작 이야기,Medium,구현완료,Frontend,/Brand.html
+브랜드,BRAND-003,비전 및 미션,한국인을 위한 회화 중심 학습 철학,Medium,구현완료,Frontend,/Brand.html
+콘텐츠소개,CONT-001,콘텐츠 미리보기,브이로그/숏릴 샘플 콘텐츠 제공,High,구현완료,Frontend,/Contents.html
+콘텐츠소개,CONT-002,학습 방법 설명,콘텐츠 활용 학습 방법 안내,Medium,구현완료,Frontend,/Contents.html
+AI기능소개,AI-001,AI 기술 설명,구글 머신러닝 기반 음성 인식 기술 소개,High,구현완료,Frontend,/AI.html
+AI기능소개,AI-002,음성 데이터 설명,20년 이상 수집된 빅데이터 활용 설명,Medium,구현완료,Frontend,/AI.html
+AI기능소개,AI-003,학습 프로세스,AI 교정 학습 단계별 설명,Medium,구현완료,Frontend,/AI.html
+가격정책,PRICE-001,구독 플랜 표시,월간/연간 구독 옵션 표시,High,구현완료,Frontend,/Price.html
+가격정책,PRICE-002,무료 체험 안내,7일 무료 체험 정보 제공,High,구현완료,Frontend,/Price.html
+가격정책,PRICE-003,플랜 선택,사용자가 원하는 구독 플랜 선택,High,구현완료,Frontend,/Price.html
+가격정책,PRICE-004,상품 정보 조회,데이터베이스에서 상품 정보 조회 (S_PRODUCT),High,구현완료,Backend,/Price.html
+사용자후기,EPIL-001,후기 목록,상세 사용자 후기 모음 표시,Medium,구현완료,Frontend,/Epilogue.html
+사용자후기,EPIL-002,학습 성과 사례,실제 학습 효과 사례 공유,Medium,구현완료,Frontend,/Epilogue.html
+학습시스템,LEARN-001,오늘의 학습,당일 추천 학습 콘텐츠 제공,High,구현완료,Frontend,/Lesson/Today.html
+학습시스템,LEARN-002,코스 목록,전체 학습 코스 목록 표시,High,구현완료,Frontend,/Lesson/Courses.html
+학습시스템,LEARN-003,브이로그 코스,브이로그 기반 학습 코스,High,구현완료,Frontend,/Lesson/CourseVlogs.html
+학습시스템,LEARN-004,숏릴 코스,짧은 영상 기반 학습 코스,High,구현완료,Frontend,/Lesson/CourseShorts.html
+학습시스템,LEARN-005,테마별 코스,주제별 맞춤 학습 코스,Medium,구현완료,Frontend,/Lesson/CourseThemes.html
+학습시스템,LEARN-006,크리에이터별 코스,선호 크리에이터 선택 학습,Medium,구현완료,Frontend,/Lesson/CourseCreators.html
+학습시스템,LEARN-007,콘텐츠 뷰어,학습 영상 재생 및 자막 표시,High,구현완료,Frontend,/Lesson/View.html
+학습시스템,LEARN-008,복습 기능,학습한 콘텐츠 반복 학습,High,구현완료,Frontend,/Lesson/Review.html
+학습시스템,LEARN-009,검색 기능,키워드로 학습 콘텐츠 검색,Medium,구현완료,Frontend,/Lesson/Search.html
+학습시스템,LEARN-010,북마크 관리,중요 표현 저장 및 관리,High,구현완료,Frontend,/Lesson/BookmarkT.html
+학습시스템,LEARN-011,학습 기록,사용자 학습 이력 조회,Medium,구현완료,Frontend,/Lesson/History.html
+학습시스템,LEARN-012,학습 진행 상황,코스별 진행률 표시,Medium,구현완료,Frontend,/Lesson/MyHome.html
+학습시스템,LEARN-013,표현 하이라이트,중요 표현 강조 표시,High,구현완료,Frontend,/Lesson/_view.html
+학습시스템,LEARN-014,반복 재생,특정 구간 반복 학습 기능,High,구현완료,Frontend,/Lesson/view.js
+학습시스템,LEARN-015,재생 속도 조절,영상 재생 속도 조절 기능,Medium,구현완료,Frontend,/Lesson/view.js
+AI스피킹,SPEAK-001,음성 녹음,사용자 음성 녹음 기능,High,구현완료,Frontend,/Lesson/ViewSR2.html
+AI스피킹,SPEAK-002,음성 인식,구글 Speech API를 통한 음성 인식,High,구현완료,Backend,API 연동
+AI스피킹,SPEAK-003,발음 분석,사용자 발음과 원어민 발음 비교,High,구현완료,Backend,AI 처리
+AI스피킹,SPEAK-004,발음 피드백,정확도 점수 및 개선 사항 제공,High,구현완료,Frontend,/Lesson/ViewSR2.html
+AI스피킹,SPEAK-005,억양 교정,억양 패턴 분석 및 교정,Medium,구현완료,Backend,AI 처리
+구독관리,SUB-001,무료 체험 시작,7일 무료 체험 신청,High,구현완료,Backend,/API/_subscribe.html
+구독관리,SUB-002,구독 상태 확인,사용자 구독 상태 조회,High,구현완료,Backend,전체 (is_paid)
+구독관리,SUB-003,구독 결제,월간/연간 구독 결제 처리,High,구현완료,Backend,/Shop/
+구독관리,SUB-004,구독 갱신,자동 구독 갱신 처리,High,구현완료,Backend,Backend
+구독관리,SUB-005,구독 취소,구독 해지 처리,Medium,구현완료,Backend,/MyPage/
+구독관리,SUB-006,결제 이력,구독 결제 내역 조회,Medium,구현완료,Frontend,/MyPage/
+마이페이지,MY-001,프로필 관리,사용자 정보 수정,Medium,구현완료,Frontend,/MyPage/
+마이페이지,MY-002,학습 통계,전체 학습 시간 및 진행률,Medium,구현완료,Frontend,/MYC/
+마이페이지,MY-003,북마크 목록,저장한 표현 목록 조회,High,구현완료,Frontend,/MYC/
+마이페이지,MY-004,학습 히스토리,날짜별 학습 기록,Medium,구현완료,Frontend,/MYC/
+마이페이지,MY-005,설정 관리,알림/언어 등 설정,Low,구현완료,Frontend,/MyPage/
+API,API-001,AJAX 통신,비동기 데이터 통신 처리,High,구현완료,Backend,/API/_ajax.html
+API,API-002,로그인 API,로그인 요청 처리,High,구현완료,Backend,/API/_bd_login.html
+API,API-003,구독 API,구독 관련 요청 처리,High,구현완료,Backend,/API/_subscribe.html
+API,API-004,기본 API,기본 데이터 CRUD,High,구현완료,Backend,/API/basic_bin.html
+API,API-005,피드백 API,사용자 피드백 수집,Medium,구현완료,Backend,/API/feedback_bin.html
+공통기능,COMMON-001,헤더 네비게이션,전체 페이지 공통 헤더,High,구현완료,Frontend,/_top.html
+공통기능,COMMON-002,푸터,전체 페이지 공통 푸터,Medium,구현완료,Frontend,/_footer.html
+공통기능,COMMON-003,레이아웃 시스템,PHP 템플릿 기반 레이아웃,High,구현완료,Backend,/_layout_renew2_main.html
+공통기능,COMMON-004,에러 처리,에러 페이지 표시,Medium,구현완료,Frontend,/Common/_err.html
+공통기능,COMMON-005,데이터베이스 연결,MySQL 데이터베이스 연결 관리,High,구현완료,Backend,/Common/page_s_db.html
+공통기능,COMMON-006,공통 함수,재사용 가능한 유틸리티 함수,High,구현완료,Backend,/Common/page_s_fn.html
+공통기능,COMMON-007,파일 업로드,이미지/파일 업로드 처리,Medium,구현완료,Backend,/Common/Upload/
+공통기능,COMMON-008,반응형 디자인,모바일/데스크톱 최적화,High,구현완료,Frontend,전체
+공통기능,COMMON-009,SEO 설정,검색엔진 최적화 설정,Medium,구현완료,Frontend,robots.txt
+모바일앱,APP-001,iOS 앱 연동,iOS 앱에서 웹뷰 연동,High,구현완료,Mobile,index.html (OS 감지)
+모바일앱,APP-002,Android 앱 연동,Android 앱에서 웹뷰 연동,High,구임완료,Mobile,index.html (OS 감지)
+모바일앱,APP-003,앱 자동 리다이렉트,앱 접속 시 자동 페이지 이동,Medium,구현완료,Backend,index.html
+모바일앱,APP-004,앱스토어 링크,iOS/Android 앱 다운로드 링크,High,구현완료,Frontend,index.html (섹션8)
+고객지원,CS-001,개인정보처리방침,개인정보 보호 정책 안내,High,구현완료,Frontend,/Customer/Privacy.html
+고객지원,CS-002,이용약관,서비스 이용 약관 안내,High,구현완료,Frontend,/Customer/Terms.html
+고객지원,CS-003,피드백 수집,사용자 의견 수집,Medium,구현완료,Backend,/API/feedback_bin.html
+보안,SEC-001,세션 보안,세션 하이재킹 방지,High,구현완료,Backend,Backend
+보안,SEC-002,SQL Injection 방지,데이터베이스 쿼리 보안,High,구현완료,Backend,Backend
+보안,SEC-003,XSS 방지,크로스 사이트 스크립팅 방지,High,구현완료,Backend,Backend
+보안,SEC-004,HTTPS 적용,SSL/TLS 암호화 통신,High,구현완료,Infrastructure,전체
+성능,PERF-001,이미지 최적화,이미지 압축 및 lazy loading,Medium,개선필요,Frontend,전체
+성능,PERF-002,비디오 최적화,비디오 스트리밍 최적화,Medium,개선필요,Frontend,index.html
+성능,PERF-003,코드 번들링,JavaScript/CSS 번들 최적화,Medium,개선필요,Frontend,전체
+성능,PERF-004,CDN 적용,정적 리소스 CDN 배포,Low,개선필요,Infrastructure,전체
+성능,PERF-005,캐싱 전략,브라우저/서버 캐싱 최적화,Medium,개선필요,Backend,전체
+분석,ANALYTICS-001,사용자 행동 분석,학습 패턴 및 사용자 행동 추적,Medium,개선필요,Backend,전체
+분석,ANALYTICS-002,학습 효과 측정,학습 성과 데이터 수집 및 분석,Medium,개선필요,Backend,전체
+분석,ANALYTICS-003,전환율 추적,무료체험→유료전환 추적,High,개선필요,Backend,전체
+테스트,TEST-001,단위 테스트,개별 함수/모듈 테스트,Medium,미구현,Backend,전체
+테스트,TEST-002,통합 테스트,시스템 통합 테스트,Medium,미구현,Backend,전체
+테스트,TEST-003,E2E 테스트,사용자 시나리오 테스트,Low,미구현,Frontend,전체
+문서화,DOC-001,API 문서,API 엔드포인트 문서화,Medium,미구현,Documentation,전체
+문서화,DOC-002,코드 주석,코드 내 주석 작성,Low,개선필요,Development,전체
+문서화,DOC-003,개발자 가이드,개발 환경 설정 가이드,Medium,미구현,Documentation,전체

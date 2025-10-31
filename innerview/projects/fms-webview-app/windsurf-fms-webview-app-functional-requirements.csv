@@ -1,0 +1,79 @@
+카테고리,기능ID,기능명,상세설명,우선순위,현재상태,담당모듈,비고
+핵심기능,FUNC-001,WebView 통합,the-pureun.co.kr 웹사이트를 WebView로 표시,높음,구현완료,react-native-webview,DOM Storage 및 쿠키 공유 활성화
+핵심기능,FUNC-002,초기 라우팅,앱 시작 시 /userApp/login 페이지로 이동,높음,구현완료,constants/index.js,STARTING_ROUTE 상수로 관리
+핵심기능,FUNC-003,스플래시 스크린,앱 시작 시 1.5초 스플래시 화면 표시,중간,구현완료,react-native-bootsplash,페이드 효과 적용
+푸시알림,FUNC-101,FCM 토큰 획득,Firebase Cloud Messaging 토큰 생성 및 저장,높음,구현완료,@react-native-firebase/messaging,앱 시작 시 자동 실행
+푸시알림,FUNC-102,FCM 토큰 전송,서버에 FCM 토큰 전송 (POST /userApp/setToken),높음,구현완료,axios,로그인 후 1회 전송
+푸시알림,FUNC-103,포어그라운드 알림,앱 실행 중 푸시 알림 수신 및 Alert 표시,높음,구현완료,@react-native-firebase/messaging,onMessage 리스너
+푸시알림,FUNC-104,백그라운드 알림,앱 백그라운드 상태에서 알림 터치 처리,높음,구현완료,@react-native-firebase/messaging,onNotificationOpenedApp
+푸시알림,FUNC-105,Quit 상태 알림,앱 종료 상태에서 알림으로 앱 실행,높음,구현완료,@react-native-firebase/messaging,getInitialNotification
+하드웨어-NFC,FUNC-201,NFC 스캔 시작,WebView에서 'nfc_on' 메시지 수신 시 NFC 스캔 시작,높음,구현완료,react-native-nfc-manager,NDEF 기술 사용
+하드웨어-NFC,FUNC-202,NFC 태그 읽기,NFC 태그 감지 및 ID 추출,높음,구현완료,react-native-nfc-manager,ndefMessage 파싱
+하드웨어-NFC,FUNC-203,NFC 결과 전송,WebView로 태그 ID 전송 (beacon_recognized_complete),높음,구현완료,WebView.postMessage,성공 시 태그 ID 포함
+하드웨어-NFC,FUNC-204,NFC 에러 처리,NFC 스캔 실패 시 에러 메시지 전송,높음,구현완료,WebView.postMessage,beacon_recognized_error
+하드웨어-NFC,FUNC-205,NFC 타임아웃,15초 후 자동 스캔 종료 및 알림,중간,구현완료,setTimeout,beacon_nfc_off 메시지 전송
+하드웨어-NFC,FUNC-206,NFC 스캔 중지,WebView에서 'nfc_off' 메시지 수신 시 스캔 중지,높음,구현완료,NfcManager.cancelTechnologyRequest,수동 중지
+하드웨어-BLE,FUNC-301,BLE 스캔 시작,WebView에서 'ble_on' 메시지 수신 시 BLE 스캔 시작,높음,구현완료,react-native-ble-plx,BleManager 사용
+하드웨어-BLE,FUNC-302,BLE 디바이스 검색,주변 블루투스 디바이스 검색 및 로깅,높음,구현완료,BleManager.startDeviceScan,디바이스 이름과 ID 수집
+하드웨어-BLE,FUNC-303,BLE 타임아웃,15초 후 자동 스캔 종료 및 알림,중간,구현완료,setTimeout,beacon_ble_off 메시지 전송
+하드웨어-BLE,FUNC-304,BLE 스캔 중지,WebView에서 'ble_off' 메시지 수신 시 스캔 중지,높음,구현완료,BleManager.stopDeviceScan,수동 중지
+하드웨어-QR,FUNC-401,QR 스캔 시작,WebView에서 'camera_on' 메시지 수신 시 QR 스캐너 활성화,높음,구현완료,react-native-qrcode-scanner,카메라 권한 확인
+하드웨어-QR,FUNC-402,카메라 권한 요청,QR 스캔 전 카메라 권한 요청,높음,구현완료,react-native-permissions,iOS/Android 분기 처리
+하드웨어-QR,FUNC-403,QR 코드 읽기,QR 코드 스캔 및 데이터 추출,높음,구현완료,QRCodeScanner,URL 파싱
+하드웨어-QR,FUNC-404,QR 데이터 검증,userApp 또는 qrScan 경로 포함 여부 확인,중간,구현완료,URL 파싱,유효한 QR 코드만 처리
+하드웨어-QR,FUNC-405,QR 결과 전송,WebView로 QR 데이터 전송 (qrCode : data),높음,구현완료,WebView.postMessage,마지막 경로 세그먼트 전송
+하드웨어-QR,FUNC-406,QR 스캔 종료,WebView에서 'camera_off' 메시지 수신 시 스캐너 닫기,높음,구현완료,setState,오버레이 제거
+하드웨어-QR,FUNC-407,QR UI 표시,플랫폼별 QR 스캐너 오버레이 표시,중간,구현완료,StyleSheet,iOS: 상단 25% / Android: 전체화면
+권한관리,FUNC-501,Android 권한 요청,Android 필수 권한 일괄 요청,높음,구현완료,PermissionsAndroid,8개 권한 (알림/카메라/저장소/블루투스/위치)
+권한관리,FUNC-502,iOS 권한 요청,iOS 필수 권한 일괄 요청,높음,구현완료,react-native-permissions,5개 권한 (알림/블루투스/카메라/마이크/사진)
+권한관리,FUNC-503,권한 상태 확인,각 권한의 승인/거부 상태 로깅,낮음,구현완료,console.log,디버깅용
+권한관리,FUNC-504,권한 거부 처리,카메라 권한 거부 시 사용자 안내,중간,구현완료,alert,설정 이동 안내
+네비게이션,FUNC-601,Android 백 버튼,하드웨어 백 버튼 처리,높음,구현완료,BackHandler,특정 페이지에서 종료 확인
+네비게이션,FUNC-602,앱 종료 확인,로그인/홈 페이지에서 백 버튼 시 종료 다이얼로그,높음,구현완료,Alert,ANDROID_BACKHANDLER_EXIT_URIS
+네비게이션,FUNC-603,WebView 뒤로가기,일반 페이지에서 백 버튼 시 WebView 히스토리 백,높음,구현완료,webRef.goBack,canGoBack 확인
+네비게이션,FUNC-604,iOS 스와이프 제스처,화면 왼쪽에서 우측 스와이프로 뒤로가기,중간,구현완료,react-native-swipe-gestures,200px 이내 감지
+네비게이션,FUNC-605,네비게이션 상태 추적,현재 WebView URL 및 히스토리 상태 추적,중간,구현완료,onNavigationStateChange,navState 관리
+딥링크,FUNC-701,HTTP/HTTPS 링크,일반 웹 링크는 WebView에서 로드,높음,구현완료,onShouldStartLoadWithRequest,http:// https:// 체크
+딥링크,FUNC-702,Intent 스킴 처리,Android Intent 스킴으로 외부 앱 실행,높음,구현완료,react-native-send-intent,intent:// 파싱
+딥링크,FUNC-703,커스텀 스킴 처리,기타 커스텀 URL 스킴 처리,중간,구현완료,Linking.openURL,iOS/Android 공통
+딥링크,FUNC-704,앱 실행 실패 처리,외부 앱 실행 실패 시 에러 알림,중간,구현완료,Alert,앱 미설치 안내
+딥링크,FUNC-705,Firebase Dynamic Links,Firebase 동적 링크 지원,중간,구현완료,@react-native-firebase/dynamic-links,딥링크 라우팅
+통신,FUNC-801,Native to WebView,네이티브에서 WebView로 메시지 전송,높음,구현완료,webRef.postMessage,JSON 직렬화
+통신,FUNC-802,WebView to Native,WebView에서 네이티브로 메시지 수신,높음,구현완료,onMessage,이벤트 리스너
+통신,FUNC-803,메시지 프로토콜,정의된 메시지 형식으로 통신,높음,구현완료,문자열 기반,camera_on/off ble_on/off nfc_on/off
+통신,FUNC-804,비동기 처리,메시지 수신 후 비동기 작업 처리,중간,구현완료,async/await,권한 요청 등
+디바이스,FUNC-901,디바이스 정보 수집,앱 버전 및 디바이스 정보 획득,중간,구현완료,react-native-device-info,DeviceInfo.getVersion()
+디바이스,FUNC-902,플랫폼 감지,iOS/Android 플랫폼 구분,높음,구현완료,Platform.OS,조건부 로직
+디바이스,FUNC-903,Android 버전 체크,Android API 레벨 확인,중간,구현완료,Platform.Version,권한 분기 처리
+업데이트,FUNC-1001,인앱 업데이트 체크,스토어 버전과 현재 버전 비교,낮음,비활성화,sp-react-native-in-app-updates,주석 처리됨
+업데이트,FUNC-1002,업데이트 실행,Flexible 업데이트 모드로 업데이트,낮음,비활성화,sp-react-native-in-app-updates,주석 처리됨
+UI/UX,FUNC-1101,SafeAreaView,노치 및 상태바 대응,높음,구현완료,SafeAreaView,iOS/Android 공통
+UI/UX,FUNC-1102,텍스트 줌 고정,WebView 텍스트 줌 100% 고정,중간,구현완료,textZoom prop,반응형 방지
+UI/UX,FUNC-1103,스크롤 활성화,WebView 스크롤 허용,높음,구현완료,scrollEnabled prop,기본 활성화
+UI/UX,FUNC-1104,페이지 스케일링,iOS에서 페이지 스케일 조정,중간,구현완료,scalesPageToFit,Android는 false
+보안,FUNC-1201,쿠키 관리,WebView 쿠키 공유 및 저장,높음,구현완료,sharedCookiesEnabled,세션 유지
+보안,FUNC-1202,DOM Storage,로컬 스토리지 활성화,높음,구현완료,domStorageEnabled,웹 데이터 저장
+보안,FUNC-1203,혼합 콘텐츠,HTTP/HTTPS 혼합 콘텐츠 허용,중간,구현완료,mixedContentMode,compatibility 모드
+보안,FUNC-1204,서드파티 쿠키,서드파티 쿠키 허용,중간,구현완료,thirdPartyCookiesEnabled,외부 서비스 연동
+보안,FUNC-1205,JavaScript 활성화,WebView에서 JavaScript 실행 허용,높음,구현완료,javaScriptEnabled,필수 기능
+빌드,FUNC-1301,Android 빌드,Android APK/AAB 생성,높음,구현완료,Gradle,versionCode 2011
+빌드,FUNC-1302,iOS 빌드,iOS IPA 생성,높음,구현완료,Xcode,Bundle ID: com.fms.thepureun
+빌드,FUNC-1303,서명 관리,Release 빌드 서명,높음,구현완료,Keystore,환경 변수로 관리
+빌드,FUNC-1304,멀티 아키텍처,ARM/x86 아키텍처 지원,중간,구현완료,Gradle,armeabi-v7a x86 x86_64 arm64-v8a
+에러처리,FUNC-1401,NFC 에러 처리,NFC 스캔 실패 시 에러 메시지,중간,구현완료,try-catch,beacon_recognized_error
+에러처리,FUNC-1402,권한 거부 처리,권한 거부 시 사용자 안내,중간,부분구현,alert,일부 권한만 처리
+에러처리,FUNC-1403,네트워크 에러,서버 통신 실패 처리,중간,부분구현,axios catch,토큰 전송 실패만 처리
+에러처리,FUNC-1404,외부 앱 실행 실패,Intent/Linking 실패 처리,중간,구현완료,Alert,앱 미설치 안내
+로깅,FUNC-1501,콘솔 로깅,개발 중 디버그 로그 출력,낮음,구현완료,console.log/warn,프로덕션 제거 필요
+로깅,FUNC-1502,에러 로깅,에러 발생 시 로그 기록,낮음,미구현,없음,Sentry 등 도입 필요
+성능,FUNC-1601,Hermes 엔진,JavaScript 엔진 최적화,중간,조건부,Hermes,설정에 따라 활성화
+성능,FUNC-1602,코드 난독화,Proguard 난독화,낮음,비활성화,Proguard,enableProguardInReleaseBuilds = false
+성능,FUNC-1603,번들 최적화,JavaScript 번들 최적화,중간,구현완료,Metro,기본 설정
+테스트,FUNC-1701,단위 테스트,Jest 단위 테스트,낮음,최소구현,Jest,App-test.tsx만 존재
+테스트,FUNC-1702,E2E 테스트,End-to-End 테스트,낮음,미구현,없음,Detox 등 도입 필요
+개선필요,FUNC-1801,TypeScript 마이그레이션,JavaScript를 TypeScript로 전환,중간,미구현,없음,타입 안정성 향상
+개선필요,FUNC-1802,notifee import,notifee 라이브러리 import 추가,낮음,미구현,없음,현재 import 누락
+개선필요,FUNC-1803,주석 코드 정리,사용하지 않는 주석 코드 제거,낮음,미구현,없음,테스트 도메인 등
+개선필요,FUNC-1804,에러 핸들링 강화,전역 에러 핸들러 추가,중간,미구현,없음,ErrorBoundary 등
+개선필요,FUNC-1805,오프라인 모드,네트워크 없을 때 대응,중간,미구현,없음,캐시 전략 필요
+개선필요,FUNC-1806,CI/CD 파이프라인,자동 빌드 및 배포,낮음,미구현,없음,GitHub Actions 등

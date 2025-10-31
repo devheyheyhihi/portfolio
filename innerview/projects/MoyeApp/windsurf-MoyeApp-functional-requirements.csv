@@ -1,0 +1,101 @@
+카테고리,기능ID,기능명,상세설명,우선순위,구현상태,관련화면,기술스택,비고
+인증,AUTH-001,소셜 로그인 - Google,Google 계정을 통한 소셜 로그인 기능,높음,구현완료,AuthScreen,"@react-native-google-signin/google-signin, Firebase Auth",OAuth 2.0 기반
+인증,AUTH-002,소셜 로그인 - Kakao,카카오 계정을 통한 소셜 로그인 기능,높음,구현완료,AuthScreen,"@react-native-seoul/kakao-login, Firebase Auth",Kakao SDK 연동
+인증,AUTH-003,소셜 로그인 - Naver,네이버 계정을 통한 소셜 로그인 기능,높음,구현완료,AuthScreen,"@react-native-seoul/naver-login, Firebase Auth",Naver SDK 연동
+인증,AUTH-004,소셜 로그인 - Apple,Apple ID를 통한 소셜 로그인 기능,높음,구현완료,AuthScreen,"@invertase/react-native-apple-authentication, Firebase Auth",iOS 필수 요구사항
+인증,AUTH-005,JWT 토큰 관리,JWT 기반 인증 토큰 발급 및 관리,높음,구현완료,전체,"jwt-decode, AsyncStorage",토큰 갱신 로직 포함
+인증,AUTH-006,자동 로그인,저장된 토큰을 통한 자동 로그인 기능,중간,구현완료,AuthScreen,AsyncStorage,토큰 유효성 검증
+인증,AUTH-007,로그아웃,사용자 로그아웃 및 토큰 삭제,높음,구현완료,MypageScreen,"Firebase Auth, AsyncStorage",세션 정리
+인증,AUTH-008,회원 탈퇴,사용자 계정 삭제 기능,중간,구현완료,MypageScreen,Firebase Auth,데이터 완전 삭제
+홈,HOME-001,메인 대시보드,앱 메인 화면 및 주요 기능 접근,높음,구현완료,HomeScreen,"React Navigation, styled-components",최초 진입점
+홈,HOME-002,배너 슬라이더,프로모션 및 공지사항 배너 표시,중간,구현완료,HomeScreen,react-native-swiper-flatlist,자동 슬라이드
+홈,HOME-003,추천 레슨 목록,사용자 맞춤 추천 레슨 표시,높음,구현완료,HomeScreen,"axios, GraphQL",AI 추천 알고리즘
+홈,HOME-004,카테고리 바로가기,주요 카테고리 빠른 접근 버튼,중간,구현완료,HomeScreen,React Navigation,아이콘 기반 UI
+홈,HOME-005,최근 본 레슨,사용자가 최근 조회한 레슨 목록,낮음,구현완료,HomeScreen,AsyncStorage,로컬 저장
+카테고리,CAT-001,카테고리 목록 조회,전체 레슨 카테고리 목록 표시,높음,구현완료,CategoryScreen,"axios, GraphQL",계층 구조 지원
+카테고리,CAT-002,카테고리별 필터링,선택한 카테고리의 레슨만 필터링,높음,구현완료,CategoryScreen,React Navigation,다중 필터 지원
+카테고리,CAT-003,서브 카테고리 탐색,상위 카테고리 내 하위 카테고리 탐색,중간,구현완료,CategoryScreen,"@react-navigation/material-top-tabs",탭 기반 네비게이션
+카테고리,CAT-004,카테고리 아이콘 표시,각 카테고리별 대표 아이콘 표시,낮음,구현완료,CategoryScreen,"react-native-vector-icons, react-native-svg",커스텀 아이콘
+검색,SEARCH-001,키워드 검색,레슨명/강사명 기반 검색 기능,높음,구현완료,SearchScreen,"axios, GraphQL",실시간 검색
+검색,SEARCH-002,자동완성,검색어 입력 시 자동완성 제안,중간,구현완료,SearchScreen,debounce,성능 최적화
+검색,SEARCH-003,최근 검색어,사용자의 최근 검색어 저장 및 표시,낮음,구현완료,SearchScreen,AsyncStorage,최대 10개 저장
+검색,SEARCH-004,인기 검색어,실시간 인기 검색어 순위 표시,낮음,구현완료,SearchScreen,GraphQL Subscription,실시간 업데이트
+검색,SEARCH-005,검색 필터,가격/지역/난이도 등 다양한 필터 옵션,중간,구현완료,SearchScreen,react-native-dropdown-picker,다중 필터 조합
+검색,SEARCH-006,검색 결과 정렬,관련도/가격/평점 기준 정렬,중간,구현완료,SearchScreen,lodash,정렬 알고리즘
+레슨,LESSON-001,레슨 상세 정보,레슨의 모든 상세 정보 표시,높음,구현완료,LessonScreen,"axios, GraphQL",이미지 갤러리 포함
+레슨,LESSON-002,레슨 이미지 갤러리,레슨 관련 이미지 슬라이더,중간,구현완료,LessonScreen,react-native-image-slider-box,확대/축소 지원
+레슨,LESSON-003,강사 프로필 조회,강사의 상세 프로필 정보 표시,중간,구현완료,LessonScreen,GraphQL,경력/자격증 포함
+레슨,LESSON-004,레슨 일정 조회,예약 가능한 레슨 일정 캘린더,높음,구현완료,LessonScreen,react-native-calendars,월/주/일 뷰
+레슨,LESSON-005,레슨 예약,원하는 날짜/시간 레슨 예약,높음,구현완료,LessonScreen,"axios, GraphQL",실시간 예약 확인
+레슨,LESSON-006,레슨 결제,아임포트를 통한 결제 처리,높음,구현완료,LessonScreen,iamport-react-native,다양한 결제수단
+레슨,LESSON-007,레슨 리뷰 조회,다른 사용자의 레슨 리뷰 확인,중간,구현완료,LessonScreen,GraphQL,평점/사진 포함
+레슨,LESSON-008,레슨 리뷰 작성,수강 완료 후 리뷰 작성,중간,구현완료,LessonScreen,"axios, react-native-image-picker",사진 첨부 가능
+레슨,LESSON-009,레슨 위치 정보,레슨 장소의 지도 및 주소 정보,중간,구현완료,LessonScreen,geolib,거리 계산
+레슨,LESSON-010,레슨 공유,레슨 정보를 SNS로 공유,낮음,구현완료,LessonScreen,react-native-share,딥링크 생성
+즐겨찾기,FAV-001,즐겨찾기 추가,관심 레슨을 즐겨찾기에 추가,높음,구현완료,전체,"axios, GraphQL",하트 아이콘
+즐겨찾기,FAV-002,즐겨찾기 목록 조회,저장한 즐겨찾기 레슨 목록 확인,높음,구현완료,FavoriteScreen,GraphQL,정렬 기능
+즐겨찾기,FAV-003,즐겨찾기 삭제,즐겨찾기에서 레슨 제거,중간,구현완료,FavoriteScreen,axios,스와이프 삭제
+즐겨찾기,FAV-004,즐겨찾기 알림,즐겨찾기 레슨의 할인/일정 알림,낮음,구현완료,FavoriteScreen,Firebase Messaging,푸시 알림
+마이페이지,MY-001,프로필 조회,사용자 프로필 정보 표시,높음,구현완료,MypageScreen,GraphQL,프로필 이미지 포함
+마이페이지,MY-002,프로필 수정,사용자 정보 수정 기능,높음,구현완료,MypageScreen,"axios, react-native-image-picker",이미지 업로드
+마이페이지,MY-003,예약 내역 조회,과거/예정된 레슨 예약 내역,높음,구현완료,MypageScreen,GraphQL,상태별 필터링
+마이페이지,MY-004,예약 취소,예약한 레슨 취소 기능,높음,구현완료,MypageScreen,axios,환불 정책 적용
+마이페이지,MY-005,결제 내역 조회,결제 완료된 내역 조회,중간,구현완료,MypageScreen,GraphQL,영수증 다운로드
+마이페이지,MY-006,쿠폰 관리,보유 쿠폰 조회 및 사용,중간,구현완료,MypageScreen,GraphQL,유효기간 표시
+마이페이지,MY-007,포인트 관리,적립/사용 포인트 내역 조회,중간,구현완료,MypageScreen,GraphQL,포인트 충전
+마이페이지,MY-008,알림 설정,푸시 알림 수신 설정 관리,중간,구현완료,MypageScreen,Firebase Messaging,카테고리별 설정
+마이페이지,MY-009,언어 설정,앱 언어 변경 기능,낮음,예정,MypageScreen,i18n,다국어 지원
+마이페이지,MY-010,버전 정보,앱 버전 및 업데이트 확인,낮음,구현완료,MypageScreen,react-native-version-check,강제 업데이트
+채팅,CHAT-001,채팅방 목록,강사와의 채팅방 목록 조회,높음,구현완료,전체,GraphQL,읽지 않은 메시지 표시
+채팅,CHAT-002,실시간 채팅,강사와 실시간 메시지 송수신,높음,구현완료,전체,GraphQL Subscription,WebSocket 기반
+채팅,CHAT-003,채팅 알림,새 메시지 도착 시 푸시 알림,높음,구현완료,전체,Firebase Messaging,백그라운드 알림
+채팅,CHAT-004,이미지 전송,채팅에서 이미지 전송 기능,중간,구현완료,전체,react-native-image-picker,압축 처리
+채팅,CHAT-005,채팅 내역 저장,과거 채팅 내역 조회,중간,구현완료,전체,GraphQL,무한 스크롤
+알림,NOTI-001,알림 목록 조회,받은 알림 목록 확인,높음,구현완료,전체,GraphQL,읽음/안읽음 표시
+알림,NOTI-002,실시간 알림 수신,새 알림 실시간 수신,높음,구현완료,전체,GraphQL Subscription,WebSocket
+알림,NOTI-003,푸시 알림,앱 종료 시에도 알림 수신,높음,구현완료,전체,Firebase Messaging,FCM 토큰 관리
+알림,NOTI-004,알림 읽음 처리,알림 읽음 상태 변경,중간,구현완료,전체,GraphQL Mutation,자동 읽음 처리
+알림,NOTI-005,알림 삭제,불필요한 알림 삭제,낮음,구현완료,전체,GraphQL Mutation,일괄 삭제 지원
+알림,NOTI-006,알림 딥링크,알림 클릭 시 해당 화면 이동,중간,구현완료,전체,Firebase Dynamic Links,URL 스키마
+결제,PAY-001,결제 수단 선택,카드/계좌이체/간편결제 선택,높음,구현완료,LessonScreen,iamport-react-native,다양한 PG사
+결제,PAY-002,결제 처리,실제 결제 트랜잭션 처리,높음,구현완료,LessonScreen,iamport-react-native,보안 처리
+결제,PAY-003,결제 내역 저장,결제 완료 후 내역 저장,높음,구현완료,LessonScreen,axios,영수증 발급
+결제,PAY-004,결제 취소/환불,결제 취소 및 환불 처리,높음,구현완료,MypageScreen,axios,환불 정책 적용
+결제,PAY-005,쿠폰 적용,결제 시 쿠폰 할인 적용,중간,구현완료,LessonScreen,GraphQL,중복 사용 제한
+결제,PAY-006,포인트 사용,보유 포인트로 결제,중간,구현완료,LessonScreen,GraphQL,부분 사용 가능
+미디어,MEDIA-001,이미지 선택,갤러리에서 이미지 선택,높음,구현완료,전체,react-native-image-picker,다중 선택
+미디어,MEDIA-002,카메라 촬영,카메라로 직접 사진 촬영,높음,구현완료,전체,react-native-image-picker,권한 처리
+미디어,MEDIA-003,이미지 업로드,서버로 이미지 업로드,높음,구현완료,전체,axios,압축 및 리사이징
+미디어,MEDIA-004,이미지 최적화,이미지 로딩 최적화 및 캐싱,중간,구현완료,전체,react-native-fast-image,메모리 관리
+미디어,MEDIA-005,이미지 미리보기,선택한 이미지 확대 보기,낮음,구현완료,전체,react-native-modal,핀치 줌
+위치,LOC-001,현재 위치 조회,사용자의 현재 위치 확인,중간,구현완료,전체,react-native-permissions,권한 요청
+위치,LOC-002,거리 계산,레슨 장소까지의 거리 계산,중간,구현완료,LessonScreen,geolib,직선 거리
+위치,LOC-003,주변 레슨 검색,현재 위치 기반 주변 레슨 검색,중간,구현완료,SearchScreen,geolib,반경 설정
+위치,LOC-004,주소 검색,주소 기반 레슨 검색,중간,구현완료,SearchScreen,axios,주소 API 연동
+설정,SET-001,약관 동의,서비스 이용약관 동의,높음,구현완료,TermsScreen,react-native-webview,HTML 렌더링
+설정,SET-002,개인정보 처리방침,개인정보 처리방침 확인,높음,구현완료,TermsScreen,react-native-webview,HTML 렌더링
+설정,SET-003,앱 설정,앱 관련 설정 관리,중간,구현완료,MypageScreen,AsyncStorage,로컬 저장
+설정,SET-004,캐시 삭제,앱 캐시 데이터 삭제,낮음,구현완료,MypageScreen,AsyncStorage,용량 확보
+분석,ANAL-001,화면 조회 추적,사용자 화면 조회 이벤트 추적,중간,구현완료,전체,Firebase Analytics,페이지뷰
+분석,ANAL-002,사용자 행동 추적,버튼 클릭 등 사용자 행동 추적,중간,구현완료,전체,Firebase Analytics,커스텀 이벤트
+분석,ANAL-003,크래시 리포팅,앱 크래시 자동 리포팅,높음,구현완료,전체,Firebase Crashlytics,스택 트레이스
+분석,ANAL-004,성능 모니터링,앱 성능 지표 수집,낮음,구현완료,전체,Firebase Performance,네트워크 추적
+보안,SEC-001,토큰 암호화,인증 토큰 암호화 저장,높음,구현완료,전체,AsyncStorage,AES 암호화
+보안,SEC-002,API 통신 암호화,HTTPS 통신 강제,높음,구현완료,전체,axios,SSL Pinning
+보안,SEC-003,민감정보 보호,개인정보 마스킹 처리,중간,구현완료,전체,lodash,카드번호/전화번호
+보안,SEC-004,세션 타임아웃,일정 시간 후 자동 로그아웃,중간,구현완료,전체,AuthTimer,30분 타임아웃
+성능,PERF-001,이미지 레이지 로딩,화면에 보이는 이미지만 로드,중간,구현완료,전체,react-native-fast-image,메모리 최적화
+성능,PERF-002,무한 스크롤,목록 데이터 페이지네이션,중간,구현완료,전체,FlatList,가상화 렌더링
+성능,PERF-003,데이터 캐싱,API 응답 데이터 캐싱,중간,구현완료,전체,AsyncStorage,만료 시간 설정
+성능,PERF-004,번들 최적화,앱 번들 사이즈 최적화,낮음,진행중,전체,Metro,Code Splitting
+접근성,ACC-001,폰트 크기 고정,시스템 폰트 크기 영향 차단,중간,구현완료,전체,React Native,allowFontScaling false
+접근성,ACC-002,다크모드 지원,다크모드 테마 지원,낮음,예정,전체,Appearance,테마 전환
+접근성,ACC-003,스크린 리더 지원,시각장애인용 스크린 리더 지원,낮음,예정,전체,AccessibilityInfo,접근성 레이블
+오류처리,ERR-001,네트워크 오류 처리,네트워크 오류 시 재시도 로직,높음,구현완료,전체,axios,exponential backoff
+오류처리,ERR-002,에러 바운더리,컴포넌트 오류 격리,중간,구현완료,전체,React Error Boundary,폴백 UI
+오류처리,ERR-003,사용자 피드백,오류 발생 시 사용자 안내,높음,구현완료,전체,react-native-modal,토스트 메시지
+오류처리,ERR-004,오프라인 모드,네트워크 없을 때 기본 기능 제공,낮음,예정,전체,NetInfo,캐시 데이터 활용
+개발도구,DEV-001,디버깅 도구,개발 중 상태 및 네트워크 모니터링,중간,구현완료,전체,Reactotron,개발 모드만
+개발도구,DEV-002,핫 리로드,코드 변경 시 자동 새로고침,중간,구현완료,전체,Metro,Fast Refresh
+개발도구,DEV-003,로그 관리,개발/운영 환경별 로그 레벨 관리,중간,구현완료,전체,console,조건부 로깅
+개발도구,DEV-004,환경 변수 관리,개발/스테이징/운영 환경 분리,중간,구현완료,전체,react-native-config,env 파일

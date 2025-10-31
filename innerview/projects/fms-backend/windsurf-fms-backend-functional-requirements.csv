@@ -1,0 +1,153 @@
+대분류,중분류,기능명,기능 설명,우선순위,구현 상태,관련 모델,관련 라우트,비고
+인증/권한,회원 관리,회원 가입,새로운 회원 등록 및 정보 저장,High,구현완료,Member,/member,Passport.js 사용
+인증/권한,회원 관리,로그인,이메일/비밀번호 기반 로그인,High,구현완료,Member,/login,Local Strategy
+인증/권한,회원 관리,로그아웃,세션 종료 및 로그아웃 처리,High,구현완료,Member,/login,
+인증/권한,회원 관리,회원 정보 조회,회원 상세 정보 조회,Medium,구현완료,Member,/member,
+인증/권한,회원 관리,회원 정보 수정,회원 정보 업데이트,Medium,구현완료,Member,/member,
+인증/권한,회원 관리,회원 상태 관리,정상/대기/거부/삭제/차단/휴면/탈퇴 상태 관리,High,구현완료,Member,/member,Enum 정의됨
+인증/권한,권한 관리,권한 체크,사용자 권한 확인 미들웨어,High,구현완료,Member,/common,authCheck.js
+인증/권한,권한 관리,관리자 권한,관리자 전용 기능 접근 제어,High,구현완료,Member,/common,
+인증/권한,권한 관리,배송자 권한,배송자 전용 기능 접근 제어,High,구현완료,Member,/common,
+인증/권한,본인인증,NICE 본인인증,휴대폰 본인인증 연동,High,구현완료,Member,/userApp/nice,niceMobileModule.js
+주문 관리,주문 접수,주문 등록,새로운 주문 생성,High,구현완료,Order,/order,
+주문 관리,주문 접수,주문 일괄 등록,엑셀 파일을 통한 주문 일괄 업로드,High,구현완료,Order,/excel,excel4node 사용
+주문 관리,주문 조회,주문 목록 조회,주문 리스트 조회 및 필터링,High,구현완료,Order,/order,DataTable 지원
+주문 관리,주문 조회,주문 상세 조회,개별 주문 상세 정보 조회,High,구현완료,Order,/order,
+주문 관리,주문 수정,주문 정보 수정,주문 정보 업데이트,Medium,구현완료,Order,/order,
+주문 관리,주문 삭제,주문 삭제,주문 데이터 삭제,Low,구현완료,Order,/order,
+주문 관리,주문 상태,주문 상태 관리,주문접수/허브도착/물류집하/배송중/배송완료 등 상태 관리,High,구현완료,Order,/order,12개 상태 정의
+주문 관리,주문 추적,송장 번호 추적,송장 번호로 주문 추적,High,구현완료,Order,/tracking,
+주문 관리,엑셀 처리,주문 엑셀 다운로드,주문 데이터 엑셀 다운로드,Medium,구현완료,Order,/excel,exceljs 사용
+배송 관리,배송 처리,배송 시작,배송 시작 처리,High,구현완료,DeliverySituation,/delivery,
+배송 관리,배송 처리,배송 완료,배송 완료 처리,High,구현완료,DeliverySituation,/delivery,
+배송 관리,배송 상태,배송 상태 조회,실시간 배송 상태 확인,High,구현완료,DeliverySituation,/delivery,
+배송 관리,배송 상태,배송 상태 자동 변경,스케줄러를 통한 자동 상태 변경,Medium,구현완료,DeliverySituation,/delivery,deliveryAutoStatusChange.js
+배송 관리,배송 이슈,배송 이슈 등록,배송 중 발생한 이슈 등록,High,구현완료,DeliveryIssue,/deliveryIssue,
+배송 관리,배송 이슈,배송 이슈 조회,이슈 목록 및 상세 조회,High,구현완료,DeliveryIssue,/deliveryIssue,
+배송 관리,배송 이슈,이슈 원인 관리,파손/배송지연/수취인불명/기상악화/기타,Medium,구현완료,DeliveryIssue,/deliveryIssue,Enum 정의
+배송 관리,배송 센터,배송 센터 등록,새로운 배송 센터 추가,Medium,구현완료,DeliveryCenter,/deliveryCenter,
+배송 관리,배송 센터,배송 센터 조회,배송 센터 목록 및 상세 정보,Medium,구현완료,DeliveryCenter,/deliveryCenter,
+배송 관리,배송 센터,배송 센터 수정,배송 센터 정보 업데이트,Medium,구현완료,DeliveryCenter,/deliveryCenter,
+배송 관리,물류 센터,물류 센터 관리,물류 센터 CRUD,Medium,구현완료,DistributionCenter,/distributionCenter,
+배송 관리,세탁 센터,세탁 센터 관리,세탁 센터 CRUD,Medium,구현완료,WashingCenter,/washingCenter,
+배송 관리,배송 알림,배송 시작 SMS,배송 시작 시 고객에게 SMS 발송,High,구현완료,SmsLog,/delivery,deliveryAlertSMS.js
+배송 관리,배송 알림,배송 완료 SMS,배송 완료 시 고객에게 SMS 발송,High,구현완료,SmsLog,/delivery,Aligo API 사용
+회수 관리,회수 요청,회수 요청 등록,고객의 회수 요청 접수,High,구현완료,RetrieveRequest,/retrieve,
+회수 관리,회수 요청,회수 요청 조회,회수 요청 목록 및 상세 조회,High,구현완료,RetrieveRequest,/retrieve,
+회수 관리,회수 처리,회수 시작,배송기사의 회수 시작 처리,High,구현완료,RetrieveRequest,/retrieveApp,
+회수 관리,회수 처리,회수 완료,회수 완료 처리,High,구현완료,RetrieveRequest,/retrieveApp,
+회수 관리,회수 상태,회수 상태 관리,회수요청/회수완료/분실/사용가능 상태 관리,High,구현완료,RetrieveRequest,/retrieve,Enum 정의
+회수 관리,회수 알림,회수 요청 SMS,회수 요청 시 고객에게 SMS 발송,High,구현완료,SmsLog,/retrieve,
+회수 관리,회수 알림,회수 완료 SMS,회수 완료 시 고객에게 SMS 발송,High,구현완료,SmsLog,/retrieve,
+회수 관리,회수 알림,회수 독촉 SMS,회수 독촉 SMS 발송,Medium,구현완료,SmsLog,/retrieve,
+회수 관리,회수 앱,회수 앱 로그인,배송기사용 앱 로그인,High,구현완료,Member,/retrieveApp/doLogin,별도 인증 플로우
+회수 관리,회수 앱,회수 목록 조회,배송기사의 회수 목록 조회,High,구현완료,RetrieveRequest,/retrieveApp,
+회수 관리,회수 정보,회수 진입 방법,공동현관 비밀번호/공동현관 없음/기타,Medium,구현완료,RetrieveRequest,/retrieve,Enum 정의
+회수 관리,회수 정보,회수 위치,현관/경비실/직접입력,Medium,구현완료,RetrieveRequest,/retrieve,Enum 정의
+반품 관리,반품 요청,반품 요청 등록,고객의 반품 요청 접수,High,구현완료,Order,/order,
+반품 관리,반품 처리,반품 회수 중,반품 회수 진행 중 상태,High,구현완료,Order,/order,
+반품 관리,반품 처리,반품 거점 회수 완료,반품 거점 도착 처리,High,구현완료,Order,/order,
+반품 관리,반품 처리,반품 완료,반품 최종 완료 처리,High,구현완료,Order,/order,
+반품 관리,반품 박스,반품 박스 등록,반품 박스 정보 등록,Medium,구현완료,ReturnBox,/returnBox,
+반품 관리,반품 박스,반품 박스 조회,반품 박스 목록 및 상세 조회,Medium,구현완료,ReturnBox,/returnBox,
+반품 관리,반품 박스,반품 박스 로그,반품 박스 이력 관리,Low,구현완료,ReturnBoxLog,/returnBox,
+반품 관리,반품 알림,반품 SMS,반품 관련 SMS 발송,Medium,구현완료,SmsLog,/order,deliveryReturnSMS.js
+자산 관리,자산 등록,자산 추가,새로운 자산 등록,High,구현완료,Asset,/asset,
+자산 관리,자산 조회,자산 목록 조회,자산 리스트 조회 및 필터링,High,구현완료,Asset,/asset,
+자산 관리,자산 조회,자산 상세 조회,개별 자산 상세 정보,High,구현완료,Asset,/asset,
+자산 관리,자산 수정,자산 정보 수정,자산 정보 업데이트,Medium,구현완료,Asset,/asset,
+자산 관리,자산 상태,자산 상태 관리,사용가능/사용요청/사용예정/사용중/분실/회수완료,High,구현완료,Asset,/asset,Enum 정의
+자산 관리,자산 카테고리,카테고리 관리,자산 카테고리 CRUD,Medium,구현완료,AssetCategory,/asset,
+자산 관리,자산 옵션,옵션 관리,자산 옵션 CRUD,Low,구현완료,AssetOption,/asset,
+자산 관리,자산 이력,자산 히스토리,자산 사용 이력 추적,Medium,구현완료,AssetHistory,/asset,
+자산 관리,자산 요청,자산 요청 등록,새로운 자산 요청,High,구현완료,AssetRequest,/asset,
+자산 관리,자산 요청,자산 요청 처리,신규/운송중/입고완료 상태 관리,High,구현완료,AssetRequest,/asset,
+자산 관리,개인 박스,개인 박스 관리,개인 박스 바인딩 관리,Medium,구현완료,BindPersonalBox,/asset,
+하드웨어 관리,하드웨어 등록,하드웨어 추가,새로운 하드웨어 등록,Medium,구현완료,Hardware,/hardware,
+하드웨어 관리,하드웨어 조회,하드웨어 목록 조회,하드웨어 리스트 조회,Medium,구현완료,Hardware,/hardware,
+하드웨어 관리,하드웨어 상태,하드웨어 상태 관리,정상/비정상 상태 관리,Medium,구현완료,Hardware,/hardware,Enum 정의
+하드웨어 관리,하드웨어 로그,하드웨어 이력,하드웨어 사용 로그,Low,구현완료,HardwareLog,/hardware,
+하드웨어 관리,비콘,비콘 관리,비콘 디바이스 CRUD,Medium,구현완료,Beacon,/hardware,
+하드웨어 관리,NFC,NFC 관리,NFC 디바이스 CRUD,Medium,구현완료,NFC,/hardware,
+하드웨어 관리,하드웨어 모듈,모듈 관리,하드웨어 모듈 CRUD,Low,구현완료,HardwareModule,/hardware,
+하드웨어 관리,하드웨어 모듈,모듈 카테고리,모듈 카테고리 관리,Low,구현완료,HardwareModuleCategory,/hardware,
+하드웨어 관리,하드웨어 모듈,모듈 옵션,모듈 옵션 관리,Low,구현완료,HardwareModuleOption,/hardware,
+하드웨어 관리,즐겨찾기,하드웨어 즐겨찾기,회원별 하드웨어 즐겨찾기,Low,구현완료,MembersFavorHardware,/hardware,
+파트너 관리,파트너 등록,파트너 추가,새로운 파트너 등록,High,구현완료,Partner,/partner,
+파트너 관리,파트너 조회,파트너 목록 조회,파트너 리스트 조회,High,구현완료,Partner,/partner,
+파트너 관리,파트너 조회,파트너 상세 조회,개별 파트너 상세 정보,High,구현완료,Partner,/partner,
+파트너 관리,파트너 수정,파트너 정보 수정,파트너 정보 업데이트,Medium,구현완료,Partner,/partner,
+파트너 관리,파트너 계정,계정 관리,파트너 계정 관리,High,구현완료,Partner,/partnerAccountManage,
+파트너 관리,파트너 권한,권한 설정,파트너별 권한 설정,Medium,구현완료,Partner,/partner,
+고객 서비스,문의 관리,문의 등록,고객 문의 접수,High,구현완료,CsInquiry,/cs,
+고객 서비스,문의 관리,문의 조회,문의 목록 및 상세 조회,High,구현완료,CsInquiry,/cs,
+고객 서비스,문의 관리,문의 답변,문의에 대한 답변 등록,High,구현완료,CsInquiry,/cs,
+고객 서비스,통화 관리,통화 기록 등록,고객 통화 내역 기록,Medium,구현완료,CsCall,/cs,
+고객 서비스,통화 관리,통화 기록 조회,통화 이력 조회,Medium,구현완료,CsCall,/cs,
+고객 서비스,공지사항,공지사항 등록,새로운 공지사항 작성,Medium,구현완료,Notice,/notice,
+고객 서비스,공지사항,공지사항 조회,공지사항 목록 및 상세 조회,Medium,구현완료,Notice,/notice,
+고객 서비스,공지사항,공지사항 수정,공지사항 수정,Medium,구현완료,Notice,/notice,
+고객 서비스,공지사항,공지사항 삭제,공지사항 삭제,Low,구현완료,Notice,/notice,
+고객 서비스,약관/정책,이용약관 관리,서비스 이용약관 관리,High,구현완료,ContractNotice,/termsAndPolicy,
+고객 서비스,약관/정책,개인정보 처리방침,개인정보 처리방침 관리,High,구현완료,ContractNotice,/termsAndPolicy,
+고객 서비스,약관/정책,탈퇴방침,탈퇴방침 관리,Medium,구현완료,ContractNotice,/termsAndPolicy,
+상품 관리,상품 등록,상품 추가,새로운 상품 등록,Medium,구현완료,Product,/product,
+상품 관리,상품 조회,상품 목록 조회,상품 리스트 조회,Medium,구현완료,Product,/product,
+상품 관리,상품 조회,상품 상세 조회,개별 상품 상세 정보,Medium,구현완료,Product,/product,
+상품 관리,상품 수정,상품 정보 수정,상품 정보 업데이트,Medium,구현완료,Product,/product,
+SMS 관리,SMS 발송,SMS 전송,SMS 메시지 발송,High,구현완료,SmsLog,/common,Aligo API
+SMS 관리,SMS 템플릿,템플릿 관리,SMS 템플릿 CRUD,Medium,구현완료,SmsTemplate,/common,
+SMS 관리,SMS 템플릿,배송알림 템플릿,배송 알림 자동발송 템플릿,High,구현완료,SmsTemplate,/common,
+SMS 관리,SMS 템플릿,배송완료 템플릿,배송 완료 템플릿,High,구현완료,SmsTemplate,/common,
+SMS 관리,SMS 템플릿,회수요청 템플릿,회수 요청 템플릿,High,구현완료,SmsTemplate,/common,
+SMS 관리,SMS 템플릿,회수완료 템플릿,회수 완료 템플릿,High,구현완료,SmsTemplate,/common,
+SMS 관리,SMS 템플릿,회수독촉 템플릿,회수 독촉 템플릿,Medium,구현완료,SmsTemplate,/common,
+SMS 관리,SMS 로그,발송 이력,SMS 발송 이력 조회,Medium,구현완료,SmsLog,/common,
+파일 관리,파일 업로드,이미지 업로드,이미지 파일 S3 업로드,High,구현완료,File,/common,multer-s3
+파일 관리,파일 업로드,문서 업로드,문서 파일 S3 업로드,High,구현완료,File,/common,AWS S3
+파일 관리,파일 조회,파일 목록 조회,업로드된 파일 목록,Medium,구현완료,File,/common,
+파일 관리,파일 다운로드,파일 다운로드,S3 파일 다운로드,Medium,구현완료,File,/common,
+엑셀 관리,엑셀 업로드,주문 엑셀 업로드,엑셀 파일로 주문 일괄 등록,High,구현완료,Order,/excel,xlsx
+엑셀 관리,엑셀 다운로드,주문 엑셀 다운로드,주문 데이터 엑셀 다운로드,High,구현완료,Order,/excel,excel4node
+엑셀 관리,엑셀 다운로드,배송 엑셀 다운로드,배송 데이터 엑셀 다운로드,Medium,구현완료,DeliverySituation,/excel,exceljs
+엑셀 관리,엑셀 다운로드,자산 엑셀 다운로드,자산 데이터 엑셀 다운로드,Medium,구현완료,Asset,/excel,
+실시간 통신,Socket.IO,배송 상태 업데이트,실시간 배송 상태 푸시,High,구현완료,DeliverySituation,/delivery,socketIO.js
+실시간 통신,Socket.IO,관리자 알림,관리자용 실시간 알림,Medium,구현완료,Member,/common,
+실시간 통신,Socket.IO,하드웨어 모니터링,하드웨어 상태 실시간 모니터링,Low,구현완료,Hardware,/hardware,
+실시간 통신,SSE,실시간 데이터 스트리밍,Server-Sent Events 스트리밍,Medium,구현완료,N/A,/common,express-sse.js
+외부 API,AWS S3,파일 저장,S3 파일 저장소 연동,High,구현완료,File,/common,@aws-sdk/client-s3
+외부 API,Aligo,SMS 발송,Aligo SMS API 연동,High,구현완료,SmsLog,/common,aligoapi
+외부 API,카카오맵,지도 API,카카오맵 API 연동,Medium,구현완료,N/A,/common,kakaoMapApi.js
+외부 API,카카오맵,주소 검색,카카오 주소 검색 API,High,구현완료,N/A,/common,
+외부 API,NICE,본인인증,NICE 휴대폰 본인인증,High,구현완료,Member,/userApp/nice,niceMobileModule.js
+외부 API,공공 API,주소 검색,공공 주소 검색 API,Medium,구현완료,N/A,/common,publicAddressSearchApi.js
+외부 API,Redis,세션 관리,Redis 세션 스토어,High,구현완료,N/A,/common,connect-redis
+외부 API,Redis,데이터 캐싱,Redis 캐싱,Medium,구현완료,N/A,/common,
+푸시 알림,FCM,FCM 토큰 관리,Firebase Cloud Messaging 토큰 관리,Medium,구현완료,FcmToken,/userApp,
+푸시 알림,FCM,푸시 발송,모바일 푸시 알림 발송,Medium,구현완료,FcmToken,/userApp,
+사용자 앱,사용자 로그인,앱 로그인,사용자 앱 로그인,High,구현완료,Member,/userApp/login,
+사용자 앱,사용자 회원가입,앱 회원가입,사용자 앱 회원가입,High,구현완료,Member,/userApp/join,
+사용자 앱,본인인증,NICE 인증,NICE 본인인증 콜백 처리,High,구현완료,Member,/userApp/nice/callback,
+사용자 앱,주문 조회,내 주문 조회,사용자의 주문 내역 조회,High,구현완료,Order,/userApp,
+사용자 앱,배송 추적,배송 상태 확인,사용자의 배송 상태 추적,High,구현완료,DeliverySituation,/userApp,
+사용자 앱,회수 요청,회수 신청,사용자의 회수 요청,High,구현완료,RetrieveRequest,/userApp,
+사용자 앱,포인트,포인트 조회,사용자 포인트 조회,Medium,구현완료,UserPoint,/userApp,
+사용자 앱,포인트,포인트 적립/사용,포인트 적립 및 사용 처리,Medium,구현완료,UserPoint,/userApp,
+공통 기능,날짜 처리,날짜 유틸리티,날짜 포맷 및 계산,High,구현완료,N/A,/date,moment
+공통 기능,해시,해시 생성,비밀번호 해싱,High,구현완료,N/A,/common,makeHash.js
+공통 기능,로깅,에러 로깅,에러 로그 기록,High,구현완료,N/A,/common,logger.js
+공통 기능,로깅,액세스 로깅,HTTP 요청 로그,Medium,구현완료,N/A,/common,morgan
+공통 기능,검증,입력 검증,express-validator 검증,High,구현완료,N/A,/common,expressValidateResult.js
+공통 기능,응답 포맷,API 응답,표준 API 응답 포맷,High,구현완료,N/A,/common,expressResult.js
+공통 기능,응답 포맷,DataTable 응답,DataTable 전용 응답 포맷,Medium,구현완료,N/A,/common,expressDatatableResult.js
+공통 기능,응답 포맷,Select2 응답,Select2 전용 응답 포맷,Low,구현완료,N/A,/common,expressSelect2Result.js
+공통 기능,페이지네이션,페이지 생성,페이지네이션 유틸리티,Medium,구현완료,N/A,/common,makeExpressPage.js
+공통 기능,라우팅,라우터 정규식,라우터 정규식 유틸리티,Low,구현완료,N/A,/common,routerRegex.js
+스케줄러,자동 작업,3시간마다 실행,정기 작업 스케줄러,Medium,구현완료,N/A,/common,everyThreeHoursWorker.js
+스케줄러,자동 작업,배송 상태 자동 변경,배송 상태 자동 업데이트,High,구현완료,DeliverySituation,/common,deliveryAutoStatusChange.js
+템플릿,템플릿 관리,템플릿 조회,Handlebars 템플릿 조회,Medium,구현완료,N/A,/templates,
+템플릿,템플릿 관리,템플릿 렌더링,템플릿 렌더링 처리,Medium,구현완료,N/A,/templates,express-hbs
+공개 API,공개 페이지,배송 추적 페이지,공개 배송 추적 페이지,High,구현완료,Order,/public,
+공개 API,공개 페이지,공개 API 문서,공개 API 문서 페이지,Low,구현완료,N/A,/public/doc,JSDoc
+버전 관리,버전 정보,앱 버전 조회,앱 버전 정보 API,Low,구현완료,N/A,/version,
+즐겨찾기,센터 즐겨찾기,센터 즐겨찾기 관리,회원별 센터 즐겨찾기,Low,구현완료,MembersFavorCenter,/member,

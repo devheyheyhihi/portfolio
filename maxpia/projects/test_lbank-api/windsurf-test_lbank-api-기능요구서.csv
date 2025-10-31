@@ -1,0 +1,94 @@
+카테고리,우선순위,기능ID,기능명,상세설명,현재상태,담당모듈,비고
+핵심기능,High,CORE-001,실시간 가격 모니터링,WebSocket을 통한 QCC/USDT 실시간 가격 추적,구현완료,priceMonitor.js,재연결 로직 포함
+핵심기능,High,CORE-002,가격 변동률 계산,실시간 가격 변동률 계산 및 로깅,구현완료,priceMonitor.js,24시간 변동률 포함
+핵심기능,High,CORE-003,WebSocket 자동 재연결,연결 끊김 시 자동 재연결 (최대 5회),구현완료,priceMonitor.js,지수 백오프 적용
+핵심기능,High,CORE-004,Ping/Pong 처리,WebSocket 연결 유지를 위한 Ping/Pong 자동 응답,구현완료,priceMonitor.js,
+핵심기능,High,CORE-005,CSV 전략 로드,buy_strategy.csv 파일 파싱 및 전략 로드,구현완료,strategyManager.js,
+핵심기능,High,CORE-006,전략 기반 매수 판단,현재가와 전략 가격 비교하여 매수 수량 결정,구현완료,strategyManager.js,순차적 실행
+핵심기능,High,CORE-007,중복 매수 방지,동일 전략 1회만 실행되도록 제어,구현완료,strategyManager.js,Set 자료구조 사용
+핵심기능,High,CORE-008,시장가 매수 실행,LBank API를 통한 QCC 시장가 매수 주문,구현완료,buyQcc.js,
+핵심기능,High,CORE-009,API 서명 생성,HmacSHA256 기반 LBank API 서명 생성,구현완료,lbank.js,MD5 + HmacSHA256
+핵심기능,High,CORE-010,매수 중 플래그 관리,동시 매수 방지를 위한 isBuying 플래그,구현완료,tradingBot.js,
+핵심기능,High,CORE-011,전략 완료 시 자동 종료,모든 전략 실행 완료 시 봇 자동 종료,구현완료,tradingBot.js,
+API기능,Medium,API-001,티커 정보 조회,특정 심볼의 시장 데이터 조회 (GET),구현완료,lbank.js,공개 API
+API기능,Medium,API-002,주문서 조회,특정 심볼의 매수/매도 주문서 조회 (GET),구현완료,lbank.js,공개 API
+API기능,Medium,API-003,거래 내역 조회,특정 심볼의 최근 거래 내역 조회 (GET),구현완료,lbank.js,공개 API
+API기능,Medium,API-004,계정 정보 조회,사용자 계정 정보 및 잔고 조회 (POST),구현완료,lbank.js,인증 필요
+API기능,Medium,API-005,지정가 주문 생성,지정가 매수/매도 주문 생성 (POST),구현완료,lbank.js,인증 필요
+API기능,Medium,API-006,주문 취소,기존 주문 취소 (POST),구현완료,lbank.js,인증 필요
+API기능,Medium,API-007,REST API 서버,Express 기반 API 엔드포인트 제공,구현완료,app.js,포트 3000
+API기능,Medium,API-008,API 라우팅,LBank API 엔드포인트 라우팅,구현완료,routes/lbank.js,/api/lbank/*
+프로세스관리,Medium,PROC-001,PM2 프로세스 관리,PM2를 통한 백그라운드 실행 및 관리,구현완료,ecosystem.config.js,
+프로세스관리,Medium,PROC-002,로그 파일 관리,에러 로그 및 출력 로그 파일 분리,구현완료,ecosystem.config.js,logs/ 디렉토리
+프로세스관리,Medium,PROC-003,메모리 제한,최대 메모리 사용량 1GB 제한,구현완료,ecosystem.config.js,
+프로세스관리,Medium,PROC-004,시작 스크립트,봇 시작/재시작 자동화 스크립트,구현완료,start.sh,
+프로세스관리,Low,PROC-005,개발 모드,nodemon을 통한 자동 재시작,구현완료,package.json,npm run dev
+보안,High,SEC-001,환경 변수 관리,API 키를 .env 파일로 분리 관리,구현완료,.env,
+보안,High,SEC-002,Git 보안,민감 정보 .gitignore 처리,구현완료,.gitignore,
+보안,Medium,SEC-003,API 키 암호화,API 키 암호화 저장,미구현,encryption.js,파일만 존재
+보안,Medium,SEC-004,HTTPS 통신 강제,모든 API 통신 HTTPS 강제,부분구현,lbank.js,LBank는 HTTPS
+보안,Low,SEC-005,Rate Limiting,API 호출 빈도 제한,미구현,,
+보안,Low,SEC-006,매수 금액 상한선,최대 매수 금액 제한 설정,미구현,,
+매도기능,High,SELL-001,CSV 매도 전략 로드,sell_strategy.csv 파일 파싱,미구현,,파일만 존재
+매도기능,High,SELL-002,목표가 도달 시 매도,설정된 목표가 도달 시 자동 매도,미구현,,
+매도기능,High,SELL-003,손절 로직,손실 제한을 위한 자동 손절,미구현,,
+매도기능,High,SELL-004,익절 로직,이익 실현을 위한 자동 익절,미구현,,
+매도기능,Medium,SELL-005,분할 매도,여러 가격대에 분할 매도,미구현,,
+매도기능,Medium,SELL-006,트레일링 스탑,가격 추종 손절/익절,미구현,,
+데이터관리,High,DATA-001,거래 내역 저장,매수/매도 거래 내역 DB 저장,미구현,database.js,파일만 존재
+데이터관리,High,DATA-002,수익률 계산,실현/미실현 수익률 계산,미구현,,
+데이터관리,Medium,DATA-003,거래 통계,일별/월별 거래 통계,미구현,,
+데이터관리,Medium,DATA-004,포트폴리오 관리,보유 코인 및 평균 단가 관리,미구현,,
+데이터관리,Low,DATA-005,데이터 백업,거래 데이터 자동 백업,미구현,,
+에러처리,High,ERR-001,API 오류 재시도,API 호출 실패 시 재시도 로직,미구현,,
+에러처리,High,ERR-002,네트워크 오류 처리,네트워크 단절 시 대응 로직,부분구현,priceMonitor.js,WebSocket만 구현
+에러처리,High,ERR-003,잔액 부족 처리,잔액 부족 시 에러 처리 및 알림,미구현,,
+에러처리,Medium,ERR-004,주문 실패 처리,주문 실패 시 재시도 또는 알림,부분구현,buyQcc.js,로깅만 구현
+에러처리,Medium,ERR-005,예외 상황 로깅,모든 예외 상황 상세 로깅,부분구현,,일부만 구현
+에러처리,Low,ERR-006,에러 알림,심각한 에러 발생 시 알림,미구현,,
+다중페어,Medium,MULTI-001,다중 페어 설정,여러 거래 페어 동시 모니터링,미구현,,현재 QCC/USDT만
+다중페어,Medium,MULTI-002,페어별 전략 관리,각 페어별 독립적인 전략 설정,미구현,,
+다중페어,Medium,MULTI-003,페어별 프로세스 분리,페어별 독립 프로세스 실행,미구현,,
+다중페어,Low,MULTI-004,페어 우선순위,페어별 실행 우선순위 설정,미구현,,
+알림기능,Medium,NOTI-001,텔레그램 알림,텔레그램 봇을 통한 알림,미구현,,
+알림기능,Medium,NOTI-002,이메일 알림,이메일을 통한 알림,미구현,,
+알림기능,Medium,NOTI-003,매수 알림,매수 체결 시 알림,미구현,,
+알림기능,Medium,NOTI-004,매도 알림,매도 체결 시 알림,미구현,,
+알림기능,Low,NOTI-005,에러 알림,에러 발생 시 알림,미구현,,
+알림기능,Low,NOTI-006,일일 리포트,일일 거래 요약 리포트,미구현,,
+대시보드,Low,DASH-001,실시간 가격 차트,웹 기반 실시간 가격 차트,미구현,,
+대시보드,Low,DASH-002,거래 내역 조회,웹에서 거래 내역 조회,미구현,,
+대시보드,Low,DASH-003,전략 수정 UI,웹에서 전략 수정 인터페이스,미구현,,
+대시보드,Low,DASH-004,봇 제어,웹에서 봇 시작/중지 제어,미구현,,
+대시보드,Low,DASH-005,수익률 대시보드,실시간 수익률 및 통계 대시보드,미구현,,
+고급전략,Low,ADV-001,RSI 지표,RSI 기반 매수/매도 판단,미구현,,
+고급전략,Low,ADV-002,MACD 지표,MACD 기반 매수/매도 판단,미구현,,
+고급전략,Low,ADV-003,볼린저 밴드,볼린저 밴드 기반 전략,미구현,,
+고급전략,Low,ADV-004,변동성 기반 매수,변동성 분석 기반 매수 타이밍,미구현,,
+고급전략,Low,ADV-005,분할 매수,여러 가격대에 분할 매수,미구현,,
+고급전략,Low,ADV-006,물타기 전략,평균 단가 낮추기 전략,미구현,,
+백테스팅,Low,BACK-001,과거 데이터 수집,백테스팅용 과거 데이터 수집,미구현,,
+백테스팅,Low,BACK-002,전략 시뮬레이션,과거 데이터로 전략 시뮬레이션,미구현,,
+백테스팅,Low,BACK-003,수익률 분석,백테스팅 결과 수익률 분석,미구현,,
+백테스팅,Low,BACK-004,최적 파라미터 탐색,전략 파라미터 최적화,미구현,,
+멀티거래소,Low,EXCH-001,Binance 연동,바이낸스 거래소 API 연동,미구현,,
+멀티거래소,Low,EXCH-002,Upbit 연동,업비트 거래소 API 연동,미구현,,
+멀티거래소,Low,EXCH-003,거래소 간 차익거래,거래소 간 가격 차이 활용,미구현,,
+멀티거래소,Low,EXCH-004,통합 주문 관리,여러 거래소 주문 통합 관리,미구현,,
+테스트,Medium,TEST-001,단위 테스트,각 모듈별 단위 테스트,미구현,,
+테스트,Medium,TEST-002,통합 테스트,전체 시스템 통합 테스트,미구현,,
+테스트,Low,TEST-003,모의 거래,실제 주문 없이 모의 거래 모드,미구현,,
+테스트,Low,TEST-004,성능 테스트,시스템 성능 및 부하 테스트,미구현,,
+문서화,Medium,DOC-001,API 문서,REST API 사용 문서,부분구현,README.md,기본 정보만
+문서화,Medium,DOC-002,설치 가이드,설치 및 설정 가이드,부분구현,README.md,기본 정보만
+문서화,Medium,DOC-003,사용자 매뉴얼,사용자를 위한 상세 매뉴얼,미구현,,
+문서화,Low,DOC-004,개발자 가이드,개발자를 위한 기여 가이드,미구현,,
+문서화,Low,DOC-005,코드 주석,코드 내 상세 주석,부분구현,,일부만 구현
+모니터링,Medium,MON-001,시스템 헬스체크,시스템 상태 모니터링,미구현,,
+모니터링,Medium,MON-002,성능 메트릭,CPU/메모리 사용량 모니터링,미구현,,
+모니터링,Low,MON-003,API 응답 시간,API 호출 응답 시간 모니터링,미구현,,
+모니터링,Low,MON-004,거래 성공률,거래 성공/실패율 모니터링,미구현,,
+설정관리,Medium,CONF-001,전략 핫 리로드,봇 재시작 없이 전략 리로드,부분구현,strategyManager.js,함수만 존재
+설정관리,Medium,CONF-002,설정 파일 검증,설정 파일 유효성 검증,미구현,,
+설정관리,Low,CONF-003,다중 설정 프로필,개발/운영 환경별 설정,미구현,,
+설정관리,Low,CONF-004,설정 백업/복원,설정 파일 백업 및 복원,미구현,,

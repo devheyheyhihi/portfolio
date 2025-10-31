@@ -1,0 +1,101 @@
+번호,대분류,중분류,기능명,기능설명,사용자역할,우선순위,상태,관련컨트롤러,관련모델,비고
+1,사용자관리,인증,로그인,학부모/교직원 로그인 기능,전체,높음,구현완료,Login.php,LoginModel.php,JWT 토큰 지원
+2,사용자관리,인증,로그아웃,사용자 로그아웃 기능,전체,높음,구현완료,Logout.php,LoginModel.php,세션 종료
+3,사용자관리,비밀번호,비밀번호 찾기,학부모 비밀번호 찾기,학부모,높음,구현완료,Auth.php,LoginModel.php,휴대폰 번호 인증
+4,사용자관리,비밀번호,교직원 비밀번호 찾기,교직원 비밀번호 찾기,교직원,높음,구현완료,Auth.php,LoginModel.php,휴대폰 번호 인증
+5,사용자관리,비밀번호,비밀번호 변경,사용자 비밀번호 변경,전체,높음,구현완료,Auth.php,LoginModel.php,복잡도 검증 포함
+6,사용자관리,비밀번호,임시 비밀번호 발급,임시 비밀번호 생성 및 발급,전체,높음,구현완료,Auth.php,LoginModel.php,BCrypt 해싱
+7,사용자관리,회원가입,자녀 등록,학부모가 자녀 정보 등록,학부모,높음,구현완료,Auth.php,StudentModel.php,다중 자녀 지원
+8,사용자관리,회원가입,약관 동의,회원가입 시 약관 동의,전체,높음,구현완료,Auth.php,-,개인정보 처리방침
+9,사용자관리,프로필,내 정보 조회,사용자 정보 조회,전체,중간,구현완료,Parents.php / Teacher.php,ParentModel.php / StaffModel.php,
+10,사용자관리,프로필,내 정보 수정,사용자 정보 수정,전체,중간,구현완료,Parents.php / Teacher.php,ParentModel.php / StaffModel.php,
+11,학생관리,학생정보,학생 목록 조회,담당 학생 목록 조회,교직원,높음,구현완료,Teacher.php / Director.php,StudentModel.php,반별 조회
+12,학생관리,학생정보,학생 상세 조회,학생 상세 정보 조회,교직원,높음,구현완료,Teacher.php / Director.php,StudentModel.php,사진 포함
+13,학생관리,학생정보,학생 사진 조회,S3에서 학생 사진 로드,전체,중간,구현완료,Parents.php,StudentModel.php,AWS S3 연동
+14,학생관리,반관리,반 정보 조회,반 정보 및 학생 목록,교직원,중간,구현완료,Director.php,ClassModel.php,
+15,학생관리,반관리,반 배정,학생 반 배정 관리,원장,중간,구현완료,Director.php,ClassModel.php,
+16,앨범관리,앨범,앨범 목록 조회,앨범 목록 조회,전체,높음,구현완료,Album.php,AlbumModel.php,페이징 처리
+17,앨범관리,앨범,앨범 상세 조회,앨범 상세 정보 및 사진,전체,높음,구현완료,Album.php,AlbumModel.php,댓글 포함
+18,앨범관리,앨범,앨범 생성,새 앨범 생성 및 사진 업로드,교직원,높음,구현완료,Album.php,AlbumModel.php,다중 사진 업로드
+19,앨범관리,앨범,앨범 수정,앨범 정보 및 사진 수정,교직원,중간,구현완료,Album.php,AlbumModel.php,
+20,앨범관리,앨범,앨범 삭제,앨범 삭제,교직원,중간,구현완료,Album.php,AlbumModel.php,
+21,앨범관리,댓글,댓글 작성,앨범에 댓글 작성,전체,중간,구현완료,Album.php,AlbumModel.php,
+22,앨범관리,댓글,댓글 조회,앨범 댓글 목록 조회,전체,중간,구현완료,Album.php,AlbumModel.php,
+23,앨범관리,댓글,댓글 삭제,댓글 삭제,작성자,낮음,구현완료,Album.php,AlbumModel.php,
+24,급식관리,일일급식,급식 목록 조회,일일 급식표 목록,전체,높음,구현완료,Meal.php,MealModel.php,날짜별 조회
+25,급식관리,일일급식,급식 상세 조회,급식 상세 정보,전체,높음,구현완료,Meal.php,MealModel.php,식단 정보
+26,급식관리,일일급식,급식 등록,일일 급식 등록,교직원,높음,구현완료,Meal.php,MealModel.php,
+27,급식관리,일일급식,급식 수정,급식 정보 수정,교직원,중간,구현완료,Meal.php,MealModel.php,
+28,급식관리,일일급식,급식 삭제,급식 정보 삭제,교직원,낮음,구현완료,Meal.php,MealModel.php,
+29,급식관리,월간급식,월간 급식표 조회,월간 급식표 조회,전체,높음,구현완료,Meal.php,MealModel.php,캘린더 형식
+30,급식관리,월간급식,월간 급식표 등록,월간 급식표 일괄 등록,교직원,중간,구현완료,Meal.php,MealModel.php,
+31,급식관리,월간급식,월간 급식표 수정,월간 급식표 수정,교직원,중간,구현완료,Meal.php,MealModel.php,
+32,투약관리,투약의뢰,투약 목록 조회,투약 의뢰서 목록,교직원,높음,구현완료,Medicine.php,MedicineModel.php,날짜별 조회
+33,투약관리,투약의뢰,투약 상세 조회,투약 의뢰서 상세,교직원,높음,구현완료,Medicine.php,MedicineModel.php,
+34,투약관리,투약의뢰,투약 의뢰서 등록,학부모가 투약 의뢰,학부모,높음,구현완료,Medicine.php,MedicineModel.php,
+35,투약관리,투약기록,투약 완료 처리,교사가 투약 완료 기록,교사,높음,구현완료,Medicine.php,MedicineModel.php,
+36,투약관리,투약기록,투약 기록 조회,투약 기록 조회,전체,중간,구현완료,Medicine.php,MedicineModel.php,
+37,귀가관리,귀가정보,귀가 목록 조회,귀가 정보 목록,교직원,높음,구현완료,Gohome.php,GoHomeModel.php,날짜별 조회
+38,귀가관리,귀가정보,귀가 상세 조회,귀가 상세 정보,교직원,높음,구현완료,Gohome.php,GoHomeModel.php,
+39,귀가관리,귀가정보,귀가 방법 등록,학부모가 귀가 방법 등록,학부모,높음,구현완료,Gohome.php,GoHomeModel.php,차량/도보/기타
+40,귀가관리,귀가정보,귀가 방법 수정,귀가 방법 변경,학부모,중간,구현완료,Gohome.php,GoHomeModel.php,
+41,귀가관리,귀가기록,귀가 완료 처리,교사가 귀가 완료 기록,교사,높음,구현완료,Gohome.php,GoHomeModel.php,시간 기록
+42,공지사항,공지,공지사항 목록,공지사항 목록 조회,전체,높음,구현완료,Notice.php,NoticeModel.php,페이징 처리
+43,공지사항,공지,공지사항 상세,공지사항 상세 조회,전체,높음,구현완료,Notice.php,NoticeModel.php,
+44,공지사항,공지,공지사항 작성,공지사항 작성,교직원,높음,구현완료,Notice.php,NoticeModel.php,
+45,공지사항,공지,공지사항 수정,공지사항 수정,교직원,중간,구현완료,Notice.php,NoticeModel.php,
+46,공지사항,공지,공지사항 삭제,공지사항 삭제,교직원,낮음,구현완료,Notice.php,NoticeModel.php,
+47,공지사항,공지,공지 대상 설정,학부모/교직원 구분 공지,교직원,중간,구현완료,Notice.php,NoticeModel.php,
+48,계획안,교육계획,계획안 목록,교육 계획안 목록,전체,중간,구현완료,Plan.php,PlanModel.php,
+49,계획안,교육계획,계획안 상세,계획안 상세 조회,전체,중간,구현완료,Plan.php,PlanModel.php,
+50,계획안,교육계획,계획안 작성,교육 계획안 작성,교사,중간,구현완료,Plan.php,PlanModel.php,
+51,계획안,교육계획,계획안 수정,계획안 수정,교사,중간,구현완료,Plan.php,PlanModel.php,
+52,계획안,교육계획,계획안 삭제,계획안 삭제,교사,낮음,구현완료,Plan.php,PlanModel.php,
+53,알림장,일일알림,알림장 목록,일일 알림장 목록,전체,높음,구현완료,Report.php,ReportModel.php,날짜별 조회
+54,알림장,일일알림,알림장 상세,알림장 상세 조회,전체,높음,구현완료,Report.php,ReportModel.php,
+55,알림장,일일알림,알림장 작성,일일 알림장 작성,교사,높음,구현완료,Report.php,ReportModel.php,
+56,알림장,일일알림,알림장 수정,알림장 수정,교사,중간,구현완료,Report.php,ReportModel.php,
+57,알림장,일일알림,알림장 삭제,알림장 삭제,교사,낮음,구현완료,Report.php,ReportModel.php,
+58,알림장,확인,알림장 확인,학부모가 알림장 확인,학부모,중간,구현완료,Report.php,ReportModel.php,읽음 처리
+59,동화책,도서관리,동화책 목록,동화책 목록 조회,전체,중간,구현완료,Storybook.php,StorybookModel.php / BookModel.php,
+60,동화책,도서관리,동화책 상세,동화책 상세 정보,전체,중간,구현완료,Storybook.php,StorybookModel.php / BookModel.php,
+61,동화책,도서관리,동화책 등록,동화책 정보 등록,교직원,낮음,구현완료,Storybook.php,StorybookModel.php / BookModel.php,
+62,동화책,독서기록,독서 기록 등록,학생 독서 기록,교사,중간,구현완료,Storybook.php,StorybookModel.php / BookModel.php,
+63,동화책,독서기록,독서 기록 조회,독서 기록 조회,전체,중간,구현완료,Storybook.php,StorybookModel.php / BookModel.php,
+64,알림,푸시알림,푸시 발송,모바일 푸시 알림 발송,시스템,높음,구현완료,Push.php,PushModel.php,FCM 연동
+65,알림,푸시알림,푸시 목록,푸시 알림 목록 조회,전체,높음,구현완료,Push.php,PushModel.php,
+66,알림,푸시알림,푸시 읽음 처리,푸시 알림 읽음 처리,전체,중간,구현완료,Push.php,PushModel.php,
+67,알림,푸시알림,미확인 알림 카운트,읽지 않은 알림 개수,전체,중간,구현완료,Push.php,PushModel.php,
+68,알림,푸시알림,디바이스 토큰 등록,푸시 수신용 토큰 등록,전체,높음,구현완료,Push.php,PushModel.php,
+69,알림,푸시알림,푸시 테스트,푸시 알림 테스트 발송,관리자,낮음,구현완료,Push.php,PushTestModel.php,
+70,메시지,쪽지,메시지 목록,쪽지 목록 조회,전체,중간,구현완료,Parents.php,MessageModel.php,
+71,메시지,쪽지,메시지 상세,쪽지 상세 조회,전체,중간,구현완료,Parents.php,MessageModel.php,
+72,메시지,쪽지,메시지 발송,쪽지 발송,교직원,중간,구현완료,Parents.php,MessageModel.php,
+73,메시지,쪽지,미확인 메시지 카운트,읽지 않은 쪽지 개수,전체,중간,구현완료,Parents.php,MessageModel.php,
+74,파일관리,업로드,파일 업로드,파일 업로드 기능,교직원,높음,구현완료,Uploads.php,-,S3 연동
+75,파일관리,업로드,다중 파일 업로드,여러 파일 동시 업로드,교직원,중간,구현완료,Uploads.php,-,
+76,파일관리,다운로드,파일 다운로드,파일 다운로드 기능,전체,중간,구현완료,Download.php,-,
+77,파일관리,문서,문서 목록,문서 목록 조회,전체,중간,구현완료,Docs.php,-,
+78,파일관리,문서,문서 상세,문서 상세 조회,전체,중간,구현완료,Docs.php,-,
+79,API,인증,API 로그인,JWT 토큰 발급,모바일앱,높음,구현완료,Api.php,ApiModel.php,JWT 인증
+80,API,인증,토큰 검증,JWT 토큰 유효성 검증,모바일앱,높음,구현완료,Api.php,ApiModel.php,
+81,API,학생,자녀 목록 API,학부모 자녀 목록,모바일앱,높음,구현완료,Api.php,ApiModel.php,
+82,API,알림,푸시 발송 API,API를 통한 푸시 발송,모바일앱,높음,구현완료,Api.php,PushModel.php,
+83,API,알림,푸시 테스트 API,푸시 테스트 API,모바일앱,낮음,구현완료,Api.php,PushModel.php,
+84,시스템,배치,정기 배치 작업,스케줄 배치 작업,시스템,중간,구현완료,Batch.php,-,데이터 정리
+85,시스템,에러,404 페이지,404 에러 페이지,시스템,낮음,구현완료,My404.php,-,
+86,시스템,메인,메인 페이지,웰컴 페이지,전체,낮음,구현완료,Welcome.php,-,
+87,관리자,원장,원장 메인,원장 전용 메인 페이지,원장,중간,구현완료,Director.php,-,
+88,관리자,원장,통계 조회,전체 통계 조회,원장,중간,구현완료,Director.php,-,
+89,관리자,사무실,사무실 메인,사무실 전용 페이지,사무실,중간,구현완료,Office.php,-,
+90,관리자,사무실,행정 업무,행정 업무 관리,사무실,중간,구현완료,Office.php,-,
+91,교사,메인,교사 메인,교사 전용 메인 페이지,교사,중간,구현완료,Teacher.php,-,
+92,학부모,메인,학부모 메인,학부모 전용 메인 페이지,학부모,중간,구현완료,Parents.php,-,
+93,학부모,자녀,자녀 선택,다중 자녀 중 선택,학부모,높음,구현완료,Parents.php,StudentModel.php,
+94,학부모,자녀,자녀 정보 조회,선택한 자녀 정보,학부모,높음,구현완료,Parents.php,StudentModel.php,
+95,보안,비밀번호,비밀번호 복잡도 검증,비밀번호 정책 검증,시스템,높음,구현완료,Auth.php,-,6-16자/2가지 이상 조합
+96,보안,인증,세션 관리,사용자 세션 관리,시스템,높음,구현완료,-,-,CodeIgniter 세션
+97,보안,인증,CSRF 보호,CSRF 토큰 검증,시스템,높음,구현완료,-,-,CodeIgniter CSRF
+98,보안,API,CORS 설정,API CORS 헤더 설정,시스템,중간,구현완료,Api.php,-,모든 오리진 허용
+99,클라우드,스토리지,S3 이미지 저장,AWS S3 이미지 업로드,시스템,높음,구현완료,-,-,kyowon-edusys 버킷
+100,클라우드,스토리지,S3 이미지 조회,AWS S3 이미지 URL 생성,시스템,높음,구현완료,-,-,Helper 함수
